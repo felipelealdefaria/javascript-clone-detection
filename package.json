@@ -1,0 +1,37 @@
+{
+  "name": "javascript-clone-detection",
+  "version": "0.0.1",
+  "description": "Academic study project on duplication of Javascript code using AST syntactic analysis and machine learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src/libs/multiple"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipelealdefaria/javascript-clone-detection.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Clone",
+    "Detection",
+    "AST",
+    "Machine",
+    "Learning"
+  ],
+  "author": "Felipe Leal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felipelealdefaria/javascript-clone-detection/issues"
+  },
+  "homepage": "https://github.com/felipelealdefaria/javascript-clone-detection#readme",
+  "dependencies": {
+    "espree": "^7.3.1",
+    "js-ast-hash": "^1.1.1",
+    "string-similarity": "^4.0.4"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.14.4",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0"
+  }
+}
