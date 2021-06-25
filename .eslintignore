@@ -1,6 +1,5 @@
 node_modules
 vscode
 coverage
-lib
-dist
-.DS_Store
+public
+*.scss
