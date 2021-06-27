@@ -1,7 +1,7 @@
 {
   "name": "javascript-clone-detection",
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "keywords": [
     "Javascript",
     "Clone",
@@ -21,6 +21,7 @@
   "module": "dist/clone-detection/index.es.js",
   "scripts": {
     "multiple": "node src/clone-detection/libs/multiple",
+    "ast-similarity": "node src/clone-detection/libs/similarity-ast",
     "test:ci": "npm test -- --coverage",
     "test:watch": "npm test -- --watch",
     "postversion": "git push && git push --tags",
