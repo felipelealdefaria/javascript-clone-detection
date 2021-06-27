@@ -32,7 +32,7 @@ To perform a representation of code snippets in AST, we have good libraries like
 |[abstract-syntax-tree](https://github.com/buxlabs/abstract-syntax-tree)           |    2.19.1     |
 
 
-```In this project we are using [abstract-syntax-tree](https://github.com/buxlabs/abstract-syntax-tree) because it is a library that offers greater facilities to manipulate an AST.```
+```In this project we are using abstract-syntax-tree because it is a library that offers greater facilities to manipulate an AST.```
 
 ## Similarity between ASTs
 
