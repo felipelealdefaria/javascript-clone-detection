@@ -2,7 +2,7 @@ const util = require('util')
 const { compare } = require('ast-compare')
 const stringSimilarity = require('string-similarity')
 const stringComparision = require('string-comparison')
-const { parse, replace, binaryExpressionReduction } = require('abstract-syntax-tree')
+const { parse, replace, walk, binaryExpressionReduction } = require('abstract-syntax-tree')
 
 const arrowFunction = (value) => {
   const { type } = value
@@ -28,7 +28,14 @@ const convertArrowtoRegular = (node) => {
   return convertedNode
 }
 
+const normalizeNamesByNode = (tree) => {
+  walk(tree, (node, parent) => {
+    if (node.name) node.name = `${parent.type}_name`.toLowerCase()
+  })
+}
+
 const cleanning = (tree) => {
+  normalizeNamesByNode(tree)
   return replace(tree, (node) => {
     if (isObject(node.expression)) return convertArrowtoRegular(node)
     return node
