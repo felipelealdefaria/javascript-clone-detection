@@ -1,7 +1,7 @@
 {
   "name": "javascript-clone-detection",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "keywords": [
     "Javascript",
     "Clone",
@@ -17,46 +17,16 @@
   "files": [
     "dist/clone-detection"
   ],
-  "types": "dist/clone-detection/index.d.ts",
+  "types": "dist/clone-detection/index.d.js",
   "module": "dist/clone-detection/index.es.js",
   "scripts": {
-    "multiple": "node src/clone-detection/libs/multiple",
-    "ast-similarity": "node src/clone-detection/libs/similarity-ast",
-    "test:ci": "npm test -- --coverage",
-    "test:watch": "npm test -- --watch",
-    "postversion": "git push && git push --tags",
-    "test:staged": "npm test -- --findRelatedTests",
-    "test": "jest --passWithNoTests --no-cache --runInBand"
+    "ast-similarity": "node src/clone-detection/libs/similarity-ast"
   },
-  "devDependencies": {
-    "@types/faker": "^5.1.5",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.10",
-    "@typescript-eslint/eslint-plugin": "^4.9.0",
-    "@typescript-eslint/parser": "^4.15.0",
-    "eslint": "^7.14.0",
-    "eslint-config-standard-with-typescript": "^11.0.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^5.0.0",
-    "faker": "^5.1.0",
-    "git-commit-msg-linter": "^3.0.0",
-    "husky": "^4.3.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^25.5.4",
-    "lint-staged": "^10.5.2",
-    "ts-jest": "^26.4.4",
-    "ts-loader": "^8.0.13",
-    "ttypescript": "^1.5.12",
-    "typescript": "^4.1.2",
-    "typescript-transform-paths": "^2.2.3"
-  },
+  "devDependencies": {},
   "dependencies": {
     "abstract-syntax-tree": "^2.19.1",
     "ast-compare": "^2.1.0",
     "espree": "^7.3.1",
-    "js-ast-hash": "^1.1.1",
     "string-comparison": "^1.0.9",
     "string-similarity": "^4.0.4"
   },
