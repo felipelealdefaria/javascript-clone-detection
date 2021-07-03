@@ -1,4 +1,4 @@
-# JavaScript Clone Detection - (v0.1.1)
+# JavaScript Clone Detection - (v0.2.0)
 
 Academic study project on JavaScript code duplication using AST parsing with text similarity and machine learning techniques.
 
@@ -63,7 +63,7 @@ string-comparison (Longest Common Subsequence):  0.9357933579335793
 string-comparison (Metric Longest Common Subsequence):  0.9337260677466863
 ```
 
-### With pre-processing and normalization
+### With pre-processing and normalization ({ node.name: 'fakename' } / arrow -> regular expression)
 
 ```javascript
 ast-compare:  false
@@ -72,6 +72,17 @@ string-comparison (Cosine):  1.0000000000000002
 string-comparison (Levenshtein):  0.8855072463768116
 string-comparison (Longest Common Subsequence):  0.9383259911894273
 string-comparison (Metric Longest Common Subsequence):  0.9260869565217391
+```
+
+### With pre-processing and normalization (v.0.2.0 - normalizeNamesByNode and normalizeLiteralValues) 
+
+```javascript
+ast-compare:  false
+string-similarity:  0.96579476861167
+string-comparison (Cosine):  0.9682458365518541
+string-comparison (Levenshtein):  0.8511198945981555
+string-comparison (Longest Common Subsequence):  0.9189551239115874
+string-comparison (Metric Longest Common Subsequence):  0.9038208168642952
 ```
 
 To learn more about the issues addressed, read: [ESTUDO EMPÍRICO SOBRE DUPLICAÇÃO DE CÓDIGO EM APLICAÇÕES REACT.JS](https://drive.google.com/file/d/1MN8iBSfdD1yGMQ9aV-jwjdwJvRckiLfy/view?usp=sharing).
