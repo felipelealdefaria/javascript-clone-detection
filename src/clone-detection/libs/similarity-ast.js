@@ -34,8 +34,15 @@ const normalizeNamesByNode = (tree) => {
   })
 }
 
+const normalizeLiteralValues = (tree) => {
+  walk(tree, (node) => {
+    if (node.type === 'Literal') node.value = `${node.type}_value`.toLowerCase()
+  })
+}
+
 const cleanning = (tree) => {
   normalizeNamesByNode(tree)
+  normalizeLiteralValues(tree)
   return replace(tree, (node) => {
     if (isObject(node.expression)) return convertArrowtoRegular(node)
     return node
