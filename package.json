@@ -1,7 +1,7 @@
 {
   "name": "javascript-clone-detection",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "keywords": [
     "Javascript",
     "Clone",
@@ -13,14 +13,43 @@
   "homepage": "https://github.com/felipelealdefaria/javascript-clone-detection#readme",
   "author": "Luís Felipe Leal de Faria <felipelealdefaria@gmail.com> (https://github.com/felipelealdefaria)",
   "description": "Academic study project on duplication of Javascript code using AST syntactic analysis and machine learning",
-  "scripts": {
-    "ast-similarity": "node src/clone-detection/libs/similarity-ast"
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "arrow-and-regular": "./bin/arrow-and-regular"
   },
-  "devDependencies": {},
+  "preferGlobal": true,
+  "scripts": {
+    "ast-similarity": "node src/clone-detection/libs/similarity-ast",
+    "pre-push": "rm -rf node_modules package-lock.json && npm install && tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "@types/string-similarity": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.14.0",
+    "eslint-config-standard-with-typescript": "^11.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "git-commit-msg-linter": "^3.0.0",
+    "husky": "^4.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "lint-staged": "^10.5.2",
+    "ts-loader": "^8.0.13",
+    "typescript": "^4.2.3"
+  },
   "dependencies": {
     "abstract-syntax-tree": "^2.19.1",
     "ast-compare": "^2.1.0",
     "espree": "^7.3.1",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
     "string-comparison": "^1.0.9",
     "string-similarity": "^4.0.4"
   },
