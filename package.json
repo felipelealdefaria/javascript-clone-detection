@@ -1,7 +1,7 @@
 {
   "name": "javascript-clone-detection",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "keywords": [
     "Javascript",
     "Clone",
@@ -14,8 +14,15 @@
   "author": "Luís Felipe Leal de Faria <felipelealdefaria@gmail.com> (https://github.com/felipelealdefaria)",
   "description": "Academic study project on duplication of Javascript code using AST syntactic analysis and machine learning",
   "scripts": {
-    "ast-similarity": "node src/clone-detection/libs/similarity-ast"
+    "pre-push": "rm -rf node_modules package-lock.json && npm install",
+    "clone-type-one": "node src/clone-detection/analysis/clone-one",
+    "clone-type-two": "node src/clone-detection/analysis/clone-two",
+    "clone-type-three": "node src/clone-detection/analysis/clone-three",
+    "clone-type-four": "node src/clone-detection/analysis/clone-four",
+    "clone-arrow-to-regular": "node src/clone-detection/analysis/clone-arrow-to-regular",
+    "all-clones": "yarn clone-type-one && yarn clone-type-two && yarn clone-type-three && yarn clone-type-four && yarn clone-arrow-to-regular"
   },
+  "type": "module",
   "devDependencies": {},
   "dependencies": {
     "abstract-syntax-tree": "^2.19.1",
