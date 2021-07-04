@@ -1,6 +1,15 @@
-# JavaScript Clone Detection - (v0.2.0)
+# JavaScript Clone Detection - (v0.2.1)
 
 Academic study project on JavaScript code duplication using AST parsing with text similarity and machine learning techniques.
+
+## Usage
+
+Run:
+
+``` bash
+make init
+yarn all-clones
+```
 
 ## Current Process
 
