@@ -21,15 +21,17 @@ export const normalizeNamesByNode = (tree) => {
 
 export const normalizeLiteralValues = (tree) => {
   ast.walk(tree, (node) => {
-    if (node?.type === 'Literal') node.value = `${node?.type}_value`.toLowerCase()
+    // if (node?.type === 'Literal') node.value = `${node?.type}_value`.toLowerCase()
+    if (node?.type === 'Literal') node.value = typeof node.value
   })
 }
 
 export const cleanning = (tree) => {
-  normalizeNamesByNode(tree)
+  // normalizeNamesByNode(tree)
   normalizeLiteralValues(tree)
   return ast.replace(tree, (node) => {
     if (isObject(node?.expression)) return convertArrowtoRegular(node)
     return node
   })
 }
+
