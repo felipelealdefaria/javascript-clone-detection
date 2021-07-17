@@ -4,11 +4,11 @@
   body: [
     {
       type: 'FunctionDeclaration',
-      id: { type: 'Identifier', name: 'regularThree' },
       params: [
-        { type: 'Identifier', name: 'state' },
-        { type: 'Identifier', name: 'value' }
+        { type: 'Identifier', name: 'identifier_name' },
+        { type: 'Identifier', name: 'identifier_name' }
       ],
+      id: { type: 'Identifier', name: 'identifier_name' },
       body: {
         type: 'BlockStatement',
         body: [
@@ -18,29 +18,28 @@
             declarations: [
               {
                 type: 'VariableDeclarator',
-                id: { type: 'Identifier', name: 'pi' },
-                init: { type: 'Literal', value: 'number' }
+                init: { value: 'number', type: 'Literal' },
+                id: { type: 'Identifier', name: 'identifier_name' }
               }
             ]
           },
           {
             type: 'IfStatement',
-            test: { type: 'Identifier', name: 'state' },
+            test: { type: 'Identifier', name: 'identifier_name' },
             consequent: {
               type: 'ReturnStatement',
               argument: {
                 type: 'BinaryExpression',
-                left: { type: 'Identifier', name: 'value' },
-                right: { type: 'Identifier', name: 'pi' },
-                operator: '*'
+                right: { type: 'Identifier', name: 'identifier_name' },
+                operator: '*',
+                left: { type: 'Identifier', name: 'identifier_name' }
               }
             },
             alternate: null
           }
         ]
       },
-      async: false,
-      generator: false
+      async: false
     }
   ]
 }
