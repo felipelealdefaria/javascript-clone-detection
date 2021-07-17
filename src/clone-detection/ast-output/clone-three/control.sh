@@ -5,15 +5,16 @@
     {
       type: 'FunctionDeclaration',
       params: [
-        { type: 'Identifier', name: 'state' },
-        { type: 'Identifier', name: 'value' }
+        { type: 'Identifier', name: 'identifier_name' },
+        { type: 'Identifier', name: 'identifier_name' }
       ],
+      id: { type: 'Identifier', name: 'identifier_name' },
       body: {
         type: 'BlockStatement',
         body: [
           {
             type: 'IfStatement',
-            test: { type: 'Identifier', name: 'state' },
+            test: { type: 'Identifier', name: 'identifier_name' },
             consequent: {
               type: 'BlockStatement',
               body: [
@@ -21,9 +22,9 @@
                   type: 'ReturnStatement',
                   argument: {
                     type: 'BinaryExpression',
-                    left: { type: 'Identifier', name: 'value' },
-                    right: { type: 'Literal', value: 'number' },
-                    operator: '*'
+                    right: { value: 'number', type: 'Literal' },
+                    operator: '*',
+                    left: { type: 'Identifier', name: 'identifier_name' }
                   }
                 }
               ]
@@ -32,8 +33,7 @@
           }
         ]
       },
-      async: false,
-      id: { type: 'Identifier', name: 'function_name' }
+      async: false
     }
   ]
 }

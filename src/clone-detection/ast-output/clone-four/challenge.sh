@@ -4,30 +4,30 @@
   body: [
     {
       type: 'FunctionDeclaration',
-      id: { type: 'Identifier', name: 'regularFour' },
       params: [
-        { type: 'Identifier', name: 'operation' },
-        { type: 'Identifier', name: 'firstValue' },
-        { type: 'Identifier', name: 'secondValue' }
+        { type: 'Identifier', name: 'identifier_name' },
+        { type: 'Identifier', name: 'identifier_name' },
+        { type: 'Identifier', name: 'identifier_name' }
       ],
+      id: { type: 'Identifier', name: 'identifier_name' },
       body: {
         type: 'BlockStatement',
         body: [
           {
             type: 'SwitchStatement',
-            discriminant: { type: 'Identifier', name: 'operation' },
+            discriminant: { type: 'Identifier', name: 'identifier_name' },
             cases: [
               {
                 type: 'SwitchCase',
-                test: { type: 'Literal', value: 'string' },
+                test: { value: 'string', type: 'Literal' },
                 consequent: [
                   {
                     type: 'ReturnStatement',
                     argument: {
                       type: 'BinaryExpression',
-                      left: { type: 'Identifier', name: 'firstValue' },
-                      right: { type: 'Identifier', name: 'secondValue' },
-                      operator: '-'
+                      right: { type: 'Identifier', name: 'identifier_name' },
+                      operator: '-',
+                      left: { type: 'Identifier', name: 'identifier_name' }
                     }
                   }
                 ]
@@ -40,9 +40,9 @@
                     type: 'ReturnStatement',
                     argument: {
                       type: 'BinaryExpression',
-                      left: { type: 'Identifier', name: 'firstValue' },
-                      right: { type: 'Identifier', name: 'secondValue' },
-                      operator: '+'
+                      right: { type: 'Identifier', name: 'identifier_name' },
+                      operator: '+',
+                      left: { type: 'Identifier', name: 'identifier_name' }
                     }
                   }
                 ]
@@ -51,8 +51,7 @@
           }
         ]
       },
-      async: false,
-      generator: false
+      async: false
     }
   ]
 }

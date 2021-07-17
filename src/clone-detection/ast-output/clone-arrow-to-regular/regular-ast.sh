@@ -4,8 +4,8 @@
   body: [
     {
       type: 'FunctionDeclaration',
-      id: { type: 'Identifier', name: 'regularFunction' },
-      params: [ { type: 'Identifier', name: 'value' } ],
+      params: [ { type: 'Identifier', name: 'identifier_name' } ],
+      id: { type: 'Identifier', name: 'identifier_name' },
       body: {
         type: 'BlockStatement',
         body: [
@@ -15,32 +15,31 @@
             declarations: [
               {
                 type: 'VariableDeclarator',
+                init: { type: 'Identifier', name: 'identifier_name' },
                 id: {
                   type: 'ObjectPattern',
                   properties: [
                     {
+                      value: { type: 'Identifier', name: 'identifier_name' },
                       type: 'Property',
-                      key: { type: 'Identifier', name: 'type' },
-                      value: { type: 'Identifier', name: 'type' },
-                      kind: 'init',
-                      computed: false,
+                      shorthand: true,
                       method: false,
-                      shorthand: true
+                      kind: 'init',
+                      key: { type: 'Identifier', name: 'identifier_name' },
+                      computed: false
                     }
                   ]
-                },
-                init: { type: 'Identifier', name: 'value' }
+                }
               }
             ]
           },
           {
             type: 'ReturnStatement',
-            argument: { type: 'Identifier', name: 'type' }
+            argument: { type: 'Identifier', name: 'identifier_name' }
           }
         ]
       },
-      async: false,
-      generator: false
+      async: false
     }
   ]
 }

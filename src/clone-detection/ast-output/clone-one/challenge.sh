@@ -4,11 +4,11 @@
   body: [
     {
       type: 'FunctionDeclaration',
-      id: { type: 'Identifier', name: 'funcOne' },
       params: [
-        { type: 'Identifier', name: 'valueOne' },
-        { type: 'Identifier', name: 'valueTwo' }
+        { type: 'Identifier', name: 'identifier_name' },
+        { type: 'Identifier', name: 'identifier_name' }
       ],
+      id: { type: 'Identifier', name: 'identifier_name' },
       body: {
         type: 'BlockStatement',
         body: [
@@ -16,15 +16,14 @@
             type: 'ReturnStatement',
             argument: {
               type: 'BinaryExpression',
-              left: { type: 'Identifier', name: 'valueOne' },
-              right: { type: 'Identifier', name: 'valueTwo' },
-              operator: '+'
+              right: { type: 'Identifier', name: 'identifier_name' },
+              operator: '+',
+              left: { type: 'Identifier', name: 'identifier_name' }
             }
           }
         ]
       },
-      async: false,
-      generator: false
+      async: false
     }
   ]
 }
