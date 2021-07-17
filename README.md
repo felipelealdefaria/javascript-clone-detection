@@ -1,4 +1,4 @@
-# JavaScript Clone Detection - (v0.3.0)
+# JavaScript Clone Detection - (v0.3.1)
 
 Academic study project on JavaScript code duplication using AST parsing with text similarity.
 
@@ -80,7 +80,7 @@ string-comparison (Longest Common Subsequence):  0.9357933579335793
 string-comparison (Metric Longest Common Subsequence):  0.9337260677466863
 ```
 
-### With pre-processing and normalization (v.0.3.0)
+### With pre-processing and normalization (v.0.3.1)
 
 ```javascript
 ast-compare:  true
