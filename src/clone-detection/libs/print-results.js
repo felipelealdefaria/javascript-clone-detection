@@ -6,7 +6,7 @@ import stringComparision from 'string-comparison'
 export const printResults = (title, astControl, astChallenge) => {
   console.log(title);
   console.log('ast-compare: ', compare(astControl, astChallenge))
-  console.log('string-similarity: ', stringSimilarity.compareTwoStrings(JSON.stringify(astControl), JSON.stringify(astChallenge)))
+  console.log("string-similarity (Dice's): ", stringSimilarity.compareTwoStrings(JSON.stringify(astControl), JSON.stringify(astChallenge)))
   console.log('string-comparison (Cosine): ', stringComparision.cosine.similarity(JSON.stringify(astControl), JSON.stringify(astChallenge)))
   console.log('string-comparison (Levenshtein): ', stringComparision.levenshtein.similarity(JSON.stringify(astControl), JSON.stringify(astChallenge)))
   console.log('string-comparison (Longest Common Subsequence): ', stringComparision.lcs.similarity(JSON.stringify(astControl), JSON.stringify(astChallenge)))
