@@ -80,15 +80,15 @@ string-comparison (Longest Common Subsequence):  0.9357933579335793
 string-comparison (Metric Longest Common Subsequence):  0.9337260677466863
 ```
 
-### With pre-processing and normalization (v.0.2.3)
+### With pre-processing and normalization (v.0.3.0)
 
 ```javascript
-ast-compare:  false
-string-similarity:  0.9715568862275449
-string-comparison (Cosine):  0.9831920802501751
-string-comparison (Levenshtein):  0.8645066273932254
-string-comparison (Longest Common Subsequence):  0.9282511210762332
-string-comparison (Metric Longest Common Subsequence):  0.914580265095729
+ast-compare:  true
+string-similarity (Dice):  1
+string-comparison (Cosine):  1
+string-comparison (Levenshtein):  1
+string-comparison (Longest Common Subsequence):  1
+string-comparison (Metric Longest Common Subsequence):  1
 ```
 
 To learn more about the issues addressed, read: [ESTUDO EMPÍRICO SOBRE DUPLICAÇÃO DE CÓDIGO EM APLICAÇÕES REACT.JS](https://drive.google.com/file/d/1MN8iBSfdD1yGMQ9aV-jwjdwJvRckiLfy/view?usp=sharing).
