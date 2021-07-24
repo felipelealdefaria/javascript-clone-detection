@@ -4,9 +4,14 @@ export const isObject = (value) => {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
 
+export const isParams = (type, params) => {
+  return (type === 'FunctionDeclaration' && Array.isArray(params))
+}
+
 export const convertArrowtoRegular = (node) => {
   node = { ...node.expression }
-  node.id = { type: 'Identifier', name: 'identifier_name' }
+  node?.params?.map((element) => element.name = 'params_name')
+  node.id = { type: 'Identifier', name: 'functiondeclaration_name' }
   if (node?.type === 'ArrowFunctionExpression') node.type = 'FunctionDeclaration'
 
   const { expression, ...convertedNode } = node
@@ -15,14 +20,25 @@ export const convertArrowtoRegular = (node) => {
 
 export const normalizeNamesByNode = (tree) => {
   ast.walk(tree, (node, parent) => {
-    if (node?.name) node.name = `${node?.type}_name`.toLowerCase()
+    if (node?.name) node.name = `${parent?.type}_name`.toLowerCase()
+
+    if (isParams(parent?.type, parent?.params)) {
+      parent.id.name = `${parent?.type}_name`.toLowerCase()
+      parent.params.map((element) => element.name = 'params_name')
+    }
   })
 }
 
 export const normalizeLiteralValues = (tree) => {
   ast.walk(tree, (node) => {
     if (node?.type === 'Literal') node.value = typeof node.value
+  })
+}
+
+export const deleteAttrsByNode = (tree) => {
+  ast.walk(tree, (node) => {
     if (node?.generator === false) delete node.generator
+    if (node?.sourceType === 'module') delete node.sourceType
   })
 }
 
@@ -36,6 +52,7 @@ export const organizeAttrsByNode = (node) => {
 }
 
 export const cleanning = (tree) => {
+  deleteAttrsByNode(tree)
   normalizeNamesByNode(tree)
   normalizeLiteralValues(tree)
   return ast.replace(tree, (node) => {
