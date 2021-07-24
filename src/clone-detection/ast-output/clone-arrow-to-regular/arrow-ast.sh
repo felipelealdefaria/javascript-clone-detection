@@ -1,11 +1,10 @@
 {
   type: 'Program',
-  sourceType: 'module',
   body: [
     {
       type: 'FunctionDeclaration',
-      params: [ { type: 'Identifier', name: 'identifier_name' } ],
-      id: { type: 'Identifier', name: 'identifier_name' },
+      params: [ { type: 'Identifier', name: 'params_name' } ],
+      id: { type: 'Identifier', name: 'functiondeclaration_name' },
       body: {
         type: 'BlockStatement',
         body: [
@@ -15,17 +14,17 @@
             declarations: [
               {
                 type: 'VariableDeclarator',
-                init: { type: 'Identifier', name: 'identifier_name' },
+                init: { type: 'Identifier', name: 'variabledeclarator_name' },
                 id: {
                   type: 'ObjectPattern',
                   properties: [
                     {
-                      value: { type: 'Identifier', name: 'identifier_name' },
+                      value: { type: 'Identifier', name: 'property_name' },
                       type: 'Property',
                       shorthand: true,
                       method: false,
                       kind: 'init',
-                      key: { type: 'Identifier', name: 'identifier_name' },
+                      key: { type: 'Identifier', name: 'property_name' },
                       computed: false
                     }
                   ]
@@ -35,7 +34,7 @@
           },
           {
             type: 'ReturnStatement',
-            argument: { type: 'Identifier', name: 'identifier_name' }
+            argument: { type: 'Identifier', name: 'returnstatement_name' }
           }
         ]
       },
