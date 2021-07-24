@@ -1,7 +1,7 @@
 {
   "name": "javascript-clone-detection",
   "license": "MIT",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "keywords": [
     "Javascript",
     "Clone",
@@ -15,6 +15,7 @@
   "description": "Academic study project on duplication of Javascript code using AST syntactic analysis and machine learning",
   "scripts": {
     "pre-push": "rm -rf node_modules package-lock.json && npm install && yarn all-clones",
+    "run-levenshtein": "node src/clones-example/all-clones.js",
     "clone-type-one": "node src/clone-detection/analysis/clone-one",
     "clone-type-two": "node src/clone-detection/analysis/clone-two",
     "clone-type-three": "node src/clone-detection/analysis/clone-three",

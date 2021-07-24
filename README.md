@@ -1,4 +1,4 @@
-# JavaScript Clone Detection - (v0.3.1)
+# JavaScript Clone Detection - (v0.4.0)
 
 Academic study project on JavaScript code duplication using AST parsing with text similarity.
 
@@ -73,7 +73,7 @@ Using the code snippets examples above, we have:
 
 ```javascript
 ast-compare:  false
-string-similarity:  0.925351071692535
+string-similarity (Dice):  0.925351071692535
 string-comparison (Cosine):  0.9672041516493517
 string-comparison (Levenshtein):  0.9072164948453608
 string-comparison (Longest Common Subsequence):  0.9357933579335793

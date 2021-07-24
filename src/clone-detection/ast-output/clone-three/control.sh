@@ -1,20 +1,19 @@
 {
   type: 'Program',
-  sourceType: 'module',
   body: [
     {
       type: 'FunctionDeclaration',
       params: [
-        { type: 'Identifier', name: 'identifier_name' },
-        { type: 'Identifier', name: 'identifier_name' }
+        { type: 'Identifier', name: 'params_name' },
+        { type: 'Identifier', name: 'params_name' }
       ],
-      id: { type: 'Identifier', name: 'identifier_name' },
+      id: { type: 'Identifier', name: 'functiondeclaration_name' },
       body: {
         type: 'BlockStatement',
         body: [
           {
             type: 'IfStatement',
-            test: { type: 'Identifier', name: 'identifier_name' },
+            test: { type: 'Identifier', name: 'ifstatement_name' },
             consequent: {
               type: 'BlockStatement',
               body: [
@@ -24,7 +23,10 @@
                     type: 'BinaryExpression',
                     right: { value: 'number', type: 'Literal' },
                     operator: '*',
-                    left: { type: 'Identifier', name: 'identifier_name' }
+                    left: {
+                      type: 'Identifier',
+                      name: 'binaryexpression_name'
+                    }
                   }
                 }
               ]
