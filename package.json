@@ -1,7 +1,7 @@
 {
   "name": "javascript-clone-detection",
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "keywords": [
     "Javascript",
     "Clone",
@@ -29,6 +29,7 @@
     "abstract-syntax-tree": "^2.19.1",
     "ast-compare": "^2.1.0",
     "espree": "^7.3.1",
+    "js2flowchart": "^1.3.2",
     "string-comparison": "^1.0.9",
     "string-similarity": "^4.0.4"
   },
