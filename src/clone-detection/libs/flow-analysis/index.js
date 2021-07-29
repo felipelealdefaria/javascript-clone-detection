@@ -18,6 +18,11 @@ generateASTFile('flow-analysis/regular-ast.sh', challengeTree)
 generateASTFile('flow-analysis/arrow-flow.sh', controlFlow)
 generateASTFile('flow-analysis/regular-flow.sh', challengeFlow)
 
+import util from 'util'
+// console.log(util.inspect(astControl, false, null))
+// console.log(util.inspect(controlFlow, false, null))
+// console.log(util.inspect(challengeFlow, false, null))
+
 printResults('RESULT AST - TYPE MIX:', controlTree, challengeTree);
 
 
@@ -26,10 +31,10 @@ import stringSimilarity from 'string-similarity'
 import stringComparision from 'string-comparison'
 
 console.log('RESULT FLOW - TYPE MIX:');
-console.log('ast-compare: ', compare(`${controlFlow}`, `${challengeFlow}`))
-console.log("string-similarity (Dice's): ", stringSimilarity.compareTwoStrings(`${controlFlow}`, `${challengeFlow}`))
-console.log('string-comparison (Cosine): ', stringComparision.cosine.similarity(`${controlFlow}`, `${challengeFlow}`))
-console.log('string-comparison (Levenshtein): ', stringComparision.levenshtein.similarity(`${controlFlow}`, `${challengeFlow}`))
-console.log('string-comparison (Longest Common Subsequence): ', stringComparision.lcs.similarity(`${controlFlow}`, `${challengeFlow}`))
-console.log('string-comparison (Metric Longest Common Subsequence): ', stringComparision.mlcs.similarity(`${controlFlow}`, `${challengeFlow}`))
+console.log('ast-compare: ', compare(`${util.inspect(controlFlow, false, null)}`, `${util.inspect(challengeFlow, false, null)}`))
+console.log("string-similarity (Dice's): ", stringSimilarity.compareTwoStrings(`${util.inspect(controlFlow, false, null)}`, `${util.inspect(challengeFlow, false, null)}`))
+console.log('string-comparison (Cosine): ', stringComparision.cosine.similarity(`${util.inspect(controlFlow, false, null)}`, `${util.inspect(challengeFlow, false, null)}`))
+console.log('string-comparison (Levenshtein): ', stringComparision.levenshtein.similarity(`${util.inspect(controlFlow, false, null)}`, `${util.inspect(challengeFlow, false, null)}`))
+console.log('string-comparison (Longest Common Subsequence): ', stringComparision.lcs.similarity(`${util.inspect(controlFlow, false, null)}`, `${util.inspect(challengeFlow, false, null)}`))
+console.log('string-comparison (Metric Longest Common Subsequence): ', stringComparision.mlcs.similarity(`${util.inspect(controlFlow, false, null)}`, `${util.inspect(challengeFlow, false, null)}`))
 console.log('---------------------------------------------------------------------------------------------------------')
