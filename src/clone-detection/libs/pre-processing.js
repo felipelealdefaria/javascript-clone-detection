@@ -52,11 +52,11 @@ export const organizeAttrsByNode = (node) => {
 }
 
 export const cleanning = (tree) => {
-  deleteAttrsByNode(tree)
-  normalizeNamesByNode(tree)
-  normalizeLiteralValues(tree)
   return ast.replace(tree, (node) => {
     if (isObject(node?.expression)) node = convertArrowtoRegular(node)
+    deleteAttrsByNode(tree)
+    normalizeNamesByNode(tree)
+    normalizeLiteralValues(tree)
     return organizeAttrsByNode(node)
   })
 }
