@@ -17,7 +17,7 @@
             declarations: [
               {
                 type: 'VariableDeclarator',
-                init: { value: 'number', type: 'Literal' },
+                init: { value: 'string', type: 'Literal' },
                 id: { type: 'Identifier', name: 'variabledeclarator_name' }
               }
             ]
