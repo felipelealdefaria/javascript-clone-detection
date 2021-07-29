@@ -1,4 +1,4 @@
-# JavaScript Clone Detection - (v0.4.1)
+# JavaScript Clone Detection - (v0.5.0)
 
 Academic study project on JavaScript code duplication using AST parsing with text similarity.
 
