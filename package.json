@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/felipelealdefaria/javascript-clone-detection#readme",
   "author": "Luís Felipe Leal de Faria <felipelealdefaria@gmail.com> (https://github.com/felipelealdefaria)",
-  "description": "Academic study project on duplication of Javascript code using AST syntactic analysis and machine learning",
+  "description": "Academic study project on duplication of Javascript code using AST syntactic analysis",
   "browser": {
     "path": "path-browserify"
   },
