@@ -21,7 +21,7 @@
                   type: 'ReturnStatement',
                   argument: {
                     type: 'BinaryExpression',
-                    right: { value: 'number', type: 'Literal' },
+                    right: { value: 'string', type: 'Literal' },
                     operator: '*',
                     left: {
                       type: 'Identifier',
