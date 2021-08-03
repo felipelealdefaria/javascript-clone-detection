@@ -1,4 +1,4 @@
-# JavaScript Clone Detection - (v0.5.0)
+# JavaScript Clone Detection - (v0.5.1)
 
 Academic study project on JavaScript code duplication using AST parsing with text similarity.
 
@@ -8,18 +8,7 @@ Run:
 
 ``` bash
 make init
-yarn all-clones 
-
-// run only levenshtein
-run-levenshtein
-
-// or run separated
-
-yarn clone-type-one
-yarn clone-type-two
-yarn clone-type-three
-yarn clone-type-four
-yarn clone-arrow-to-regular
+clone-analisys <PATH>
 ```
 
 ## Current Process

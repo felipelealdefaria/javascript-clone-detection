@@ -1,7 +1,7 @@
 {
   "name": "javascript-clone-detection",
   "license": "MIT",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "keywords": [
     "Javascript",
     "Clone",
@@ -20,9 +20,6 @@
   "homepage": "https://github.com/felipelealdefaria/javascript-clone-detection#readme",
   "author": "Luís Felipe Leal de Faria <felipelealdefaria@gmail.com> (https://github.com/felipelealdefaria)",
   "description": "Academic study project on duplication of Javascript code using AST syntactic analysis",
-  "browser": {
-    "path": "path-browserify"
-  },
   "scripts": {
     "link-bin": "npm link",
     "run-levenshtein": "node src/clones-example/all-clones.js",
@@ -42,7 +39,6 @@
     "esbuild": "^0.12.17",
     "espree": "^7.3.1",
     "js2flowchart": "^1.3.2",
-    "path-browserify": "^1.0.1",
     "string-comparison": "^1.0.9",
     "string-similarity": "^4.0.4"
   },
