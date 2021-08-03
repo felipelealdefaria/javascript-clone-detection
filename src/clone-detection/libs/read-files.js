@@ -32,9 +32,16 @@ getAllFiles(process.argv[2])
   .map(file => {
     fs.writeFileSync(`${process.cwd()}/__base-functions.js`, '')
     if (!((file.indexOf('.') !== 0) && (file.slice(-3) === '.js'))) return
+    console.log('[READING FILE]:', file)
     
     const content = fs.readFileSync(`${file}`, 'utf-8')
-    const fileToTree = parseOptmized(content)
+    
+    let fileToTree
+    try {
+      fileToTree = parseOptmized(content)
+    } catch (e) {
+      console.log('ERROR: ', e)
+    }
     
     fileToTree.body.forEach((tree) => {
       addTreeWithNameHashed(tree)
