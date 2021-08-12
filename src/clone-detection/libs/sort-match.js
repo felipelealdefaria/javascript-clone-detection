@@ -1,4 +1,5 @@
 import fs from 'fs'
+import ast from 'abstract-syntax-tree'
 import stringComparision from 'string-comparison'
 import { cleanning } from '../../clone-detection/libs/pre-processing.js'
 import { parseOptmized } from '../../clone-detection/libs/parse-to-ast.js'
@@ -6,22 +7,23 @@ import { parseOptmized } from '../../clone-detection/libs/parse-to-ast.js'
 export const cloneDetection = (functionsName, functionsArray) => {
   const arr = []
   const parsedArray = functionsArray.map(element => parseOptmized(element))
-  const cleannedTree = parsedArray.map(tree => JSON.stringify(cleanning(tree)))
+  const cleannedTree = parsedArray.map(tree => cleanning(tree))
+  const cleannedCode = cleannedTree.map(tree => ast.generate(tree))
   
-  const arrayLength = cleannedTree.length
-  console.log(`\n✨✨ SÃO ${arrayLength + 1} FUNÇÕES SENDO ANALISADAS AOS PARES. ✨✨\n`)
+  const arrayLength = cleannedCode.length
+  console.log(`\n✨✨ SÃO ${arrayLength} FUNÇÕES SENDO ANALISADAS AOS PARESs. ✨✨\n`)
   
   for (let i = 0; i < arrayLength; i++) {
-    const treeControl = cleannedTree.splice(0, 1)
-    // if (cleannedTree.length <= 0) return console.log('\n-----------------------------------------------------------')
-    // const result = stringComparision.levenshtein.sortMatch(...treeControl, cleannedTree)
+    const treeControl = cleannedCode.splice(0, 1)
+    // if (cleannedCode.length <= 0) return console.log('\n-----------------------------------------------------------')
+    // const result = stringComparision.levenshtein.sortMatch(...treeControl, cleannedCode)
 
     let string = ''
     for (let j = 0; j < i; j++) { string += ' 0.000' }
     string += ' 1.000'
 
-    for (let k = 0; k < cleannedTree.length; k++) {
-      const simi = stringComparision.levenshtein.similarity(JSON.stringify(treeControl), JSON.stringify(cleannedTree[k]))
+    for (let k = 0; k < cleannedCode.length; k++) {
+      const simi = stringComparision.levenshtein.similarity(`${treeControl}`, `${cleannedCode[k]}`)
       string += ` ${simi.toFixed(3)}`
     }
     
