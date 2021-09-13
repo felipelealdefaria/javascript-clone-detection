@@ -8,9 +8,14 @@ export const isParams = (type, params) => {
   return (type === 'FunctionDeclaration' && Array.isArray(params))
 }
 
-export const convertArrowtoRegular = (node) => {
-  node = { ...node.expression }
-  node?.params?.map((element) => element.name = 'params_name')
+export const convertArrowtoRegular = (node, isArrow) => {
+  if (isArrow) {
+    const aux = node?.declarations[0]
+    node = { ...aux?.init }
+  }
+  if (!isArrow) node = { ...node?.expression }
+
+  if (Array.isArray(node?.params)) node?.params?.map((element) => element.name = 'params_name')
   node.id = { type: 'Identifier', name: 'functiondeclaration_name' }
   if (node?.type === 'ArrowFunctionExpression') node.type = 'FunctionDeclaration'
 
@@ -51,9 +56,13 @@ export const organizeAttrsByNode = (node) => {
   return Object.fromEntries(arraySort)
 }
 
-export const cleanning = (tree) => {
+export const cleanning = (tree, nameTree) => {
+  // console.log('[CLEANNED TREE NAME]: ', nameTree)
   return ast.replace(tree, (node) => {
-    if (isObject(node?.expression)) node = convertArrowtoRegular(node)
+    const isArroww = isObject(node?.expression) && node?.expression?.type === 'ArrowFunctionExpression'
+    const isArrow = node?.type === 'VariableDeclaration' && node?.kind === 'const' && node?.declarations[0]?.init?.type === 'ArrowFunctionExpression'
+    if (isArroww || isArrow) node = convertArrowtoRegular(node, isArrow)
+  
     deleteAttrsByNode(tree)
     normalizeNamesByNode(tree)
     normalizeLiteralValues(tree)

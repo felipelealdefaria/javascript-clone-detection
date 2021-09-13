@@ -75,4 +75,6 @@ parseFile.body.map((el) => {
   return arrayFunctions.push(el.declarations[0].init)
 })
 
-cloneDetection(arrayNames, arrayFunctions.map(el => ast.generate(el)))
+console.log(`\n⚡⚡ ${arrayFunctions.length} FUNÇÕES EXTRAÍDAS FORAM GERADAS EM: ${process.cwd()}/__base-functions.js ⚡⚡`)
+
+cloneDetection(arrayNames, arrayFunctions.map(el => ast.generate(el)), process.argv[3])

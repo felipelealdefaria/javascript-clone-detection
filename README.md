@@ -1,4 +1,4 @@
-# JavaScript Clone Detection - (v0.5.2)
+# JavaScript Clone Detection - (v0.6.0)
 
 Academic study project on JavaScript code duplication using AST parsing with text similarity.
 
@@ -8,7 +8,8 @@ Run:
 
 ``` bash
 make init
-clone-analisys <PATH>
+clone-analisys <PATH> <SIMILARITY INDEX>
+// clone-analisys src/api-server 0.85
 ```
 
 ## Current Process
