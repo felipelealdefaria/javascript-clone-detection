@@ -1,7 +1,7 @@
 {
   "name": "javascript-clone-detection",
   "license": "MIT",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "keywords": [
     "Javascript",
     "Clone",
@@ -15,7 +15,7 @@
   ],
   "main": "dist/index.js",
   "bin": {
-    "clone-analisys": "./bin/clone-analisys"
+    "clone-analysis": "./bin/clone-analysis"
   },
   "homepage": "https://github.com/felipelealdefaria/javascript-clone-detection#readme",
   "author": "Luís Felipe Leal de Faria <felipelealdefaria@gmail.com> (https://github.com/felipelealdefaria)",
