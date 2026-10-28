@@ -89,23 +89,22 @@ export class TokenStream {
   }
 
   identifier(name: string): void {
-    let index = this.names.get(name)
-    if (index === undefined) {
-      index = this.names.size
-      this.names.set(name, index)
-    }
-    this.raw.push(`Id:${name}`)
-    this.norm.push(`Id#${index}`)
+    this.renamed('Id', this.names, name)
   }
 
   property(name: string): void {
-    let index = this.properties.get(name)
+    this.renamed('Prop', this.properties, name)
+  }
+
+  /** Raw keeps the name; normalized keeps its order of first appearance within its namespace. */
+  private renamed(kind: string, namespace: Map<string, number>, name: string): void {
+    let index = namespace.get(name)
     if (index === undefined) {
-      index = this.properties.size
-      this.properties.set(name, index)
+      index = namespace.size
+      namespace.set(name, index)
     }
-    this.raw.push(`Prop:${name}`)
-    this.norm.push(`Prop#${index}`)
+    this.raw.push(`${kind}:${name}`)
+    this.norm.push(`${kind}#${index}`)
   }
 
   literal(kind: string, value: string): void {
