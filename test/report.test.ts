@@ -12,13 +12,11 @@ describe('reports', () => {
     ).toBe(true)
   })
 
-  it('text: lists clones and a summary', () => {
+  it('text: lists clone classes and a summary', () => {
     const text = toText(result)
-    expect(text).toContain('Type-2 clone')
+    expect(text).toContain('#1 Type-2 · 2 copies')
     expect(text).toContain('src/components/TeamMemberCard.tsx')
-    expect(text).toMatch(
-      /\d+ clone pairs \(\d+ Type-1, \d+ Type-2, \d+ Type-3\) in 2 clone classes\./,
-    )
+    expect(text).toContain('2 clone classes from 2 clone pairs (0 Type-1, 1 Type-2, 1 Type-3).')
     expect(text).toContain('Skipped src/utils/broken.js')
   })
 
@@ -37,13 +35,25 @@ describe('reports', () => {
       'clone/type-2',
       'clone/type-3',
     ])
-    expect(run.results).toHaveLength(result.pairs.length)
-    const first = run.results[0]
-    const pair = result.pairs[0]!
-    expect(first.ruleId).toBe(`clone/type-${pair.type}`)
-    expect(first.locations[0].physicalLocation.region.startColumn).toBe(pair.a.start.column + 1)
-    expect(first.relatedLocations[0].physicalLocation.artifactLocation.uri).toBe(pair.b.file)
-    expect(first.partialFingerprints['cloneFingerprint/v1']).toMatch(/^[0-9a-f]{16}$/)
+    const members = result.classes.flatMap((c) => c.members)
+    expect(run.results).toHaveLength(members.length)
+    const [first, second] = run.results
+    const cls = result.classes[0]!
+    expect(first.ruleId).toBe(`clone/type-${cls.type}`)
+    expect(first.locations[0].physicalLocation.region.startColumn).toBe(
+      cls.members[0]!.start.column + 1,
+    )
+    expect(first.relatedLocations[0].physicalLocation.artifactLocation.uri).toBe(
+      cls.members[1]!.file,
+    )
+    expect(first.message.text).toContain('](1)')
+    const fingerprints = run.results.map(
+      (r: { partialFingerprints: Record<string, string> }) =>
+        r.partialFingerprints['cloneFingerprint/v1'],
+    )
+    expect(fingerprints.every((f: string) => /^[0-9a-f]{16}$/.test(f))).toBe(true)
+    expect(new Set(fingerprints).size).toBe(fingerprints.length)
+    expect(second.locations[0].physicalLocation.artifactLocation.uri).toBe(cls.members[1]!.file)
     expect(run.invocations[0].toolExecutionNotifications).toHaveLength(1)
   })
 })

@@ -14,7 +14,7 @@ import type {
 } from './types.js'
 
 export const DEFAULT_THRESHOLD = 0.8
-export const DEFAULT_MIN_TOKENS = 30
+export const DEFAULT_MIN_TOKENS = 50
 
 /** Token n-gram size used to find Type-3 candidates. */
 const SHINGLE_SIZE = 3
@@ -22,7 +22,8 @@ const SHINGLE_SIZE = 3
 export interface Unit {
   id: number
   ref: UnitRef
-  node: t.Node
+  /** Only kept when `buildUnits` is called with `keepNodes`, to let the file ASTs be collected. */
+  node?: t.Node
   /** Ids of enclosing units, innermost first. */
   ancestors: number[]
   rawKey: string
@@ -52,6 +53,7 @@ class Interner {
 export function buildUnits(
   files: SourceFile[],
   minTokens: number,
+  { keepNodes = false } = {},
 ): { units: Unit[]; errors: ParseError[] } {
   const interner = new Interner()
   const units: Unit[] = []
@@ -87,13 +89,14 @@ export function buildUnits(
 
       const raw = interner.intern(stream.raw)
       const norm = interner.intern(stream.norm)
+      const normKey = norm.join(',')
       const loc = unit.node.loc
       units.push({
         id,
-        node: unit.node,
+        node: keepNodes ? unit.node : undefined,
         ancestors,
         rawKey: raw.join(','),
-        normKey: norm.join(','),
+        normKey,
         norm,
         sortedNorm: norm.slice().sort(),
         ref: {
@@ -103,6 +106,7 @@ export function buildUnits(
           start: { line: loc?.start.line ?? 0, column: loc?.start.column ?? 0 },
           end: { line: loc?.end.line ?? 0, column: loc?.end.column ?? 0 },
           tokens: norm.length,
+          shape: hash64(normKey),
         },
       })
     }
@@ -158,11 +162,22 @@ export function matchUnits(
     }
   }
 
-  // Type-3: index token shingles, then verify candidates with cheap bounds before exact LCS.
+  // Type-3. Units with the same normalized shape compare identically to everything else,
+  // so only one representative per shape is compared and matches are expanded to the group.
+  const shapes = new Map<string, Unit[]>()
+  for (const unit of units) {
+    const group = shapes.get(unit.normKey)
+    if (group) group.push(unit)
+    else shapes.set(unit.normKey, [unit])
+  }
+  const groups = [...shapes.values()]
+  const reps = groups.map((group) => group[0] as Unit)
+
+  // Index token shingles, then verify candidates with cheap bounds before the exact LCS.
   const postings = new Map<number, number[]>()
-  const shingles: number[][] = units.map((unit) => {
+  const shingles: number[][] = reps.map((rep, index) => {
     const seen = new Set<number>()
-    const n = unit.norm
+    const n = rep.norm
     for (let i = 0; i + SHINGLE_SIZE <= n.length; i++) {
       let h = 0x811c9dc5
       for (let k = 0; k < SHINGLE_SIZE; k++) h = Math.imul(h ^ (n[i + k] as number), 0x01000193)
@@ -170,33 +185,34 @@ export function matchUnits(
     }
     for (const h of seen) {
       const list = postings.get(h)
-      if (list) list.push(unit.id)
-      else postings.set(h, [unit.id])
+      if (list) list.push(index)
+      else postings.set(h, [index])
     }
     return [...seen]
   })
 
   // Shingles shared by most units (e.g. a `return` prologue) carry no signal and cost O(n²).
-  const maxPosting = Math.max(64, Math.ceil(units.length * 0.05))
+  const maxPosting = Math.max(64, Math.ceil(reps.length * 0.05))
   let comparisons = 0
-  const seen = new Uint32Array(units.length)
-  let stamp = 0
+  const visited = new Uint32Array(reps.length)
 
-  for (const unit of units) {
-    stamp++
-    for (const h of shingles[unit.id] as number[]) {
+  for (let i = 0; i < reps.length; i++) {
+    const rep = reps[i] as Unit
+    for (const h of shingles[i] as number[]) {
       const list = postings.get(h) as number[]
       if (list.length > maxPosting) continue
-      for (const otherId of list) {
-        if (otherId <= unit.id || seen[otherId] === stamp) continue
-        seen[otherId] = stamp
-        const other = units[otherId] as Unit
-        if (found.has(pairKey(unit.id, otherId)) || isNested(unit, other)) continue
-        if (lengthUpperBound(unit.norm.length, other.norm.length) < threshold) continue
-        if (similarityUpperBound(unit.sortedNorm, other.sortedNorm) < threshold) continue
+      for (const j of list) {
+        if (j <= i || visited[j] === i + 1) continue
+        visited[j] = i + 1
+        const other = reps[j] as Unit
+        if (lengthUpperBound(rep.norm.length, other.norm.length) < threshold) continue
+        if (similarityUpperBound(rep.sortedNorm, other.sortedNorm) < threshold) continue
         comparisons++
-        const similarity = lcsSimilarity(unit.norm, other.norm)
-        if (similarity >= threshold) add(unit, other, 3, similarity)
+        const similarity = lcsSimilarity(rep.norm, other.norm)
+        if (similarity < threshold) continue
+        for (const a of groups[i] as Unit[]) {
+          for (const b of groups[j] as Unit[]) add(a, b, 3, similarity)
+        }
       }
     }
   }
@@ -221,12 +237,16 @@ function fnv1a(text: string, seed = 0x811c9dc5): number {
   return h >>> 0
 }
 
-function fingerprint(a: Unit, b: Unit): string {
-  const [x, y] = [a.normKey, b.normKey].sort() as [string, string]
-  const key = `${x}|${y}`
+/** 64-bit hex digest from two 32-bit FNV-1a passes. Stable, not cryptographic. */
+export function hash64(text: string): string {
   return (
-    fnv1a(key).toString(16).padStart(8, '0') + fnv1a(key, 0x01234567).toString(16).padStart(8, '0')
+    fnv1a(text).toString(16).padStart(8, '0') +
+    fnv1a(text, 0x01234567).toString(16).padStart(8, '0')
   )
+}
+
+function fingerprint(a: Unit, b: Unit): string {
+  return hash64([a.ref.shape, b.ref.shape].sort().join('|'))
 }
 
 function compareRefs(a: UnitRef, b: UnitRef): number {
@@ -248,17 +268,19 @@ function buildClasses(units: Unit[], pairs: RawPair[]): CloneClass[] {
     if (!parent.has(b)) parent.set(b, b)
     parent.set(find(a), find(b))
   }
-  const classes = new Map<number, { type: CloneType; members: Set<number> }>()
+  const classes = new Map<number, { type: CloneType; similarity: number; members: Set<number> }>()
   for (const pair of pairs) {
     const root = find(pair.a)
-    const entry = classes.get(root) ?? { type: 1 as CloneType, members: new Set<number>() }
+    const entry = classes.get(root) ?? { type: 1, similarity: 1, members: new Set<number>() }
     entry.type = Math.max(entry.type, pair.type) as CloneType
+    entry.similarity = Math.min(entry.similarity, pair.similarity)
     entry.members.add(pair.a).add(pair.b)
     classes.set(root, entry)
   }
   return [...classes.values()]
-    .map(({ type, members }) => ({
+    .map(({ type, similarity, members }) => ({
       type,
+      similarity,
       members: [...members].map((id) => (units[id] as Unit).ref).sort(compareRefs),
     }))
     .sort(

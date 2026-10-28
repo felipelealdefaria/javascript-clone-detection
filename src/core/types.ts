@@ -25,6 +25,8 @@ export interface UnitRef {
   end: Position
   /** Number of normalized tokens. */
   tokens: number
+  /** Hash of the normalized token stream. Units with the same shape are Type-1 or Type-2 clones. */
+  shape: string
 }
 
 export interface ClonePair {
@@ -40,6 +42,8 @@ export interface ClonePair {
 export interface CloneClass {
   /** The weakest link in the class: 3 if any member is only a near-miss of another. */
   type: CloneType
+  /** Lowest similarity among the pairs that connect the class. */
+  similarity: number
   members: UnitRef[]
 }
 
@@ -51,7 +55,7 @@ export interface ParseError {
 export interface DetectOptions {
   /** Minimum similarity for Type-3 clones, from 0 to 1. Default 0.8. */
   threshold?: number
-  /** Units with fewer normalized tokens are ignored. Default 30. */
+  /** Units with fewer normalized tokens are ignored. Default 50. */
   minTokens?: number
 }
 

@@ -1,23 +1,27 @@
-import type { ClonePair, CloneType, DetectionResult, UnitRef } from '../core/types.js'
+import { hash64 } from '../core/detect.js'
+import type { CloneClass, CloneType, DetectionResult, UnitRef } from '../core/types.js'
 import { VERSION } from '../version.js'
 
 const REPO = 'https://github.com/felipelealdefaria/javascript-clone-detection'
+
+/** Other copies linked from each result. Code scanning UIs get noisy beyond this. */
+const MAX_RELATED = 10
 
 const RULES: Record<CloneType, { name: string; short: string; full: string }> = {
   1: {
     name: 'ExactClone',
     short: 'Type-1 clone: identical code',
-    full: 'Two units are identical apart from whitespace, layout, comments and function syntax (arrow vs. regular).',
+    full: 'Units are identical apart from whitespace, layout, comments and function syntax (arrow vs. regular).',
   },
   2: {
     name: 'RenamedClone',
     short: 'Type-2 clone: identical after renaming',
-    full: 'Two units have the same structure; only identifier names and literal values differ.',
+    full: 'Units have the same structure; only identifier names and literal values differ.',
   },
   3: {
     name: 'NearMissClone',
     short: 'Type-3 clone: near-miss copy',
-    full: 'Two units share most of their structure; statements were added, removed or changed.',
+    full: 'Units share most of their structure; statements were added, removed or changed.',
   },
 }
 
@@ -38,25 +42,36 @@ function location(ref: UnitRef) {
   }
 }
 
-function result(pair: ClonePair) {
-  const where = `${pair.b.file}:${pair.b.start.line}-${pair.b.end.line}`
-  const score = pair.type === 3 ? `, similarity ${pair.similarity.toFixed(2)}` : ''
-  return {
-    ruleId: ruleId(pair.type),
-    ruleIndex: pair.type - 1,
-    level: 'warning',
-    message: {
-      text: `\`${pair.a.name}\` is a Type-${pair.type} clone of [\`${pair.b.name}\`](1) (${where}${score}).`,
-    },
-    locations: [location(pair.a)],
-    relatedLocations: [{ id: 1, ...location(pair.b), message: { text: pair.b.name } }],
-    partialFingerprints: { 'cloneFingerprint/v1': pair.fingerprint },
-    properties: { similarity: Number(pair.similarity.toFixed(4)) },
-  }
+/** One result per class member, linking to the other copies. */
+function results(cls: CloneClass) {
+  return cls.members.map((member) => {
+    const others = cls.members.filter((m) => m !== member)
+    const related = others.slice(0, MAX_RELATED)
+    const links = related.map((m, i) => `[\`${m.name}\`](${i + 1})`).join(', ')
+    const more = others.length > related.length ? ` and ${others.length - related.length} more` : ''
+    const score = cls.type === 3 ? ` (≥ ${Math.floor(cls.similarity * 100)}% similar)` : ''
+    return {
+      ruleId: ruleId(cls.type),
+      ruleIndex: cls.type - 1,
+      level: 'warning',
+      message: {
+        text: `\`${member.name}\` is duplicated${score}: ${links}${more}.`,
+      },
+      locations: [location(member)],
+      relatedLocations: related.map((m, i) => ({
+        id: i + 1,
+        ...location(m),
+        message: { text: `${m.name} (${m.file}:${m.start.line})` },
+      })),
+      // Location-independent, so alerts survive unrelated edits above the unit.
+      partialFingerprints: { 'cloneFingerprint/v1': hash64(`${member.file}|${member.shape}`) },
+      properties: { copies: cls.members.length, similarity: Number(cls.similarity.toFixed(4)) },
+    }
+  })
 }
 
 /** SARIF 2.1.0, ready for GitHub code scanning (`github/codeql-action/upload-sarif`). */
-export function toSarif(result_: DetectionResult): string {
+export function toSarif(result: DetectionResult): string {
   const sarif = {
     $schema: 'https://json.schemastore.org/sarif-2.1.0.json',
     version: '2.1.0',
@@ -78,11 +93,11 @@ export function toSarif(result_: DetectionResult): string {
             })),
           },
         },
-        results: result_.pairs.map(result),
+        results: result.classes.flatMap(results),
         invocations: [
           {
             executionSuccessful: true,
-            toolExecutionNotifications: result_.errors.map((e) => ({
+            toolExecutionNotifications: result.errors.map((e) => ({
               level: 'warning',
               message: { text: `Could not parse: ${e.message}` },
               locations: [
