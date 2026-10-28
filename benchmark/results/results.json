@@ -15,7 +15,7 @@
   "metrics": [
     {
       "tool": "jscd (defaults)",
-      "durationMs": 113,
+      "durationMs": 98,
       "recall": {
         "t1": {
           "hits": 179,
@@ -85,7 +85,7 @@
     },
     {
       "tool": "jscpd (defaults)",
-      "durationMs": 59,
+      "durationMs": 60,
       "recall": {
         "t1": {
           "hits": 138,
@@ -155,7 +155,7 @@
     },
     {
       "tool": "jscpd (structural)",
-      "durationMs": 78,
+      "durationMs": 75,
       "recall": {
         "t1": {
           "hits": 177,
@@ -230,7 +230,7 @@
       "metrics": [
         {
           "tool": "jscd",
-          "durationMs": 172,
+          "durationMs": 88,
           "recall": {
             "t1": {
               "hits": 179,
@@ -241,7 +241,7 @@
               "total": 179
             },
             "t3": {
-              "hits": 165,
+              "hits": 162,
               "total": 179
             },
             "t4": {
@@ -274,7 +274,7 @@
                 "total": 81
               },
               "t3": {
-                "hits": 71,
+                "hits": 68,
                 "total": 81
               }
             }
@@ -285,22 +285,22 @@
               "total": 66
             },
             "2": {
-              "hits": 56,
+              "hits": 55,
               "total": 61
             },
             "3": {
-              "hits": 45,
+              "hits": 43,
               "total": 52
             }
           },
           "precision": {
-            "truePositives": 1032,
-            "falsePositives": 1321
+            "truePositives": 1023,
+            "falsePositives": 1273
           }
         },
         {
           "tool": "jscpd (structural)",
-          "durationMs": 81,
+          "durationMs": 77,
           "recall": {
             "t1": {
               "hits": 179,
@@ -375,7 +375,7 @@
       "metrics": [
         {
           "tool": "jscd",
-          "durationMs": 94,
+          "durationMs": 66,
           "recall": {
             "t1": {
               "hits": 179,
@@ -440,12 +440,12 @@
           },
           "precision": {
             "truePositives": 1009,
-            "falsePositives": 133
+            "falsePositives": 117
           }
         },
         {
           "tool": "jscpd (structural)",
-          "durationMs": 77,
+          "durationMs": 71,
           "recall": {
             "t1": {
               "hits": 179,
@@ -520,7 +520,7 @@
       "metrics": [
         {
           "tool": "jscd",
-          "durationMs": 70,
+          "durationMs": 60,
           "recall": {
             "t1": {
               "hits": 179,
@@ -590,7 +590,7 @@
         },
         {
           "tool": "jscpd (structural)",
-          "durationMs": 77,
+          "durationMs": 71,
           "recall": {
             "t1": {
               "hits": 177,
@@ -665,7 +665,7 @@
       "metrics": [
         {
           "tool": "jscd",
-          "durationMs": 65,
+          "durationMs": 66,
           "recall": {
             "t1": {
               "hits": 179,
@@ -735,7 +735,7 @@
         },
         {
           "tool": "jscpd (structural)",
-          "durationMs": 75,
+          "durationMs": 69,
           "recall": {
             "t1": {
               "hits": 170,

@@ -7,3 +7,4 @@ benchmark/.data
 benchmark/.cache
 playground/dist
 *.sarif
+study/.cache

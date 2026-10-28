@@ -1,6 +1,6 @@
 import type * as t from '@babel/types'
 import { parseSource } from './parse.js'
-import { lcsSimilarity, lengthUpperBound, similarityUpperBound } from './similarity.js'
+import { LcsQuery, similarityUpperBound } from './similarity.js'
 import { emitUnit, extractUnits } from './tokenize.js'
 import type {
   CloneClass,
@@ -16,8 +16,29 @@ import type {
 export const DEFAULT_THRESHOLD = 0.8
 export const DEFAULT_MIN_TOKENS = 50
 
-/** Token n-gram size used to find Type-3 candidates. */
-const SHINGLE_SIZE = 3
+/**
+ * Type-3 candidate search. Tuned against an exhaustive run on grafana (39k units): these values
+ * keep 99.9% of its Type-3 pairs at ~1/13 of the cost, with no change in benchmark recall.
+ * See benchmark/README.md.
+ */
+const SHINGLE_SIZE = 8
+/** Short units may not share an 8-token run, so they are also indexed by 3-token shingles. */
+const SHORT_UNIT = 64
+const SHORT_SHINGLE_SIZE = 3
+/** Shingles found in more units than this (boilerplate) are skipped. */
+const MAX_POSTING = 1000
+
+/** Index of the first entry greater than `value` in an ascending list. */
+function firstAfter(list: number[], value: number): number {
+  let lo = 0
+  let hi = list.length
+  while (lo < hi) {
+    const mid = (lo + hi) >>> 1
+    if ((list[mid] as number) <= value) lo = mid + 1
+    else hi = mid
+  }
+  return lo
+}
 
 export interface Unit {
   id: number
@@ -170,18 +191,37 @@ export function matchUnits(
     if (group) group.push(unit)
     else shapes.set(unit.normKey, [unit])
   }
-  const groups = [...shapes.values()]
+  // Sorted by length, so every posting list is too, and a unit only needs to walk the partners
+  // whose length can still reach the threshold: 2·min / (n + m) ≥ t  ⇔  m ≤ n · (2 − t) / t.
+  const groups = [...shapes.values()].sort(
+    (x, y) => (x[0] as Unit).norm.length - (y[0] as Unit).norm.length,
+  )
   const reps = groups.map((group) => group[0] as Unit)
+  const lengths = reps.map((rep) => rep.norm.length)
+  const lastWithin = (maxLength: number) => {
+    let lo = 0
+    let hi = lengths.length
+    while (lo < hi) {
+      const mid = (lo + hi) >>> 1
+      if ((lengths[mid] as number) <= maxLength) lo = mid + 1
+      else hi = mid
+    }
+    return lo - 1
+  }
 
-  // Index token shingles, then verify candidates with cheap bounds before the exact LCS.
+  // Index token shingles. Long shingles are rare, which keeps posting lists short.
   const postings = new Map<number, number[]>()
   const shingles: number[][] = reps.map((rep, index) => {
     const seen = new Set<number>()
     const n = rep.norm
-    for (let i = 0; i + SHINGLE_SIZE <= n.length; i++) {
-      let h = 0x811c9dc5
-      for (let k = 0; k < SHINGLE_SIZE; k++) h = Math.imul(h ^ (n[i + k] as number), 0x01000193)
-      seen.add(h)
+    const sizes = n.length < SHORT_UNIT ? [SHINGLE_SIZE, SHORT_SHINGLE_SIZE] : [SHINGLE_SIZE]
+    for (const size of sizes) {
+      for (let i = 0; i + size <= n.length; i++) {
+        // The size seeds the hash, so 3- and 8-token shingles never collide.
+        let h = Math.imul(0x811c9dc5 ^ size, 0x01000193)
+        for (let k = 0; k < size; k++) h = Math.imul(h ^ (n[i + k] as number), 0x01000193)
+        seen.add(h)
+      }
     }
     for (const h of seen) {
       const list = postings.get(h)
@@ -191,24 +231,27 @@ export function matchUnits(
     return [...seen]
   })
 
-  // Shingles shared by most units (e.g. a `return` prologue) carry no signal and cost O(n²).
-  const maxPosting = Math.max(64, Math.ceil(reps.length * 0.05))
   let comparisons = 0
   const visited = new Uint32Array(reps.length)
 
   for (let i = 0; i < reps.length; i++) {
     const rep = reps[i] as Unit
+    const last = lastWithin(Math.floor((rep.norm.length * (2 - threshold)) / threshold + 1e-9))
+    let query: LcsQuery | null = null
     for (const h of shingles[i] as number[]) {
       const list = postings.get(h) as number[]
-      if (list.length > maxPosting) continue
-      for (const j of list) {
-        if (j <= i || visited[j] === i + 1) continue
+      // Shingles found in very many units (boilerplate) carry little signal and cost O(n²).
+      if (list.length > MAX_POSTING) continue
+      for (let p = firstAfter(list, i); p < list.length; p++) {
+        const j = list[p] as number
+        if (j > last) break
+        if (visited[j] === i + 1) continue
         visited[j] = i + 1
         const other = reps[j] as Unit
-        if (lengthUpperBound(rep.norm.length, other.norm.length) < threshold) continue
         if (similarityUpperBound(rep.sortedNorm, other.sortedNorm) < threshold) continue
         comparisons++
-        const similarity = lcsSimilarity(rep.norm, other.norm)
+        query ??= new LcsQuery(rep.norm)
+        const similarity = query.similarity(other.norm)
         if (similarity < threshold) continue
         for (const a of groups[i] as Unit[]) {
           for (const b of groups[j] as Unit[]) add(a, b, 3, similarity)
