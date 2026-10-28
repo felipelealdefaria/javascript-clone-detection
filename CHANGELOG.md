@@ -10,15 +10,17 @@ A rewrite. The 2021 idea (normalize syntax trees, then compare) stays; everythin
 - Functions, methods and classes as units, including nested ones.
 - Type-1, Type-2 and Type-3 classification, with clone classes.
 - `jscd` CLI with text, JSON and SARIF reports, `--ignore` and `--fail`.
+- `--changed <ref>` (and the Action's `changed-since`): only report clones touching lines changed since a git ref, for pull requests.
 - Node API (`detectClonesInPaths`) and a browser-safe core (`javascript-clone-detection/core`).
 - GitHub Action for code scanning.
 - Browser playground.
 - Benchmark against jscpd, with real-code precision and an embeddings experiment.
+- Empirical study: a replication of the 2021 thesis and 12 open-source React apps.
 
 ### Changed
 
 - Consistent renaming, with a separate namespace for property names (v0.6 renamed every name to one placeholder).
-- Scoring by bit-parallel LCS over normalized tokens, behind a candidate index (v0.6 ran Levenshtein on regenerated code for every pair).
+- Scoring by bit-parallel LCS over normalized tokens, behind a candidate index of 8-token shingles and a length window (v0.6 ran Levenshtein on regenerated code for every pair).
 - Deterministic output; nothing is written to the scanned directory.
 
 ### Removed

@@ -47,7 +47,7 @@
     },
     "largestClass": 2,
     "parseErrors": 0,
-    "durationMs": 48,
+    "durationMs": 59,
     "sample": [
       {
         "key": "freecodecamp:api-server/src/common/models/block.js:3|api-server/src/server/models/auth-token.js:3",
@@ -211,7 +211,7 @@
     },
     "largestClass": 3,
     "parseErrors": 0,
-    "durationMs": 31,
+    "durationMs": 33,
     "sample": [
       {
         "key": "javascript-algorithms:src/data-structures/doubly-linked-list/DoublyLinkedList.js:238|src/data-structures/linked-list/LinkedList.js:215",
@@ -438,7 +438,7 @@
     },
     "largestClass": 5,
     "parseErrors": 0,
-    "durationMs": 42,
+    "durationMs": 38,
     "sample": [
       {
         "key": "thealgorithms:Conversions/LowerCaseConversion.js:18|Conversions/UpperCaseConversion.js:18",
@@ -624,13 +624,13 @@
     "date": "2026-10-27",
     "group": "react",
     "files": {
-      "production": 504,
-      "test": 161,
+      "production": 503,
+      "test": 162,
       "story": 0
     },
     "loc": {
-      "production": 132744,
-      "test": 66799,
+      "production": 132704,
+      "test": 66839,
       "story": 0
     },
     "clonedLoc": {
@@ -660,10 +660,10 @@
     },
     "largestClass": 52,
     "parseErrors": 0,
-    "durationMs": 936,
+    "durationMs": 930,
     "jscpd": {
       "percentage": 7.038237374325183,
-      "durationMs": 105
+      "durationMs": 109
     },
     "sample": [
       {
@@ -732,10 +732,10 @@
     },
     "largestClass": 45,
     "parseErrors": 0,
-    "durationMs": 639,
+    "durationMs": 559,
     "jscpd": {
       "percentage": 3.4001228268543127,
-      "durationMs": 72
+      "durationMs": 70
     },
     "sample": [
       {
@@ -804,10 +804,10 @@
     },
     "largestClass": 20,
     "parseErrors": 0,
-    "durationMs": 344,
+    "durationMs": 314,
     "jscpd": {
       "percentage": 1.743863851695597,
-      "durationMs": 59
+      "durationMs": 56
     },
     "sample": [
       {
@@ -840,13 +840,13 @@
     "date": "2026-10-27",
     "group": "react",
     "files": {
-      "production": 1451,
-      "test": 823,
+      "production": 1450,
+      "test": 824,
       "story": 0
     },
     "loc": {
-      "production": 194453,
-      "test": 134602,
+      "production": 194294,
+      "test": 134761,
       "story": 0
     },
     "clonedLoc": {
@@ -876,10 +876,10 @@
     },
     "largestClass": 20,
     "parseErrors": 14,
-    "durationMs": 2412,
+    "durationMs": 2383,
     "jscpd": {
       "percentage": 4.420688887593345,
-      "durationMs": 136
+      "durationMs": 137
     },
     "sample": [
       {
@@ -948,10 +948,10 @@
     },
     "largestClass": 37,
     "parseErrors": 0,
-    "durationMs": 524,
+    "durationMs": 510,
     "jscpd": {
       "percentage": 1.4618165386353366,
-      "durationMs": 70
+      "durationMs": 71
     },
     "sample": [
       {
@@ -1020,10 +1020,10 @@
     },
     "largestClass": 397,
     "parseErrors": 0,
-    "durationMs": 3887,
+    "durationMs": 3849,
     "jscpd": {
       "percentage": 4.882453575045414,
-      "durationMs": 309
+      "durationMs": 311
     },
     "sample": [
       {
@@ -1092,10 +1092,10 @@
     },
     "largestClass": 100,
     "parseErrors": 0,
-    "durationMs": 624,
+    "durationMs": 603,
     "jscpd": {
       "percentage": 7.645608592990416,
-      "durationMs": 97
+      "durationMs": 98
     },
     "sample": [
       {
@@ -1164,10 +1164,10 @@
     },
     "largestClass": 21,
     "parseErrors": 0,
-    "durationMs": 1055,
+    "durationMs": 1029,
     "jscpd": {
       "percentage": 4.5948876839659185,
-      "durationMs": 107
+      "durationMs": 105
     },
     "sample": [
       {
@@ -1200,18 +1200,18 @@
     "date": "2026-10-20",
     "group": "react",
     "files": {
-      "production": 2355,
-      "test": 0,
+      "production": 1866,
+      "test": 489,
       "story": 329
     },
     "loc": {
-      "production": 453672,
-      "test": 0,
+      "production": 348333,
+      "test": 105339,
       "story": 45349
     },
     "clonedLoc": {
-      "production": 40175,
-      "test": 0,
+      "production": 11542,
+      "test": 28633,
       "story": 7976
     },
     "units": 9827,
@@ -1230,16 +1230,16 @@
     "classesByKind": {
       "component": 27,
       "hook": 2,
-      "test": 0,
+      "test": 331,
       "story": 94,
-      "other": 494
+      "other": 163
     },
     "largestClass": 50,
     "parseErrors": 1,
-    "durationMs": 1938,
+    "durationMs": 1927,
     "jscpd": {
       "percentage": 5.203984334175524,
-      "durationMs": 162
+      "durationMs": 160
     },
     "sample": [
       {
@@ -1272,13 +1272,13 @@
     "date": "2026-10-28",
     "group": "react",
     "files": {
-      "production": 4744,
-      "test": 2420,
+      "production": 4743,
+      "test": 2421,
       "story": 0
     },
     "loc": {
-      "production": 566434,
-      "test": 490251,
+      "production": 565927,
+      "test": 490758,
       "story": 0
     },
     "clonedLoc": {
@@ -1308,10 +1308,10 @@
     },
     "largestClass": 429,
     "parseErrors": 0,
-    "durationMs": 12192,
+    "durationMs": 12244,
     "jscpd": {
       "percentage": 8.277124360234552,
-      "durationMs": 457
+      "durationMs": 449
     },
     "sample": [
       {
@@ -1380,10 +1380,10 @@
     },
     "largestClass": 855,
     "parseErrors": 1,
-    "durationMs": 9316,
+    "durationMs": 9922,
     "jscpd": {
       "percentage": 9.91631994963031,
-      "durationMs": 550
+      "durationMs": 548
     },
     "sample": [
       {
@@ -1416,13 +1416,13 @@
     "date": "2026-10-28",
     "group": "react",
     "files": {
-      "production": 4385,
-      "test": 1337,
+      "production": 4384,
+      "test": 1338,
       "story": 389
     },
     "loc": {
-      "production": 829115,
-      "test": 270766,
+      "production": 829041,
+      "test": 270840,
       "story": 54203
     },
     "clonedLoc": {
@@ -1452,10 +1452,10 @@
     },
     "largestClass": 71,
     "parseErrors": 1,
-    "durationMs": 8471,
+    "durationMs": 8129,
     "jscpd": {
       "percentage": 3.718239145789718,
-      "durationMs": 373
+      "durationMs": 356
     },
     "sample": [
       {

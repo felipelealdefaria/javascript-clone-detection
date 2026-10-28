@@ -53,7 +53,7 @@ type FileKind = 'production' | 'test' | 'story'
 type UnitKind = 'component' | 'hook' | 'test' | 'story' | 'other'
 
 const TEST_PATH =
-  /(^|\/)(__tests?__|tests?|spec|specs|__mocks__|mocks?|e2e|fixtures?|testing|test-utils)\/|\.(test|spec)\.[cm]?[jt]sx?$/i
+  /(^|\/)(__tests?__|tests?|test[-_][\w-]+|spec|specs|__mocks__|mocks?|e2e|fixtures?|testing|test-utils)\/|[._](test|spec)\.[\w.]*[cm]?[jt]sx?$/i
 const STORY_PATH = /\.(stories|story)\.[cm]?[jt]sx?$/i
 
 export function fileKind(file: string): FileKind {

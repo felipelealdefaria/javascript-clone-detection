@@ -50,6 +50,7 @@ Both tools' Type-3 scores are also swept from 0.6 to 0.9, because they measure d
 
 - **Type-1 and Type-2 recall are expected to be 100% for jscd.** The mutations are exactly what its normalizer erases. These rows show that the normalizer is correct, not that the approach is clever. The informative rows are Type-3, Type-4, the threshold sweep, and precision on real code.
 - **The benchmark was used during development.** It exposed a real bug: renaming a destructured prop (`{ title }` → `{ title: heading }`) made React components look different. Fixing it (property names got their own renaming namespace) raised React Type-2 recall from 21% to 100%. The fix is a general correctness change, but the numbers are post-fix.
+- **The candidate search was tuned outside the benchmark.** The benchmark is too small to stress it. Shingle size and posting cap were tuned against an exhaustive run on grafana (39,000 units), keeping 99.9% of its Type-3 pairs. Benchmark results did not change.
 - **Mutants are synthetic.** Real copy-paste edits are messier. Real-code precision partly covers this gap; real-code recall is not measured.
 - **Type-4 is small and hand-written:** 16 pairs, written by the same author as the tool.
 - **Precision on real code covers jscd only,** with 29 labeled pairs. The table shows 95% Wilson lower bounds for that reason.
