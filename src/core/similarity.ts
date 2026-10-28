@@ -1,52 +1,69 @@
-/**
- * Length of the longest common subsequence of two integer sequences.
- *
- * Bit-parallel algorithm (Allison & Dix 1986, Hyyrö 2004): each step processes 32 cells of
- * the DP table at once, so the cost is O(|a| · |b| / 32) instead of O(|a| · |b|).
- */
+/** Length of the longest common subsequence of two integer sequences. */
 export function lcsLength(a: ArrayLike<number>, b: ArrayLike<number>): number {
-  if (a.length === 0 || b.length === 0) return 0
-  // Put the shorter sequence in the bit vector.
   if (a.length > b.length) [a, b] = [b, a]
+  return new LcsQuery(a).length(b)
+}
 
-  const m = a.length
-  const words = Math.ceil(m / 32)
-  const masks = new Map<number, Uint32Array>()
-  for (let i = 0; i < m; i++) {
-    const symbol = a[i] as number
-    let mask = masks.get(symbol)
-    if (!mask) {
-      mask = new Uint32Array(words)
-      masks.set(symbol, mask)
+/**
+ * LCS against a fixed sequence `a`, reusable across many `b`s: the bit masks for `a` are built
+ * once. Bit-parallel (Allison & Dix 1986, Hyyrö 2004): each step handles 32 cells of the DP
+ * table, so one query costs O(|a| · |b| / 32).
+ */
+export class LcsQuery {
+  private readonly m: number
+  private readonly words: number
+  private readonly masks = new Map<number, Uint32Array>()
+  private readonly v: Uint32Array
+
+  constructor(a: ArrayLike<number>) {
+    this.m = a.length
+    this.words = Math.max(1, Math.ceil(a.length / 32))
+    this.v = new Uint32Array(this.words)
+    for (let i = 0; i < a.length; i++) {
+      const symbol = a[i] as number
+      let mask = this.masks.get(symbol)
+      if (!mask) {
+        mask = new Uint32Array(this.words)
+        this.masks.set(symbol, mask)
+      }
+      mask[i >>> 5] = ((mask[i >>> 5] as number) | (1 << (i & 31))) >>> 0
     }
-    mask[i >>> 5] = ((mask[i >>> 5] as number) | (1 << (i & 31))) >>> 0
   }
 
-  const v = new Uint32Array(words).fill(0xffffffff)
-  for (let j = 0; j < b.length; j++) {
-    const mask = masks.get(b[j] as number)
-    if (!mask) continue
-    let carry = 0
-    let borrow = 0
+  length(b: ArrayLike<number>): number {
+    const { m, words, masks, v } = this
+    if (m === 0 || b.length === 0) return 0
+    v.fill(0xffffffff)
+    for (let j = 0; j < b.length; j++) {
+      const mask = masks.get(b[j] as number)
+      if (!mask) continue
+      let carry = 0
+      let borrow = 0
+      for (let w = 0; w < words; w++) {
+        const vw = v[w] as number
+        const u = (vw & (mask[w] as number)) >>> 0
+        const sum = vw + u + carry
+        carry = sum > 0xffffffff ? 1 : 0
+        const diff = vw - u - borrow
+        borrow = diff < 0 ? 1 : 0
+        v[w] = ((sum >>> 0) | (diff >>> 0)) >>> 0
+      }
+    }
+    // LCS = number of zero bits among the first m bits.
+    let ones = 0
     for (let w = 0; w < words; w++) {
-      const vw = v[w] as number
-      const u = (vw & (mask[w] as number)) >>> 0
-      const sum = vw + u + carry
-      carry = sum > 0xffffffff ? 1 : 0
-      const diff = vw - u - borrow
-      borrow = diff < 0 ? 1 : 0
-      v[w] = ((sum >>> 0) | (diff >>> 0)) >>> 0
+      let x = v[w] as number
+      if (w === words - 1 && m % 32 !== 0) x &= (1 << (m % 32)) - 1
+      ones += popcount(x)
     }
+    return m - ones
   }
 
-  // LCS = number of zero bits among the first m bits.
-  let ones = 0
-  for (let w = 0; w < words; w++) {
-    let x = v[w] as number
-    if (w === words - 1 && m % 32 !== 0) x &= (1 << (m % 32)) - 1
-    ones += popcount(x)
+  /** Dice-style similarity 2·LCS / (|a| + |b|). */
+  similarity(b: ArrayLike<number>): number {
+    const total = this.m + b.length
+    return total === 0 ? 1 : (2 * this.length(b)) / total
   }
-  return m - ones
 }
 
 function popcount(x: number): number {

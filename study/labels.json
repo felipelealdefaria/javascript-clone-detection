@@ -1,0 +1,320 @@
+{
+  "_about": "Labels for study/results/sample.md, made by inspection (AI-assisted) with the 2021 thesis rubric: a pair is a clone when both units are copies with the same intent, so a maintenance change in one would likely be needed in the other, including copies that differ only by an operator; coincidental structural similarity between units with different purposes is not a clone. Each pair links to the code at a pinned commit.",
+  "labels": {
+    "freecodecamp:api-server/src/common/models/block.js:3|api-server/src/server/models/auth-token.js:3": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/common/models/user.js:996|api-server/src/common/models/user.js:1013": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/server/boot/challenge.js:249|api-server/src/server/boot/challenge.js:297": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/common/models/user.js:858|api-server/src/server/utils/donation.js:138": {
+      "label": "not-clone",
+      "note": "Two one-line promise callbacks."
+    },
+    "freecodecamp:api-server/src/common/models/user.js:498|api-server/src/common/models/user.js:581": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/server/boot/authentication.js:177|api-server/src/server/boot/randomAPIs.js:86": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/server/boot/news.js:5|api-server/src/server/boot/status.js:1": {
+      "label": "not-clone",
+      "note": "Framework router boot files for unrelated routes."
+    },
+    "freecodecamp:api-server/src/common/models/block.js:4|api-server/src/common/models/user.js:173": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/server/boot/certificate.js:331|api-server/src/server/boot/certificate.js:502": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/server/boot/randomAPIs.js:105|api-server/src/server/boot/user.js:95": {
+      "label": "not-clone",
+      "note": "Two tiny unrelated route handlers."
+    },
+    "freecodecamp:api-server/src/server/utils/getDynamicPropsForUser.js:1|api-server/src/server/utils/user-stats.js:138": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/server/boot/settings.js:63|api-server/src/server/boot/settings.js:204": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/server/models/donation.js:36|api-server/src/server/models/donation.js:61": {
+      "label": "clone"
+    },
+    "freecodecamp:api-server/src/server/utils/rx.js:29|api-server/src/server/utils/rx.js:36": {
+      "label": "not-clone",
+      "note": "Two different one-line Rx helpers."
+    },
+    "javascript-algorithms:src/data-structures/doubly-linked-list/DoublyLinkedList.js:238|src/data-structures/linked-list/LinkedList.js:215": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/data-structures/tree/fenwick-tree/FenwickTree.js:22|src/data-structures/tree/fenwick-tree/FenwickTree.js:40": {
+      "label": "not-clone",
+      "note": "Fenwick tree update vs. prefix query: shared range guard, different algorithms by design."
+    },
+    "javascript-algorithms:src/algorithms/graph/detect-cycle/detectDirectedCycle.js:38|src/algorithms/graph/detect-cycle/detectUndirectedCycle.js:31": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/algorithms/math/matrix/Matrix.js:249|src/algorithms/math/matrix/Matrix.js:295": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/algorithms/math/fourier-transform/discreteFourierTransform.js:22|src/algorithms/math/fourier-transform/inverseDiscreteFourierTransform.js:16": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/algorithms/graph/articulation-points/articulationPoints.js:59|src/algorithms/graph/bridges/graphBridges.js:48": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/algorithms/sets/knapsack-problem/Knapsack.js:14|src/algorithms/sets/knapsack-problem/Knapsack.js:46": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/algorithms/graph/breadth-first-search/breadthFirstSearch.js:19|src/algorithms/graph/depth-first-search/depthFirstSearch.js:17": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/data-structures/tree/avl-tree/AvlTree.js:86|src/data-structures/tree/avl-tree/AvlTree.js:114": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/data-structures/doubly-linked-list/DoublyLinkedList.js:129|src/data-structures/linked-list/LinkedList.js:103": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/data-structures/tree/avl-tree/AvlTree.js:60|src/data-structures/tree/avl-tree/AvlTree.js:141": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/data-structures/bloom-filter/BloomFilter.js:73|src/data-structures/bloom-filter/BloomFilter.js:90": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/algorithms/tree/depth-first-search/depthFirstSearch.js:23|src/algorithms/tree/depth-first-search/depthFirstSearch.js:26": {
+      "label": "not-clone",
+      "note": "Two one-line stub callbacks."
+    },
+    "javascript-algorithms:src/data-structures/graph/GraphVertex.js:81|src/data-structures/graph/GraphVertex.js:93": {
+      "label": "clone",
+      "note": "Same lookup copied with a different predicate."
+    },
+    "javascript-algorithms:src/algorithms/uncategorized/n-queens/QueenPosition.js:9|src/data-structures/linked-list/LinkedListNode.js:2": {
+      "label": "not-clone",
+      "note": "Two-field constructors of unrelated classes."
+    },
+    "javascript-algorithms:src/algorithms/sets/knapsack-problem/Knapsack.js:14|src/algorithms/sets/knapsack-problem/Knapsack.js:30": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/algorithms/sets/knapsack-problem/KnapsackItem.js:16|src/algorithms/uncategorized/n-queens/QueenPosition.js:28": {
+      "label": "not-clone",
+      "note": "Unrelated one-line getters."
+    },
+    "javascript-algorithms:src/data-structures/bloom-filter/BloomFilter.js:73|src/data-structures/bloom-filter/BloomFilter.js:105": {
+      "label": "clone"
+    },
+    "javascript-algorithms:src/algorithms/image-processing/utils/imageData.js:17|src/algorithms/image-processing/utils/imageData.js:33": {
+      "label": "clone",
+      "note": "Pixel index computation copied between getter and setter."
+    },
+    "javascript-algorithms:src/algorithms/math/bits/multiply.js:35|src/algorithms/math/bits/multiply.js:37": {
+      "label": "not-clone",
+      "note": "Intentional case split inside one algorithm."
+    },
+    "javascript-algorithms:src/algorithms/cryptography/rail-fence-cipher/railFenceCipher.js:21|src/algorithms/sorting/radix-sort/RadixSort.js:137": {
+      "label": "clone",
+      "note": "Same array-of-buckets idiom in two modules."
+    },
+    "javascript-algorithms:src/algorithms/sorting/SortTester.js:30|src/data-structures/graph/GraphVertex.js:16": {
+      "label": "clone",
+      "note": "Comparator copied with a different key."
+    },
+    "javascript-algorithms:src/data-structures/graph/GraphVertex.js:66|src/data-structures/graph/GraphVertex.js:125": {
+      "label": "not-clone",
+      "note": "Unrelated one-line methods."
+    },
+    "thealgorithms:Conversions/LowerCaseConversion.js:18|Conversions/UpperCaseConversion.js:18": {
+      "label": "clone"
+    },
+    "thealgorithms:Maths/Fibonacci.js:3|Maths/Fibonacci.js:62": {
+      "label": "clone"
+    },
+    "thealgorithms:Cache/LFUCache.js:106|Cache/LRUCache.js:89": {
+      "label": "clone"
+    },
+    "thealgorithms:Graphs/DepthFirstSearchRecursive.js:12|Graphs/KruskalMST.js:61": {
+      "label": "clone"
+    },
+    "thealgorithms:Search/TernarySearch.js:33|Search/TernarySearch.js:68": {
+      "label": "clone"
+    },
+    "thealgorithms:Graphs/KruskalMST.js:104|Graphs/PrimMST.js:200": {
+      "label": "clone"
+    },
+    "thealgorithms:Linear-Algebra/src/la_lib.js:60|Linear-Algebra/src/la_lib.js:73": {
+      "label": "clone"
+    },
+    "thealgorithms:Graphs/DepthFirstSearchIterative.js:1|Graphs/DepthFirstSearchRecursive.js:1": {
+      "label": "clone"
+    },
+    "thealgorithms:Cache/LFUCache.js:56|Cache/LRUCache.js:42": {
+      "label": "clone"
+    },
+    "thealgorithms:Hashes/SHA1.js:67|Hashes/SHA256.js:78": {
+      "label": "clone"
+    },
+    "thealgorithms:Dynamic-Programming/SieveOfEratosthenes.js:1|Maths/SieveOfEratosthenes.js:1": {
+      "label": "clone"
+    },
+    "thealgorithms:Recursive/FloodFill.js:41|Recursive/FloodFill.js:65": {
+      "label": "clone"
+    },
+    "thealgorithms:Hashes/SHA1.js:116|Maths/ReversePolishNotation.js:5": {
+      "label": "not-clone",
+      "note": "Unrelated one-line arrow functions."
+    },
+    "thealgorithms:Dynamic-Programming/LongestPalindromicSubsequence.js:33|Dynamic-Programming/LongestValidParentheses.js:37": {
+      "label": "clone"
+    },
+    "thealgorithms:Data-Structures/Vectors/Vector2.js:131|Recursive/KochSnowflake.js:55": {
+      "label": "clone"
+    },
+    "thealgorithms:String/CheckFlatCase.js:12|String/CheckKebabCase.js:10": {
+      "label": "clone"
+    },
+    "thealgorithms:Cache/LRUCache.js:1|Trees/BreadthFirstTreeTraversal.js:6": {
+      "label": "not-clone",
+      "note": "Constructors of unrelated node classes."
+    },
+    "thealgorithms:Data-Structures/Queue/CircularQueue.js:71|Data-Structures/Stack/Stack.js:48": {
+      "label": "not-clone",
+      "note": "Print loops of different data structures."
+    },
+    "thealgorithms:Maths/Area.js:18|Maths/Area.js:76": {
+      "label": "clone"
+    },
+    "thealgorithms:Maths/Volume.js:53|Maths/Volume.js:88": {
+      "label": "clone"
+    },
+    "thealgorithms:Graphs/DepthFirstSearchIterative.js:12|Graphs/PrimMST.js:157": {
+      "label": "clone"
+    },
+    "thealgorithms:Dynamic-Programming/ClimbingStairs.js:19|Recursive/FibonacciNumberRecursive.js:10": {
+      "label": "not-clone",
+      "note": "Unrelated demo snippets."
+    },
+    "thealgorithms:Hashes/SHA1.js:21|Hashes/SHA256.js:32": {
+      "label": "clone"
+    },
+    "excalidraw:packages/element/tests/align.test.tsx:226|packages/element/tests/align.test.tsx:386": {
+      "label": "clone"
+    },
+    "excalidraw:packages/element/src/delta.ts:1990|packages/element/src/delta.ts:2014": {
+      "label": "clone"
+    },
+    "excalidraw:packages/excalidraw/tests/charts.test.tsx:59|packages/excalidraw/tests/charts.test.tsx:78": {
+      "label": "clone"
+    },
+    "outline:shared/helpers/AuthenticationHelper.test.ts:64|shared/helpers/AuthenticationHelper.test.ts:76": {
+      "label": "clone"
+    },
+    "outline:shared/editor/commands/codeFence.ts:18|shared/editor/commands/codeFence.ts:43": {
+      "label": "clone"
+    },
+    "outline:app/components/CommandBar/SearchIndex.test.ts:192|app/components/CommandBar/SearchIndex.test.ts:275": {
+      "label": "clone",
+      "note": "Copy-adapted test template."
+    },
+    "mastodon:app/javascript/mastodon/features/notifications_v2/components/notification_quoted_update.tsx:20|app/javascript/mastodon/features/notifications_v2/components/notification_update.tsx:20": {
+      "label": "clone"
+    },
+    "mastodon:app/javascript/mastodon/actions/announcements.js:139|app/javascript/mastodon/actions/statuses.js:325": {
+      "label": "clone",
+      "note": "Redux thunk template (request/success/fail) reused for another endpoint."
+    },
+    "mastodon:app/javascript/mastodon/actions/accounts.js:294|app/javascript/mastodon/actions/trends.js:85": {
+      "label": "clone"
+    },
+    "element-web:apps/web/src/events/EventTileFactory.tsx:448|apps/web/src/events/EventTileFactory.tsx:513": {
+      "label": "clone"
+    },
+    "element-web:apps/web/src/utils/arrays.test.ts:258|apps/web/src/utils/arrays.test.ts:270": {
+      "label": "clone"
+    },
+    "element-web:apps/web/src/components/structures/MessagePanel.test.tsx:154|apps/web/src/components/structures/MessagePanel.test.tsx:213": {
+      "label": "clone"
+    },
+    "jitsi-meet:react/features/calendar-sync/components/CalendarListContent.native.tsx:60|react/features/chat/components/web/ChatInput.tsx:153": {
+      "label": "not-clone",
+      "note": "React class constructors binding different handlers: an idiom, not a copy."
+    },
+    "jitsi-meet:react/features/voice-agents/actions.ts:109|react/features/voice-agents/actions.ts:128": {
+      "label": "clone"
+    },
+    "jitsi-meet:react/features/welcome/components/Tabs.tsx:73|react/features/welcome/components/Tabs.tsx:87": {
+      "label": "not-clone",
+      "note": "Tab list and tab panels: complementary renderings, not copies."
+    },
+    "twenty:packages/twenty-front/src/modules/page-layout/utils/__tests__/getTabsByDisplayMode.test.ts:125|packages/twenty-front/src/modules/page-layout/utils/__tests__/getTabsByDisplayMode.test.ts:230": {
+      "label": "clone"
+    },
+    "twenty:packages/twenty-front/src/modules/auth/utils/__tests__/isValidReturnToPath.test.ts:3|packages/twenty-front/src/utils/__tests__/compareNonEmptyStrings.test.ts:3": {
+      "label": "not-clone",
+      "note": "Tests of unrelated functions with the same table-like layout."
+    },
+    "twenty:packages/twenty-front/src/modules/ai/components/__stories__/AiChatInlineBanner.stories.tsx:34|packages/twenty-front/src/modules/sse-db-event/components/__stories__/SSEProvider.stories.tsx:128": {
+      "label": "not-clone",
+      "note": "Storybook play functions testing unrelated behavior."
+    },
+    "plane:apps/web/services/integrations/github.service.ts:28|apps/web/services/issue/issue.service.ts:378": {
+      "label": "clone",
+      "note": "Service method template reused for another endpoint."
+    },
+    "plane:apps/web/components/core/modals/bulk-delete-issues-modal.tsx:69|apps/web/components/inbox/modals/select-duplicate.tsx:57": {
+      "label": "clone"
+    },
+    "plane:apps/web/components/issues/issue-modal/components/default-properties.tsx:207|apps/web/components/project/create/header.tsx:59": {
+      "label": "clone",
+      "note": "Form-field render template reused for another widget."
+    },
+    "bluesky:src/lib/appState.test.ts:186|src/lib/appState.test.ts:268": {
+      "label": "clone"
+    },
+    "bluesky:src/state/queries/find-contacts.ts:50|src/state/queries/messages/join-requests.ts:71": {
+      "label": "clone"
+    },
+    "bluesky:src/view/shell/Drawer.tsx:654|src/view/shell/Drawer.tsx:720": {
+      "label": "clone"
+    },
+    "signal-desktop:ts/test-node/sql/migration_920_test.node.ts:155|ts/test-node/sql/migration_920_test.node.ts:299": {
+      "label": "clone"
+    },
+    "signal-desktop:ts/components/LeftPane.dom.stories.tsx:1166|ts/components/LeftPane.dom.stories.tsx:1190": {
+      "label": "clone"
+    },
+    "signal-desktop:ts/util/iterables.std.ts:67|ts/util/iterables.std.ts:115": {
+      "label": "clone"
+    },
+    "grafana:public/app/features/dimensions/editors/ThresholdsEditor/ThresholdsEditor.test.tsx:281|public/app/features/dimensions/editors/ThresholdsEditor/ThresholdsEditor.test.tsx:538": {
+      "label": "clone"
+    },
+    "grafana:public/app/features/dashboard-scene/pages/DashboardScenePage.test.tsx:225|public/app/features/home/Recommendations/NoDataCard.test.tsx:35": {
+      "label": "not-clone",
+      "note": "Render tests of unrelated components."
+    },
+    "grafana:public/app/features/dashboard-scene/mutation-api/commands/layoutCommands.test.ts:343|public/app/features/dashboard-scene/mutation-api/commands/layoutCommands.test.ts:2425": {
+      "label": "clone"
+    },
+    "sentry:static/app/views/issueList/issueViews/renameIssueViewModal.tsx:72|static/app/views/settings/project/projectFilters/customFilterModal.tsx:954": {
+      "label": "clone"
+    },
+    "sentry:static/app/components/searchQueryBuilder/index.spec.tsx:2680|static/app/components/searchQueryBuilder/index.spec.tsx:2740": {
+      "label": "clone"
+    },
+    "sentry:static/app/gettingStartedDocs/javascript-nuxt/feedback.tsx:33|static/app/gettingStartedDocs/javascript-remix/feedback.tsx:33": {
+      "label": "clone"
+    },
+    "posthog:frontend/src/scenes/insights/insightVizDataLogic.test.ts:1369|frontend/src/scenes/insights/insightVizDataLogic.test.ts:1525": {
+      "label": "clone"
+    },
+    "posthog:frontend/src/lib/components/MarkdownNotebook/collaboration.test.ts:248|frontend/src/lib/components/MarkdownNotebook/collaboration.test.ts:276": {
+      "label": "clone"
+    },
+    "posthog:frontend/src/lib/monaco/domUtils.ts:19|frontend/src/lib/monaco/domUtils.ts:56": {
+      "label": "clone"
+    }
+  }
+}

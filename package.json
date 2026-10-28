@@ -55,7 +55,8 @@
     "bench:embeddings": "tsx benchmark/run.ts --embeddings",
     "playground": "vite playground",
     "playground:build": "vite build playground",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "study": "tsx study/run.ts"
   },
   "dependencies": {
     "@babel/generator": "8.0.6",

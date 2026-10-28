@@ -18,6 +18,11 @@ inputs:
   ignore:
     description: Glob patterns to exclude, one per line.
     default: ""
+  changed-since:
+    description: >-
+      Git ref, e.g. origin/main. Only clones with a copy on a line changed since the merge-base
+      with this ref are reported. Needs history: use actions/checkout with fetch-depth 0.
+    default: ""
   sarif-file:
     description: Where to write the SARIF report. Upload it with github/codeql-action/upload-sarif.
     default: jscd.sarif
@@ -43,6 +48,7 @@ runs:
         THRESHOLD: ${{ inputs.threshold }}
         MIN_TOKENS: ${{ inputs.min-tokens }}
         IGNORE: ${{ inputs.ignore }}
+        CHANGED_SINCE: ${{ inputs.changed-since }}
         SARIF_FILE: ${{ inputs.sarif-file }}
         FAIL: ${{ inputs.fail-on-clones }}
         VERSION: ${{ inputs.version }}
@@ -53,6 +59,7 @@ runs:
         while IFS= read -r pattern; do
           [ -n "$pattern" ] && args+=(--ignore "$pattern")
         done <<< "$IGNORE"
+        [ -n "$CHANGED_SINCE" ] && args+=(--changed "$CHANGED_SINCE")
         jscd=(npx --yes "javascript-clone-detection@$VERSION")
 
         NO_COLOR=1 "${jscd[@]}" "${paths[@]}" "${args[@]}" > jscd-report.txt

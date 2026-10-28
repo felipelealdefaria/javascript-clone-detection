@@ -9,9 +9,9 @@ Seed 2021. See [README.md](../README.md) for the method.
 
 | Tool | Type-1 | Type-2 | Type-3 | Type-4 | Precision | Time |
 |---|---:|---:|---:|---:|---:|---:|
-| jscd (defaults) | 100.0% | 100.0% | 78.2% | 0/16 | 100.0% | 0.11 s |
+| jscd (defaults) | 100.0% | 100.0% | 78.2% | 0/16 | 100.0% | 0.10 s |
 | jscpd (defaults) | 77.1% | 0.6% | 0.0% | 0/16 | 96.6% | 0.06 s |
-| jscpd (structural) | 98.9% | 76.0% | 38.0% | 0/16 | 92.1% | 0.08 s |
+| jscpd (structural) | 98.9% | 76.0% | 38.0% | 0/16 | 92.1% | 0.07 s |
 
 Precision counts every detected pair across two different families as a false positive.
 
@@ -29,8 +29,8 @@ jscd scores token LCS; jscpd scores shared subtrees. Type-3 recall and precision
 
 | Threshold | jscd T3 | jscd precision | jscpd (structural) T3 | jscpd (structural) precision |
 |---|---:|---:|---:|---:|
-| 0.6 | 92.2% | 43.9% | 58.1% | 90.8% |
-| 0.7 | 87.7% | 88.4% | 50.8% | 92.4% |
+| 0.6 | 90.5% | 44.6% | 58.1% | 90.8% |
+| 0.7 | 87.7% | 89.6% | 50.8% | 92.4% |
 | 0.8 | 78.2% | 100.0% | 38.0% | 92.1% |
 | 0.9 | 67.0% | 100.0% | 27.4% | 91.3% |
 

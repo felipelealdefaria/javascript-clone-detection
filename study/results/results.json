@@ -1,0 +1,1484 @@
+[
+  {
+    "id": "freecodecamp",
+    "repo": "freeCodeCamp/freeCodeCamp",
+    "sha": "d5e3979753eb16ac00b8e530e9956eae91126f56",
+    "date": "2021-09-30",
+    "group": "replication",
+    "thesis": {
+      "functions": 158,
+      "candidates": 29,
+      "clones": 13
+    },
+    "files": {
+      "production": 77,
+      "test": 1,
+      "story": 0
+    },
+    "loc": {
+      "production": 5654,
+      "test": 205,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 127,
+      "test": 0,
+      "story": 0
+    },
+    "units": 201,
+    "pairs": 3,
+    "pairsByType": [
+      0,
+      1,
+      2
+    ],
+    "classes": 3,
+    "classesByType": [
+      0,
+      1,
+      2
+    ],
+    "classesByKind": {
+      "component": 0,
+      "hook": 0,
+      "test": 0,
+      "story": 0,
+      "other": 3
+    },
+    "largestClass": 2,
+    "parseErrors": 0,
+    "durationMs": 59,
+    "sample": [
+      {
+        "key": "freecodecamp:api-server/src/common/models/block.js:3|api-server/src/server/models/auth-token.js:3",
+        "type": 3,
+        "similarity": 0.8429752066115702,
+        "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/block.js#L3-L9",
+        "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/models/auth-token.js#L3-L15"
+      },
+      {
+        "key": "freecodecamp:api-server/src/common/models/user.js:996|api-server/src/common/models/user.js:1013",
+        "type": 2,
+        "similarity": 1,
+        "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/user.js#L996-L1012",
+        "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/user.js#L1013-L1029"
+      },
+      {
+        "key": "freecodecamp:api-server/src/server/boot/challenge.js:249|api-server/src/server/boot/challenge.js:297",
+        "type": 3,
+        "similarity": 0.8353658536585366,
+        "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/challenge.js#L249-L295",
+        "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/challenge.js#L297-L329"
+      }
+    ],
+    "noMinimum": {
+      "units": 552,
+      "pairs": 1125,
+      "classes": 27,
+      "sample": [
+        {
+          "key": "freecodecamp:api-server/src/common/models/user.js:858|api-server/src/server/utils/donation.js:138",
+          "type": 3,
+          "similarity": 0.8181818181818182,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/user.js#L858-L858",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/utils/donation.js#L138-L140"
+        },
+        {
+          "key": "freecodecamp:api-server/src/common/models/user.js:498|api-server/src/common/models/user.js:581",
+          "type": 3,
+          "similarity": 0.9523809523809523,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/user.js#L498-L504",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/user.js#L581-L587"
+        },
+        {
+          "key": "freecodecamp:api-server/src/server/boot/authentication.js:177|api-server/src/server/boot/randomAPIs.js:86",
+          "type": 3,
+          "similarity": 0.9545454545454546,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/authentication.js#L177-L180",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/randomAPIs.js#L86-L94"
+        },
+        {
+          "key": "freecodecamp:api-server/src/server/boot/news.js:5|api-server/src/server/boot/status.js:1",
+          "type": 3,
+          "similarity": 0.8837209302325582,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/news.js#L5-L10",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/status.js#L1-L6"
+        },
+        {
+          "key": "freecodecamp:api-server/src/common/models/block.js:4|api-server/src/common/models/user.js:173",
+          "type": 3,
+          "similarity": 0.822429906542056,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/block.js#L4-L8",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/user.js#L173-L180"
+        },
+        {
+          "key": "freecodecamp:api-server/src/common/models/user.js:996|api-server/src/common/models/user.js:1013",
+          "type": 2,
+          "similarity": 1,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/user.js#L996-L1012",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/common/models/user.js#L1013-L1029"
+        },
+        {
+          "key": "freecodecamp:api-server/src/server/boot/certificate.js:331|api-server/src/server/boot/certificate.js:502",
+          "type": 1,
+          "similarity": 1,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/certificate.js#L331-L336",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/certificate.js#L502-L507"
+        },
+        {
+          "key": "freecodecamp:api-server/src/server/boot/randomAPIs.js:105|api-server/src/server/boot/user.js:95",
+          "type": 3,
+          "similarity": 0.8679245283018868,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/randomAPIs.js#L105-L111",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/user.js#L95-L98"
+        },
+        {
+          "key": "freecodecamp:api-server/src/server/utils/getDynamicPropsForUser.js:1|api-server/src/server/utils/user-stats.js:138",
+          "type": 3,
+          "similarity": 0.9142857142857143,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/utils/getDynamicPropsForUser.js#L1-L14",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/utils/user-stats.js#L138-L145"
+        },
+        {
+          "key": "freecodecamp:api-server/src/server/boot/settings.js:63|api-server/src/server/boot/settings.js:204",
+          "type": 3,
+          "similarity": 0.8395061728395061,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/settings.js#L63-L69",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/boot/settings.js#L204-L215"
+        },
+        {
+          "key": "freecodecamp:api-server/src/server/models/donation.js:36|api-server/src/server/models/donation.js:61",
+          "type": 2,
+          "similarity": 1,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/models/donation.js#L36-L40",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/models/donation.js#L61-L65"
+        },
+        {
+          "key": "freecodecamp:api-server/src/server/utils/rx.js:29|api-server/src/server/utils/rx.js:36",
+          "type": 3,
+          "similarity": 0.8717948717948718,
+          "a": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/utils/rx.js#L29-L31",
+          "b": "https://github.com/freeCodeCamp/freeCodeCamp/blob/d5e3979753eb16ac00b8e530e9956eae91126f56/api-server/src/server/utils/rx.js#L36-L38"
+        }
+      ]
+    }
+  },
+  {
+    "id": "javascript-algorithms",
+    "repo": "trekhleb/javascript-algorithms",
+    "sha": "4548296affb227c29ead868309e48667f8280c55",
+    "date": "2021-07-26",
+    "group": "replication",
+    "thesis": {
+      "functions": 192,
+      "candidates": 60,
+      "clones": 21
+    },
+    "files": {
+      "production": 168,
+      "test": 0,
+      "story": 0
+    },
+    "loc": {
+      "production": 9448,
+      "test": 0,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 902,
+      "test": 0,
+      "story": 0
+    },
+    "units": 266,
+    "pairs": 26,
+    "pairsByType": [
+      2,
+      3,
+      21
+    ],
+    "classes": 20,
+    "classesByType": [
+      2,
+      2,
+      16
+    ],
+    "classesByKind": {
+      "component": 0,
+      "hook": 0,
+      "test": 0,
+      "story": 0,
+      "other": 20
+    },
+    "largestClass": 3,
+    "parseErrors": 0,
+    "durationMs": 33,
+    "sample": [
+      {
+        "key": "javascript-algorithms:src/data-structures/doubly-linked-list/DoublyLinkedList.js:238|src/data-structures/linked-list/LinkedList.js:215",
+        "type": 3,
+        "similarity": 0.8923076923076924,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/doubly-linked-list/DoublyLinkedList.js#L238-L262",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/linked-list/LinkedList.js#L215-L237"
+      },
+      {
+        "key": "javascript-algorithms:src/data-structures/tree/fenwick-tree/FenwickTree.js:22|src/data-structures/tree/fenwick-tree/FenwickTree.js:40",
+        "type": 3,
+        "similarity": 0.8155339805825242,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/tree/fenwick-tree/FenwickTree.js#L22-L32",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/tree/fenwick-tree/FenwickTree.js#L40-L52"
+      },
+      {
+        "key": "javascript-algorithms:src/algorithms/graph/detect-cycle/detectDirectedCycle.js:38|src/algorithms/graph/detect-cycle/detectUndirectedCycle.js:31",
+        "type": 3,
+        "similarity": 0.96,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/graph/detect-cycle/detectDirectedCycle.js#L38-L62",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/graph/detect-cycle/detectUndirectedCycle.js#L31-L51"
+      },
+      {
+        "key": "javascript-algorithms:src/algorithms/math/matrix/Matrix.js:249|src/algorithms/math/matrix/Matrix.js:295",
+        "type": 3,
+        "similarity": 0.9846153846153847,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/math/matrix/Matrix.js#L249-L263",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/math/matrix/Matrix.js#L295-L309"
+      },
+      {
+        "key": "javascript-algorithms:src/algorithms/math/fourier-transform/discreteFourierTransform.js:22|src/algorithms/math/fourier-transform/inverseDiscreteFourierTransform.js:16",
+        "type": 3,
+        "similarity": 0.9442622950819672,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/math/fourier-transform/discreteFourierTransform.js#L22-L69",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/math/fourier-transform/inverseDiscreteFourierTransform.js#L16-L58"
+      },
+      {
+        "key": "javascript-algorithms:src/algorithms/graph/articulation-points/articulationPoints.js:59|src/algorithms/graph/bridges/graphBridges.js:48",
+        "type": 3,
+        "similarity": 0.8012618296529969,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/graph/articulation-points/articulationPoints.js#L59-L103",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/graph/bridges/graphBridges.js#L48-L85"
+      },
+      {
+        "key": "javascript-algorithms:src/algorithms/sets/knapsack-problem/Knapsack.js:14|src/algorithms/sets/knapsack-problem/Knapsack.js:46",
+        "type": 3,
+        "similarity": 0.9807692307692307,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/sets/knapsack-problem/Knapsack.js#L14-L28",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/sets/knapsack-problem/Knapsack.js#L46-L60"
+      },
+      {
+        "key": "javascript-algorithms:src/algorithms/graph/breadth-first-search/breadthFirstSearch.js:19|src/algorithms/graph/depth-first-search/depthFirstSearch.js:17",
+        "type": 1,
+        "similarity": 1,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/graph/breadth-first-search/breadthFirstSearch.js#L19-L42",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/graph/depth-first-search/depthFirstSearch.js#L17-L40"
+      },
+      {
+        "key": "javascript-algorithms:src/data-structures/tree/avl-tree/AvlTree.js:86|src/data-structures/tree/avl-tree/AvlTree.js:114",
+        "type": 2,
+        "similarity": 1,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/tree/avl-tree/AvlTree.js#L86-L109",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/tree/avl-tree/AvlTree.js#L114-L136"
+      },
+      {
+        "key": "javascript-algorithms:src/data-structures/doubly-linked-list/DoublyLinkedList.js:129|src/data-structures/linked-list/LinkedList.js:103",
+        "type": 1,
+        "similarity": 1,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/doubly-linked-list/DoublyLinkedList.js#L129-L151",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/linked-list/LinkedList.js#L103-L125"
+      },
+      {
+        "key": "javascript-algorithms:src/data-structures/tree/avl-tree/AvlTree.js:60|src/data-structures/tree/avl-tree/AvlTree.js:141",
+        "type": 2,
+        "similarity": 1,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/tree/avl-tree/AvlTree.js#L60-L81",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/tree/avl-tree/AvlTree.js#L141-L162"
+      },
+      {
+        "key": "javascript-algorithms:src/data-structures/bloom-filter/BloomFilter.js:73|src/data-structures/bloom-filter/BloomFilter.js:90",
+        "type": 3,
+        "similarity": 0.8947368421052632,
+        "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/bloom-filter/BloomFilter.js#L73-L84",
+        "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/bloom-filter/BloomFilter.js#L90-L99"
+      }
+    ],
+    "noMinimum": {
+      "units": 683,
+      "pairs": 1805,
+      "classes": 53,
+      "sample": [
+        {
+          "key": "javascript-algorithms:src/algorithms/tree/depth-first-search/depthFirstSearch.js:23|src/algorithms/tree/depth-first-search/depthFirstSearch.js:26",
+          "type": 3,
+          "similarity": 0.8333333333333334,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/tree/depth-first-search/depthFirstSearch.js#L23-L23",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/tree/depth-first-search/depthFirstSearch.js#L26-L26"
+        },
+        {
+          "key": "javascript-algorithms:src/data-structures/graph/GraphVertex.js:81|src/data-structures/graph/GraphVertex.js:93",
+          "type": 3,
+          "similarity": 0.8888888888888888,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/graph/GraphVertex.js#L81-L87",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/graph/GraphVertex.js#L93-L99"
+        },
+        {
+          "key": "javascript-algorithms:src/algorithms/uncategorized/n-queens/QueenPosition.js:9|src/data-structures/linked-list/LinkedListNode.js:2",
+          "type": 3,
+          "similarity": 0.95,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/uncategorized/n-queens/QueenPosition.js#L9-L12",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/linked-list/LinkedListNode.js#L2-L5"
+        },
+        {
+          "key": "javascript-algorithms:src/data-structures/doubly-linked-list/DoublyLinkedList.js:129|src/data-structures/linked-list/LinkedList.js:103",
+          "type": 1,
+          "similarity": 1,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/doubly-linked-list/DoublyLinkedList.js#L129-L151",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/linked-list/LinkedList.js#L103-L125"
+        },
+        {
+          "key": "javascript-algorithms:src/algorithms/sets/knapsack-problem/Knapsack.js:14|src/algorithms/sets/knapsack-problem/Knapsack.js:30",
+          "type": 3,
+          "similarity": 0.9807692307692307,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/sets/knapsack-problem/Knapsack.js#L14-L28",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/sets/knapsack-problem/Knapsack.js#L30-L44"
+        },
+        {
+          "key": "javascript-algorithms:src/algorithms/sets/knapsack-problem/KnapsackItem.js:16|src/algorithms/uncategorized/n-queens/QueenPosition.js:28",
+          "type": 3,
+          "similarity": 0.9230769230769231,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/sets/knapsack-problem/KnapsackItem.js#L16-L18",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/uncategorized/n-queens/QueenPosition.js#L28-L34"
+        },
+        {
+          "key": "javascript-algorithms:src/data-structures/bloom-filter/BloomFilter.js:73|src/data-structures/bloom-filter/BloomFilter.js:105",
+          "type": 3,
+          "similarity": 0.8833333333333333,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/bloom-filter/BloomFilter.js#L73-L84",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/bloom-filter/BloomFilter.js#L105-L116"
+        },
+        {
+          "key": "javascript-algorithms:src/algorithms/image-processing/utils/imageData.js:17|src/algorithms/image-processing/utils/imageData.js:33",
+          "type": 3,
+          "similarity": 0.8395061728395061,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/image-processing/utils/imageData.js#L17-L25",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/image-processing/utils/imageData.js#L33-L39"
+        },
+        {
+          "key": "javascript-algorithms:src/algorithms/math/bits/multiply.js:35|src/algorithms/math/bits/multiply.js:37",
+          "type": 3,
+          "similarity": 0.875,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/math/bits/multiply.js#L35-L35",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/math/bits/multiply.js#L37-L37"
+        },
+        {
+          "key": "javascript-algorithms:src/algorithms/cryptography/rail-fence-cipher/railFenceCipher.js:21|src/algorithms/sorting/radix-sort/RadixSort.js:137",
+          "type": 3,
+          "similarity": 0.9583333333333334,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/cryptography/rail-fence-cipher/railFenceCipher.js#L21-L23",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/sorting/radix-sort/RadixSort.js#L137-L143"
+        },
+        {
+          "key": "javascript-algorithms:src/algorithms/sorting/SortTester.js:30|src/data-structures/graph/GraphVertex.js:16",
+          "type": 3,
+          "similarity": 0.9393939393939394,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/algorithms/sorting/SortTester.js#L30-L35",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/graph/GraphVertex.js#L16-L22"
+        },
+        {
+          "key": "javascript-algorithms:src/data-structures/graph/GraphVertex.js:66|src/data-structures/graph/GraphVertex.js:125",
+          "type": 3,
+          "similarity": 0.8076923076923077,
+          "a": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/graph/GraphVertex.js#L66-L68",
+          "b": "https://github.com/trekhleb/javascript-algorithms/blob/4548296affb227c29ead868309e48667f8280c55/src/data-structures/graph/GraphVertex.js#L125-L129"
+        }
+      ]
+    }
+  },
+  {
+    "id": "thealgorithms",
+    "repo": "TheAlgorithms/JavaScript",
+    "sha": "ee605b7694f9237574bd8b6ebbe45da253fd05f8",
+    "date": "2021-09-27",
+    "group": "replication",
+    "thesis": {
+      "functions": 385,
+      "candidates": 231,
+      "clones": 185
+    },
+    "files": {
+      "production": 235,
+      "test": 0,
+      "story": 0
+    },
+    "loc": {
+      "production": 11805,
+      "test": 0,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 655,
+      "test": 0,
+      "story": 0
+    },
+    "units": 364,
+    "pairs": 29,
+    "pairsByType": [
+      5,
+      2,
+      22
+    ],
+    "classes": 16,
+    "classesByType": [
+      2,
+      1,
+      13
+    ],
+    "classesByKind": {
+      "component": 0,
+      "hook": 0,
+      "test": 0,
+      "story": 0,
+      "other": 16
+    },
+    "largestClass": 5,
+    "parseErrors": 0,
+    "durationMs": 38,
+    "sample": [
+      {
+        "key": "thealgorithms:Conversions/LowerCaseConversion.js:18|Conversions/UpperCaseConversion.js:18",
+        "type": 3,
+        "similarity": 0.9821428571428571,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Conversions/LowerCaseConversion.js#L18-L33",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Conversions/UpperCaseConversion.js#L18-L33"
+      },
+      {
+        "key": "thealgorithms:Maths/Fibonacci.js:3|Maths/Fibonacci.js:62",
+        "type": 3,
+        "similarity": 0.9107142857142857,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Maths/Fibonacci.js#L3-L14",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Maths/Fibonacci.js#L62-L70"
+      },
+      {
+        "key": "thealgorithms:Cache/LFUCache.js:106|Cache/LRUCache.js:89",
+        "type": 2,
+        "similarity": 1,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Cache/LFUCache.js#L106-L141",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Cache/LRUCache.js#L89-L124"
+      },
+      {
+        "key": "thealgorithms:Graphs/DepthFirstSearchRecursive.js:12|Graphs/KruskalMST.js:61",
+        "type": 3,
+        "similarity": 0.8869565217391304,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Graphs/DepthFirstSearchRecursive.js#L12-L18",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Graphs/KruskalMST.js#L61-L67"
+      },
+      {
+        "key": "thealgorithms:Search/TernarySearch.js:33|Search/TernarySearch.js:68",
+        "type": 3,
+        "similarity": 0.8619246861924686,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Search/TernarySearch.js#L33-L67",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Search/TernarySearch.js#L68-L102"
+      },
+      {
+        "key": "thealgorithms:Graphs/KruskalMST.js:104|Graphs/PrimMST.js:200",
+        "type": 3,
+        "similarity": 0.944,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Graphs/KruskalMST.js#L104-L113",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Graphs/PrimMST.js#L200-L208"
+      },
+      {
+        "key": "thealgorithms:Linear-Algebra/src/la_lib.js:60|Linear-Algebra/src/la_lib.js:73",
+        "type": 3,
+        "similarity": 0.9852941176470589,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Linear-Algebra/src/la_lib.js#L60-L71",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Linear-Algebra/src/la_lib.js#L73-L84"
+      },
+      {
+        "key": "thealgorithms:Graphs/DepthFirstSearchIterative.js:1|Graphs/DepthFirstSearchRecursive.js:1",
+        "type": 3,
+        "similarity": 0.8434504792332268,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Graphs/DepthFirstSearchIterative.js#L1-L39",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Graphs/DepthFirstSearchRecursive.js#L1-L34"
+      },
+      {
+        "key": "thealgorithms:Cache/LFUCache.js:56|Cache/LRUCache.js:42",
+        "type": 1,
+        "similarity": 1,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Cache/LFUCache.js#L56-L104",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Cache/LRUCache.js#L42-L87"
+      },
+      {
+        "key": "thealgorithms:Hashes/SHA1.js:67|Hashes/SHA256.js:78",
+        "type": 1,
+        "similarity": 1,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Hashes/SHA1.js#L67-L88",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Hashes/SHA256.js#L78-L99"
+      },
+      {
+        "key": "thealgorithms:Dynamic-Programming/SieveOfEratosthenes.js:1|Maths/SieveOfEratosthenes.js:1",
+        "type": 3,
+        "similarity": 0.9879518072289156,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Dynamic-Programming/SieveOfEratosthenes.js#L1-L19",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Maths/SieveOfEratosthenes.js#L1-L27"
+      },
+      {
+        "key": "thealgorithms:Recursive/FloodFill.js:41|Recursive/FloodFill.js:65",
+        "type": 3,
+        "similarity": 0.8455284552845529,
+        "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Recursive/FloodFill.js#L41-L55",
+        "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Recursive/FloodFill.js#L65-L74"
+      }
+    ],
+    "noMinimum": {
+      "units": 828,
+      "pairs": 1695,
+      "classes": 56,
+      "sample": [
+        {
+          "key": "thealgorithms:Hashes/SHA1.js:116|Maths/ReversePolishNotation.js:5",
+          "type": 3,
+          "similarity": 0.8181818181818182,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Hashes/SHA1.js#L116-L116",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Maths/ReversePolishNotation.js#L5-L5"
+        },
+        {
+          "key": "thealgorithms:Dynamic-Programming/LongestPalindromicSubsequence.js:33|Dynamic-Programming/LongestValidParentheses.js:37",
+          "type": 2,
+          "similarity": 1,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Dynamic-Programming/LongestPalindromicSubsequence.js#L33-L37",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Dynamic-Programming/LongestValidParentheses.js#L37-L41"
+        },
+        {
+          "key": "thealgorithms:Data-Structures/Vectors/Vector2.js:131|Recursive/KochSnowflake.js:55",
+          "type": 3,
+          "similarity": 0.9354838709677419,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Data-Structures/Vectors/Vector2.js#L131-L135",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Recursive/KochSnowflake.js#L55-L59"
+        },
+        {
+          "key": "thealgorithms:String/CheckFlatCase.js:12|String/CheckKebabCase.js:10",
+          "type": 3,
+          "similarity": 0.8852459016393442,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/String/CheckFlatCase.js#L12-L20",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/String/CheckKebabCase.js#L10-L18"
+        },
+        {
+          "key": "thealgorithms:Cache/LRUCache.js:1|Trees/BreadthFirstTreeTraversal.js:6",
+          "type": 3,
+          "similarity": 0.8571428571428571,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Cache/LRUCache.js#L1-L9",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Trees/BreadthFirstTreeTraversal.js#L6-L12"
+        },
+        {
+          "key": "thealgorithms:Data-Structures/Queue/CircularQueue.js:71|Data-Structures/Stack/Stack.js:48",
+          "type": 3,
+          "similarity": 0.9,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Data-Structures/Queue/CircularQueue.js#L71-L75",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Data-Structures/Stack/Stack.js#L48-L50"
+        },
+        {
+          "key": "thealgorithms:Maths/Area.js:18|Maths/Area.js:76",
+          "type": 3,
+          "similarity": 0.95,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Maths/Area.js#L18-L21",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Maths/Area.js#L76-L79"
+        },
+        {
+          "key": "thealgorithms:Recursive/FloodFill.js:41|Recursive/FloodFill.js:65",
+          "type": 3,
+          "similarity": 0.8455284552845529,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Recursive/FloodFill.js#L41-L55",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Recursive/FloodFill.js#L65-L74"
+        },
+        {
+          "key": "thealgorithms:Maths/Volume.js:53|Maths/Volume.js:88",
+          "type": 3,
+          "similarity": 0.90625,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Maths/Volume.js#L53-L58",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Maths/Volume.js#L88-L93"
+        },
+        {
+          "key": "thealgorithms:Graphs/DepthFirstSearchIterative.js:12|Graphs/PrimMST.js:157",
+          "type": 3,
+          "similarity": 0.8869565217391304,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Graphs/DepthFirstSearchIterative.js#L12-L18",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Graphs/PrimMST.js#L157-L163"
+        },
+        {
+          "key": "thealgorithms:Dynamic-Programming/ClimbingStairs.js:19|Recursive/FibonacciNumberRecursive.js:10",
+          "type": 3,
+          "similarity": 0.9545454545454546,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Dynamic-Programming/ClimbingStairs.js#L19-L23",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Recursive/FibonacciNumberRecursive.js#L10-L13"
+        },
+        {
+          "key": "thealgorithms:Hashes/SHA1.js:21|Hashes/SHA256.js:32",
+          "type": 1,
+          "similarity": 1,
+          "a": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Hashes/SHA1.js#L21-L27",
+          "b": "https://github.com/TheAlgorithms/JavaScript/blob/ee605b7694f9237574bd8b6ebbe45da253fd05f8/Hashes/SHA256.js#L32-L38"
+        }
+      ]
+    }
+  },
+  {
+    "id": "excalidraw",
+    "repo": "excalidraw/excalidraw",
+    "sha": "14bb42edee3d6fee6be264e3ee78670b3b9cee79",
+    "date": "2026-10-27",
+    "group": "react",
+    "files": {
+      "production": 503,
+      "test": 162,
+      "story": 0
+    },
+    "loc": {
+      "production": 132704,
+      "test": 66839,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 2937,
+      "test": 16657,
+      "story": 0
+    },
+    "units": 5148,
+    "pairs": 2214,
+    "pairsByType": [
+      22,
+      489,
+      1703
+    ],
+    "classes": 287,
+    "classesByType": [
+      10,
+      36,
+      241
+    ],
+    "classesByKind": {
+      "component": 17,
+      "hook": 0,
+      "test": 227,
+      "story": 0,
+      "other": 43
+    },
+    "largestClass": 52,
+    "parseErrors": 0,
+    "durationMs": 930,
+    "jscpd": {
+      "percentage": 7.038237374325183,
+      "durationMs": 109
+    },
+    "sample": [
+      {
+        "key": "excalidraw:packages/element/tests/align.test.tsx:226|packages/element/tests/align.test.tsx:386",
+        "type": 3,
+        "similarity": 0.8739495798319328,
+        "a": "https://github.com/excalidraw/excalidraw/blob/14bb42edee3d6fee6be264e3ee78670b3b9cee79/packages/element/tests/align.test.tsx#L226-L238",
+        "b": "https://github.com/excalidraw/excalidraw/blob/14bb42edee3d6fee6be264e3ee78670b3b9cee79/packages/element/tests/align.test.tsx#L386-L400"
+      },
+      {
+        "key": "excalidraw:packages/element/src/delta.ts:1990|packages/element/src/delta.ts:2014",
+        "type": 3,
+        "similarity": 0.8711656441717791,
+        "a": "https://github.com/excalidraw/excalidraw/blob/14bb42edee3d6fee6be264e3ee78670b3b9cee79/packages/element/src/delta.ts#L1990-L2008",
+        "b": "https://github.com/excalidraw/excalidraw/blob/14bb42edee3d6fee6be264e3ee78670b3b9cee79/packages/element/src/delta.ts#L2014-L2042"
+      },
+      {
+        "key": "excalidraw:packages/excalidraw/tests/charts.test.tsx:59|packages/excalidraw/tests/charts.test.tsx:78",
+        "type": 3,
+        "similarity": 0.9557522123893806,
+        "a": "https://github.com/excalidraw/excalidraw/blob/14bb42edee3d6fee6be264e3ee78670b3b9cee79/packages/excalidraw/tests/charts.test.tsx#L59-L76",
+        "b": "https://github.com/excalidraw/excalidraw/blob/14bb42edee3d6fee6be264e3ee78670b3b9cee79/packages/excalidraw/tests/charts.test.tsx#L78-L97"
+      }
+    ]
+  },
+  {
+    "id": "outline",
+    "repo": "outline/outline",
+    "sha": "6a2f23c023b952c752dfe025ef0ce2a0083cd0c1",
+    "date": "2026-10-28",
+    "group": "react",
+    "files": {
+      "production": 1159,
+      "test": 117,
+      "story": 0
+    },
+    "loc": {
+      "production": 145032,
+      "test": 12334,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 6253,
+      "test": 4127,
+      "story": 0
+    },
+    "units": 3822,
+    "pairs": 892,
+    "pairsByType": [
+      27,
+      119,
+      746
+    ],
+    "classes": 191,
+    "classesByType": [
+      13,
+      32,
+      146
+    ],
+    "classesByKind": {
+      "component": 16,
+      "hook": 4,
+      "test": 57,
+      "story": 0,
+      "other": 114
+    },
+    "largestClass": 45,
+    "parseErrors": 0,
+    "durationMs": 559,
+    "jscpd": {
+      "percentage": 3.4001228268543127,
+      "durationMs": 70
+    },
+    "sample": [
+      {
+        "key": "outline:shared/helpers/AuthenticationHelper.test.ts:64|shared/helpers/AuthenticationHelper.test.ts:76",
+        "type": 3,
+        "similarity": 0.9325153374233128,
+        "a": "https://github.com/outline/outline/blob/6a2f23c023b952c752dfe025ef0ce2a0083cd0c1/shared/helpers/AuthenticationHelper.test.ts#L64-L74",
+        "b": "https://github.com/outline/outline/blob/6a2f23c023b952c752dfe025ef0ce2a0083cd0c1/shared/helpers/AuthenticationHelper.test.ts#L76-L87"
+      },
+      {
+        "key": "outline:shared/editor/commands/codeFence.ts:18|shared/editor/commands/codeFence.ts:43",
+        "type": 2,
+        "similarity": 1,
+        "a": "https://github.com/outline/outline/blob/6a2f23c023b952c752dfe025ef0ce2a0083cd0c1/shared/editor/commands/codeFence.ts#L18-L35",
+        "b": "https://github.com/outline/outline/blob/6a2f23c023b952c752dfe025ef0ce2a0083cd0c1/shared/editor/commands/codeFence.ts#L43-L60"
+      },
+      {
+        "key": "outline:app/components/CommandBar/SearchIndex.test.ts:192|app/components/CommandBar/SearchIndex.test.ts:275",
+        "type": 3,
+        "similarity": 0.8225806451612904,
+        "a": "https://github.com/outline/outline/blob/6a2f23c023b952c752dfe025ef0ce2a0083cd0c1/app/components/CommandBar/SearchIndex.test.ts#L192-L204",
+        "b": "https://github.com/outline/outline/blob/6a2f23c023b952c752dfe025ef0ce2a0083cd0c1/app/components/CommandBar/SearchIndex.test.ts#L275-L285"
+      }
+    ]
+  },
+  {
+    "id": "mastodon",
+    "repo": "mastodon/mastodon",
+    "sha": "b0555670b3d24d6e4a977a6bc3894daa128123fa",
+    "date": "2026-10-27",
+    "group": "react",
+    "files": {
+      "production": 862,
+      "test": 33,
+      "story": 51
+    },
+    "loc": {
+      "production": 90824,
+      "test": 2976,
+      "story": 4059
+    },
+    "clonedLoc": {
+      "production": 3666,
+      "test": 378,
+      "story": 86
+    },
+    "units": 2189,
+    "pairs": 504,
+    "pairsByType": [
+      8,
+      94,
+      402
+    ],
+    "classes": 95,
+    "classesByType": [
+      3,
+      22,
+      70
+    ],
+    "classesByKind": {
+      "component": 19,
+      "hook": 2,
+      "test": 10,
+      "story": 3,
+      "other": 61
+    },
+    "largestClass": 20,
+    "parseErrors": 0,
+    "durationMs": 314,
+    "jscpd": {
+      "percentage": 1.743863851695597,
+      "durationMs": 56
+    },
+    "sample": [
+      {
+        "key": "mastodon:app/javascript/mastodon/features/notifications_v2/components/notification_quoted_update.tsx:20|app/javascript/mastodon/features/notifications_v2/components/notification_update.tsx:20",
+        "type": 1,
+        "similarity": 1,
+        "a": "https://github.com/mastodon/mastodon/blob/b0555670b3d24d6e4a977a6bc3894daa128123fa/app/javascript/mastodon/features/notifications_v2/components/notification_quoted_update.tsx#L20-L31",
+        "b": "https://github.com/mastodon/mastodon/blob/b0555670b3d24d6e4a977a6bc3894daa128123fa/app/javascript/mastodon/features/notifications_v2/components/notification_update.tsx#L20-L31"
+      },
+      {
+        "key": "mastodon:app/javascript/mastodon/actions/announcements.js:139|app/javascript/mastodon/actions/statuses.js:325",
+        "type": 3,
+        "similarity": 0.8,
+        "a": "https://github.com/mastodon/mastodon/blob/b0555670b3d24d6e4a977a6bc3894daa128123fa/app/javascript/mastodon/actions/announcements.js#L139-L147",
+        "b": "https://github.com/mastodon/mastodon/blob/b0555670b3d24d6e4a977a6bc3894daa128123fa/app/javascript/mastodon/actions/statuses.js#L325-L333"
+      },
+      {
+        "key": "mastodon:app/javascript/mastodon/actions/accounts.js:294|app/javascript/mastodon/actions/trends.js:85",
+        "type": 3,
+        "similarity": 0.8225806451612904,
+        "a": "https://github.com/mastodon/mastodon/blob/b0555670b3d24d6e4a977a6bc3894daa128123fa/app/javascript/mastodon/actions/accounts.js#L294-L300",
+        "b": "https://github.com/mastodon/mastodon/blob/b0555670b3d24d6e4a977a6bc3894daa128123fa/app/javascript/mastodon/actions/trends.js#L85-L89"
+      }
+    ]
+  },
+  {
+    "id": "element-web",
+    "repo": "element-hq/element-web",
+    "sha": "c4b8799e5581a460f1557f130a74972917011f2d",
+    "date": "2026-10-27",
+    "group": "react",
+    "files": {
+      "production": 1450,
+      "test": 824,
+      "story": 0
+    },
+    "loc": {
+      "production": 194294,
+      "test": 134761,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 3253,
+      "test": 25511,
+      "story": 0
+    },
+    "units": 11361,
+    "pairs": 1996,
+    "pairsByType": [
+      33,
+      297,
+      1666
+    ],
+    "classes": 719,
+    "classesByType": [
+      15,
+      96,
+      608
+    ],
+    "classesByKind": {
+      "component": 11,
+      "hook": 2,
+      "test": 640,
+      "story": 0,
+      "other": 66
+    },
+    "largestClass": 20,
+    "parseErrors": 14,
+    "durationMs": 2383,
+    "jscpd": {
+      "percentage": 4.420688887593345,
+      "durationMs": 137
+    },
+    "sample": [
+      {
+        "key": "element-web:apps/web/src/events/EventTileFactory.tsx:448|apps/web/src/events/EventTileFactory.tsx:513",
+        "type": 3,
+        "similarity": 0.8952380952380953,
+        "a": "https://github.com/element-hq/element-web/blob/c4b8799e5581a460f1557f130a74972917011f2d/apps/web/src/events/EventTileFactory.tsx#L448-L464",
+        "b": "https://github.com/element-hq/element-web/blob/c4b8799e5581a460f1557f130a74972917011f2d/apps/web/src/events/EventTileFactory.tsx#L513-L527"
+      },
+      {
+        "key": "element-web:apps/web/src/utils/arrays.test.ts:258|apps/web/src/utils/arrays.test.ts:270",
+        "type": 3,
+        "similarity": 0.9310344827586207,
+        "a": "https://github.com/element-hq/element-web/blob/c4b8799e5581a460f1557f130a74972917011f2d/apps/web/src/utils/arrays.test.ts#L258-L268",
+        "b": "https://github.com/element-hq/element-web/blob/c4b8799e5581a460f1557f130a74972917011f2d/apps/web/src/utils/arrays.test.ts#L270-L281"
+      },
+      {
+        "key": "element-web:apps/web/src/components/structures/MessagePanel.test.tsx:154|apps/web/src/components/structures/MessagePanel.test.tsx:213",
+        "type": 3,
+        "similarity": 0.8333333333333334,
+        "a": "https://github.com/element-hq/element-web/blob/c4b8799e5581a460f1557f130a74972917011f2d/apps/web/src/components/structures/MessagePanel.test.tsx#L154-L168",
+        "b": "https://github.com/element-hq/element-web/blob/c4b8799e5581a460f1557f130a74972917011f2d/apps/web/src/components/structures/MessagePanel.test.tsx#L213-L235"
+      }
+    ]
+  },
+  {
+    "id": "jitsi-meet",
+    "repo": "jitsi/jitsi-meet",
+    "sha": "0fc01ad1591dad0c92737cf8354376749eafd6dc",
+    "date": "2026-10-28",
+    "group": "react",
+    "files": {
+      "production": 1981,
+      "test": 11,
+      "story": 0
+    },
+    "loc": {
+      "production": 196720,
+      "test": 621,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 4924,
+      "test": 37,
+      "story": 0
+    },
+    "units": 3416,
+    "pairs": 323,
+    "pairsByType": [
+      9,
+      44,
+      270
+    ],
+    "classes": 85,
+    "classesByType": [
+      6,
+      13,
+      66
+    ],
+    "classesByKind": {
+      "component": 14,
+      "hook": 0,
+      "test": 1,
+      "story": 0,
+      "other": 70
+    },
+    "largestClass": 37,
+    "parseErrors": 0,
+    "durationMs": 510,
+    "jscpd": {
+      "percentage": 1.4618165386353366,
+      "durationMs": 71
+    },
+    "sample": [
+      {
+        "key": "jitsi-meet:react/features/calendar-sync/components/CalendarListContent.native.tsx:60|react/features/chat/components/web/ChatInput.tsx:153",
+        "type": 3,
+        "similarity": 0.8554913294797688,
+        "a": "https://github.com/jitsi/jitsi-meet/blob/0fc01ad1591dad0c92737cf8354376749eafd6dc/react/features/calendar-sync/components/CalendarListContent.native.tsx#L60-L71",
+        "b": "https://github.com/jitsi/jitsi-meet/blob/0fc01ad1591dad0c92737cf8354376749eafd6dc/react/features/chat/components/web/ChatInput.tsx#L153-L164"
+      },
+      {
+        "key": "jitsi-meet:react/features/voice-agents/actions.ts:109|react/features/voice-agents/actions.ts:128",
+        "type": 2,
+        "similarity": 1,
+        "a": "https://github.com/jitsi/jitsi-meet/blob/0fc01ad1591dad0c92737cf8354376749eafd6dc/react/features/voice-agents/actions.ts#L109-L119",
+        "b": "https://github.com/jitsi/jitsi-meet/blob/0fc01ad1591dad0c92737cf8354376749eafd6dc/react/features/voice-agents/actions.ts#L128-L138"
+      },
+      {
+        "key": "jitsi-meet:react/features/welcome/components/Tabs.tsx:73|react/features/welcome/components/Tabs.tsx:87",
+        "type": 3,
+        "similarity": 0.835820895522388,
+        "a": "https://github.com/jitsi/jitsi-meet/blob/0fc01ad1591dad0c92737cf8354376749eafd6dc/react/features/welcome/components/Tabs.tsx#L73-L85",
+        "b": "https://github.com/jitsi/jitsi-meet/blob/0fc01ad1591dad0c92737cf8354376749eafd6dc/react/features/welcome/components/Tabs.tsx#L87-L97"
+      }
+    ]
+  },
+  {
+    "id": "twenty",
+    "repo": "twentyhq/twenty",
+    "sha": "ad7f4e9d8bb9d3d7e253a3f4d6f467aed9a96c72",
+    "date": "2026-10-28",
+    "group": "react",
+    "files": {
+      "production": 9183,
+      "test": 1728,
+      "story": 471
+    },
+    "loc": {
+      "production": 454660,
+      "test": 173983,
+      "story": 70249
+    },
+    "clonedLoc": {
+      "production": 17488,
+      "test": 46043,
+      "story": 8500
+    },
+    "units": 15313,
+    "pairs": 7075,
+    "pairsByType": [
+      99,
+      495,
+      6481
+    ],
+    "classes": 920,
+    "classesByType": [
+      25,
+      108,
+      787
+    ],
+    "classesByKind": {
+      "component": 66,
+      "hook": 52,
+      "test": 549,
+      "story": 99,
+      "other": 154
+    },
+    "largestClass": 397,
+    "parseErrors": 0,
+    "durationMs": 3849,
+    "jscpd": {
+      "percentage": 4.882453575045414,
+      "durationMs": 311
+    },
+    "sample": [
+      {
+        "key": "twenty:packages/twenty-front/src/modules/page-layout/utils/__tests__/getTabsByDisplayMode.test.ts:125|packages/twenty-front/src/modules/page-layout/utils/__tests__/getTabsByDisplayMode.test.ts:230",
+        "type": 3,
+        "similarity": 0.8244274809160306,
+        "a": "https://github.com/twentyhq/twenty/blob/ad7f4e9d8bb9d3d7e253a3f4d6f467aed9a96c72/packages/twenty-front/src/modules/page-layout/utils/__tests__/getTabsByDisplayMode.test.ts#L125-L138",
+        "b": "https://github.com/twentyhq/twenty/blob/ad7f4e9d8bb9d3d7e253a3f4d6f467aed9a96c72/packages/twenty-front/src/modules/page-layout/utils/__tests__/getTabsByDisplayMode.test.ts#L230-L245"
+      },
+      {
+        "key": "twenty:packages/twenty-front/src/modules/auth/utils/__tests__/isValidReturnToPath.test.ts:3|packages/twenty-front/src/utils/__tests__/compareNonEmptyStrings.test.ts:3",
+        "type": 3,
+        "similarity": 0.8423005565862709,
+        "a": "https://github.com/twentyhq/twenty/blob/ad7f4e9d8bb9d3d7e253a3f4d6f467aed9a96c72/packages/twenty-front/src/modules/auth/utils/__tests__/isValidReturnToPath.test.ts#L3-L55",
+        "b": "https://github.com/twentyhq/twenty/blob/ad7f4e9d8bb9d3d7e253a3f4d6f467aed9a96c72/packages/twenty-front/src/utils/__tests__/compareNonEmptyStrings.test.ts#L3-L51"
+      },
+      {
+        "key": "twenty:packages/twenty-front/src/modules/ai/components/__stories__/AiChatInlineBanner.stories.tsx:34|packages/twenty-front/src/modules/sse-db-event/components/__stories__/SSEProvider.stories.tsx:128",
+        "type": 3,
+        "similarity": 0.8,
+        "a": "https://github.com/twentyhq/twenty/blob/ad7f4e9d8bb9d3d7e253a3f4d6f467aed9a96c72/packages/twenty-front/src/modules/ai/components/__stories__/AiChatInlineBanner.stories.tsx#L34-L42",
+        "b": "https://github.com/twentyhq/twenty/blob/ad7f4e9d8bb9d3d7e253a3f4d6f467aed9a96c72/packages/twenty-front/src/modules/sse-db-event/components/__stories__/SSEProvider.stories.tsx#L128-L141"
+      }
+    ]
+  },
+  {
+    "id": "plane",
+    "repo": "makeplane/plane",
+    "sha": "a9e70360c5bc5b1beb5f70fe4c2fa765743147ec",
+    "date": "2026-10-26",
+    "group": "react",
+    "files": {
+      "production": 1842,
+      "test": 0,
+      "story": 0
+    },
+    "loc": {
+      "production": 160578,
+      "test": 0,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 21258,
+      "test": 0,
+      "story": 0
+    },
+    "units": 3492,
+    "pairs": 3578,
+    "pairsByType": [
+      60,
+      579,
+      2939
+    ],
+    "classes": 269,
+    "classesByType": [
+      17,
+      41,
+      211
+    ],
+    "classesByKind": {
+      "component": 61,
+      "hook": 3,
+      "test": 0,
+      "story": 0,
+      "other": 205
+    },
+    "largestClass": 100,
+    "parseErrors": 0,
+    "durationMs": 603,
+    "jscpd": {
+      "percentage": 7.645608592990416,
+      "durationMs": 98
+    },
+    "sample": [
+      {
+        "key": "plane:apps/web/services/integrations/github.service.ts:28|apps/web/services/issue/issue.service.ts:378",
+        "type": 3,
+        "similarity": 0.8932038834951457,
+        "a": "https://github.com/makeplane/plane/blob/a9e70360c5bc5b1beb5f70fe4c2fa765743147ec/apps/web/services/integrations/github.service.ts#L28-L36",
+        "b": "https://github.com/makeplane/plane/blob/a9e70360c5bc5b1beb5f70fe4c2fa765743147ec/apps/web/services/issue/issue.service.ts#L378-L390"
+      },
+      {
+        "key": "plane:apps/web/components/core/modals/bulk-delete-issues-modal.tsx:69|apps/web/components/inbox/modals/select-duplicate.tsx:57",
+        "type": 1,
+        "similarity": 1,
+        "a": "https://github.com/makeplane/plane/blob/a9e70360c5bc5b1beb5f70fe4c2fa765743147ec/apps/web/components/core/modals/bulk-delete-issues-modal.tsx#L69-L80",
+        "b": "https://github.com/makeplane/plane/blob/a9e70360c5bc5b1beb5f70fe4c2fa765743147ec/apps/web/components/inbox/modals/select-duplicate.tsx#L57-L68"
+      },
+      {
+        "key": "plane:apps/web/components/issues/issue-modal/components/default-properties.tsx:207|apps/web/components/project/create/header.tsx:59",
+        "type": 3,
+        "similarity": 0.864,
+        "a": "https://github.com/makeplane/plane/blob/a9e70360c5bc5b1beb5f70fe4c2fa765743147ec/apps/web/components/issues/issue-modal/components/default-properties.tsx#L207-L220",
+        "b": "https://github.com/makeplane/plane/blob/a9e70360c5bc5b1beb5f70fe4c2fa765743147ec/apps/web/components/project/create/header.tsx#L59-L70"
+      }
+    ]
+  },
+  {
+    "id": "bluesky",
+    "repo": "bluesky-social/social-app",
+    "sha": "1a1a3ceea1e72b62496e954619d7d8715717689c",
+    "date": "2026-10-28",
+    "group": "react",
+    "files": {
+      "production": 1841,
+      "test": 164,
+      "story": 0
+    },
+    "loc": {
+      "production": 243231,
+      "test": 28720,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 15157,
+      "test": 3521,
+      "story": 0
+    },
+    "units": 5668,
+    "pairs": 918,
+    "pairsByType": [
+      60,
+      156,
+      702
+    ],
+    "classes": 295,
+    "classesByType": [
+      30,
+      48,
+      217
+    ],
+    "classesByKind": {
+      "component": 64,
+      "hook": 30,
+      "test": 83,
+      "story": 0,
+      "other": 118
+    },
+    "largestClass": 21,
+    "parseErrors": 0,
+    "durationMs": 1029,
+    "jscpd": {
+      "percentage": 4.5948876839659185,
+      "durationMs": 105
+    },
+    "sample": [
+      {
+        "key": "bluesky:src/lib/appState.test.ts:186|src/lib/appState.test.ts:268",
+        "type": 3,
+        "similarity": 0.9719626168224299,
+        "a": "https://github.com/bluesky-social/social-app/blob/1a1a3ceea1e72b62496e954619d7d8715717689c/src/lib/appState.test.ts#L186-L194",
+        "b": "https://github.com/bluesky-social/social-app/blob/1a1a3ceea1e72b62496e954619d7d8715717689c/src/lib/appState.test.ts#L268-L276"
+      },
+      {
+        "key": "bluesky:src/state/queries/find-contacts.ts:50|src/state/queries/messages/join-requests.ts:71",
+        "type": 3,
+        "similarity": 0.9636363636363636,
+        "a": "https://github.com/bluesky-social/social-app/blob/1a1a3ceea1e72b62496e954619d7d8715717689c/src/state/queries/find-contacts.ts#L50-L60",
+        "b": "https://github.com/bluesky-social/social-app/blob/1a1a3ceea1e72b62496e954619d7d8715717689c/src/state/queries/messages/join-requests.ts#L71-L82"
+      },
+      {
+        "key": "bluesky:src/view/shell/Drawer.tsx:654|src/view/shell/Drawer.tsx:720",
+        "type": 3,
+        "similarity": 0.8780487804878049,
+        "a": "https://github.com/bluesky-social/social-app/blob/1a1a3ceea1e72b62496e954619d7d8715717689c/src/view/shell/Drawer.tsx#L654-L677",
+        "b": "https://github.com/bluesky-social/social-app/blob/1a1a3ceea1e72b62496e954619d7d8715717689c/src/view/shell/Drawer.tsx#L720-L742"
+      }
+    ]
+  },
+  {
+    "id": "signal-desktop",
+    "repo": "signalapp/Signal-Desktop",
+    "sha": "17502b9d1a9e34af689f31508c4ac4ccee5b5cb7",
+    "date": "2026-10-20",
+    "group": "react",
+    "files": {
+      "production": 1866,
+      "test": 489,
+      "story": 329
+    },
+    "loc": {
+      "production": 348333,
+      "test": 105339,
+      "story": 45349
+    },
+    "clonedLoc": {
+      "production": 11542,
+      "test": 28633,
+      "story": 7976
+    },
+    "units": 9827,
+    "pairs": 2489,
+    "pairsByType": [
+      23,
+      423,
+      2043
+    ],
+    "classes": 617,
+    "classesByType": [
+      15,
+      95,
+      507
+    ],
+    "classesByKind": {
+      "component": 27,
+      "hook": 2,
+      "test": 331,
+      "story": 94,
+      "other": 163
+    },
+    "largestClass": 50,
+    "parseErrors": 1,
+    "durationMs": 1927,
+    "jscpd": {
+      "percentage": 5.203984334175524,
+      "durationMs": 160
+    },
+    "sample": [
+      {
+        "key": "signal-desktop:ts/test-node/sql/migration_920_test.node.ts:155|ts/test-node/sql/migration_920_test.node.ts:299",
+        "type": 2,
+        "similarity": 1,
+        "a": "https://github.com/signalapp/Signal-Desktop/blob/17502b9d1a9e34af689f31508c4ac4ccee5b5cb7/ts/test-node/sql/migration_920_test.node.ts#L155-L170",
+        "b": "https://github.com/signalapp/Signal-Desktop/blob/17502b9d1a9e34af689f31508c4ac4ccee5b5cb7/ts/test-node/sql/migration_920_test.node.ts#L299-L314"
+      },
+      {
+        "key": "signal-desktop:ts/components/LeftPane.dom.stories.tsx:1166|ts/components/LeftPane.dom.stories.tsx:1190",
+        "type": 3,
+        "similarity": 0.9482758620689655,
+        "a": "https://github.com/signalapp/Signal-Desktop/blob/17502b9d1a9e34af689f31508c4ac4ccee5b5cb7/ts/components/LeftPane.dom.stories.tsx#L1166-L1188",
+        "b": "https://github.com/signalapp/Signal-Desktop/blob/17502b9d1a9e34af689f31508c4ac4ccee5b5cb7/ts/components/LeftPane.dom.stories.tsx#L1190-L1212"
+      },
+      {
+        "key": "signal-desktop:ts/util/iterables.std.ts:67|ts/util/iterables.std.ts:115",
+        "type": 2,
+        "similarity": 1,
+        "a": "https://github.com/signalapp/Signal-Desktop/blob/17502b9d1a9e34af689f31508c4ac4ccee5b5cb7/ts/util/iterables.std.ts#L67-L82",
+        "b": "https://github.com/signalapp/Signal-Desktop/blob/17502b9d1a9e34af689f31508c4ac4ccee5b5cb7/ts/util/iterables.std.ts#L115-L127"
+      }
+    ]
+  },
+  {
+    "id": "grafana",
+    "repo": "grafana/grafana",
+    "sha": "e0555671bcb0a46fe9bd97114ee4700566e6c44a",
+    "date": "2026-10-28",
+    "group": "react",
+    "files": {
+      "production": 4743,
+      "test": 2421,
+      "story": 0
+    },
+    "loc": {
+      "production": 565927,
+      "test": 490758,
+      "story": 0
+    },
+    "clonedLoc": {
+      "production": 21732,
+      "test": 147894,
+      "story": 0
+    },
+    "units": 39276,
+    "pairs": 16051,
+    "pairsByType": [
+      266,
+      1618,
+      14167
+    ],
+    "classes": 3202,
+    "classesByType": [
+      127,
+      416,
+      2659
+    ],
+    "classesByKind": {
+      "component": 80,
+      "hook": 11,
+      "test": 2768,
+      "story": 0,
+      "other": 343
+    },
+    "largestClass": 429,
+    "parseErrors": 0,
+    "durationMs": 12244,
+    "jscpd": {
+      "percentage": 8.277124360234552,
+      "durationMs": 449
+    },
+    "sample": [
+      {
+        "key": "grafana:public/app/features/dimensions/editors/ThresholdsEditor/ThresholdsEditor.test.tsx:281|public/app/features/dimensions/editors/ThresholdsEditor/ThresholdsEditor.test.tsx:538",
+        "type": 3,
+        "similarity": 0.991869918699187,
+        "a": "https://github.com/grafana/grafana/blob/e0555671bcb0a46fe9bd97114ee4700566e6c44a/public/app/features/dimensions/editors/ThresholdsEditor/ThresholdsEditor.test.tsx#L281-L308",
+        "b": "https://github.com/grafana/grafana/blob/e0555671bcb0a46fe9bd97114ee4700566e6c44a/public/app/features/dimensions/editors/ThresholdsEditor/ThresholdsEditor.test.tsx#L538-L564"
+      },
+      {
+        "key": "grafana:public/app/features/dashboard-scene/pages/DashboardScenePage.test.tsx:225|public/app/features/home/Recommendations/NoDataCard.test.tsx:35",
+        "type": 3,
+        "similarity": 0.8130081300813008,
+        "a": "https://github.com/grafana/grafana/blob/e0555671bcb0a46fe9bd97114ee4700566e6c44a/public/app/features/dashboard-scene/pages/DashboardScenePage.test.tsx#L225-L235",
+        "b": "https://github.com/grafana/grafana/blob/e0555671bcb0a46fe9bd97114ee4700566e6c44a/public/app/features/home/Recommendations/NoDataCard.test.tsx#L35-L42"
+      },
+      {
+        "key": "grafana:public/app/features/dashboard-scene/mutation-api/commands/layoutCommands.test.ts:343|public/app/features/dashboard-scene/mutation-api/commands/layoutCommands.test.ts:2425",
+        "type": 3,
+        "similarity": 0.8672566371681416,
+        "a": "https://github.com/grafana/grafana/blob/e0555671bcb0a46fe9bd97114ee4700566e6c44a/public/app/features/dashboard-scene/mutation-api/commands/layoutCommands.test.ts#L343-L354",
+        "b": "https://github.com/grafana/grafana/blob/e0555671bcb0a46fe9bd97114ee4700566e6c44a/public/app/features/dashboard-scene/mutation-api/commands/layoutCommands.test.ts#L2425-L2433"
+      }
+    ]
+  },
+  {
+    "id": "sentry",
+    "repo": "getsentry/sentry",
+    "sha": "2894b630364ed2d1f38db38c9474d6a4a3851b59",
+    "date": "2026-10-28",
+    "group": "react",
+    "files": {
+      "production": 6348,
+      "test": 2254,
+      "story": 101
+    },
+    "loc": {
+      "production": 798084,
+      "test": 446791,
+      "story": 21785
+    },
+    "clonedLoc": {
+      "production": 50432,
+      "test": 147827,
+      "story": 2638
+    },
+    "units": 33648,
+    "pairs": 47943,
+    "pairsByType": [
+      574,
+      2842,
+      44527
+    ],
+    "classes": 2359,
+    "classesByType": [
+      80,
+      298,
+      1981
+    ],
+    "classesByKind": {
+      "component": 121,
+      "hook": 30,
+      "test": 1791,
+      "story": 38,
+      "other": 379
+    },
+    "largestClass": 855,
+    "parseErrors": 1,
+    "durationMs": 9922,
+    "jscpd": {
+      "percentage": 9.91631994963031,
+      "durationMs": 548
+    },
+    "sample": [
+      {
+        "key": "sentry:static/app/views/issueList/issueViews/renameIssueViewModal.tsx:72|static/app/views/settings/project/projectFilters/customFilterModal.tsx:954",
+        "type": 3,
+        "similarity": 0.896551724137931,
+        "a": "https://github.com/getsentry/sentry/blob/2894b630364ed2d1f38db38c9474d6a4a3851b59/static/app/views/issueList/issueViews/renameIssueViewModal.tsx#L72-L81",
+        "b": "https://github.com/getsentry/sentry/blob/2894b630364ed2d1f38db38c9474d6a4a3851b59/static/app/views/settings/project/projectFilters/customFilterModal.tsx#L954-L966"
+      },
+      {
+        "key": "sentry:static/app/components/searchQueryBuilder/index.spec.tsx:2680|static/app/components/searchQueryBuilder/index.spec.tsx:2740",
+        "type": 3,
+        "similarity": 0.9010989010989011,
+        "a": "https://github.com/getsentry/sentry/blob/2894b630364ed2d1f38db38c9474d6a4a3851b59/static/app/components/searchQueryBuilder/index.spec.tsx#L2680-L2701",
+        "b": "https://github.com/getsentry/sentry/blob/2894b630364ed2d1f38db38c9474d6a4a3851b59/static/app/components/searchQueryBuilder/index.spec.tsx#L2740-L2765"
+      },
+      {
+        "key": "sentry:static/app/gettingStartedDocs/javascript-nuxt/feedback.tsx:33|static/app/gettingStartedDocs/javascript-remix/feedback.tsx:33",
+        "type": 3,
+        "similarity": 0.8114285714285714,
+        "a": "https://github.com/getsentry/sentry/blob/2894b630364ed2d1f38db38c9474d6a4a3851b59/static/app/gettingStartedDocs/javascript-nuxt/feedback.tsx#L33-L68",
+        "b": "https://github.com/getsentry/sentry/blob/2894b630364ed2d1f38db38c9474d6a4a3851b59/static/app/gettingStartedDocs/javascript-remix/feedback.tsx#L33-L76"
+      }
+    ]
+  },
+  {
+    "id": "posthog",
+    "repo": "PostHog/posthog",
+    "sha": "0ee77d1d3dca8a6f357bebf7dba915e1dcda6cef",
+    "date": "2026-10-28",
+    "group": "react",
+    "files": {
+      "production": 4384,
+      "test": 1338,
+      "story": 389
+    },
+    "loc": {
+      "production": 829041,
+      "test": 270840,
+      "story": 54203
+    },
+    "clonedLoc": {
+      "production": 29400,
+      "test": 43535,
+      "story": 5306
+    },
+    "units": 27944,
+    "pairs": 5273,
+    "pairsByType": [
+      177,
+      705,
+      4391
+    ],
+    "classes": 1375,
+    "classesByType": [
+      54,
+      141,
+      1180
+    ],
+    "classesByKind": {
+      "component": 115,
+      "hook": 2,
+      "test": 806,
+      "story": 72,
+      "other": 380
+    },
+    "largestClass": 71,
+    "parseErrors": 1,
+    "durationMs": 8129,
+    "jscpd": {
+      "percentage": 3.718239145789718,
+      "durationMs": 356
+    },
+    "sample": [
+      {
+        "key": "posthog:frontend/src/scenes/insights/insightVizDataLogic.test.ts:1369|frontend/src/scenes/insights/insightVizDataLogic.test.ts:1525",
+        "type": 3,
+        "similarity": 0.8495575221238938,
+        "a": "https://github.com/PostHog/posthog/blob/0ee77d1d3dca8a6f357bebf7dba915e1dcda6cef/frontend/src/scenes/insights/insightVizDataLogic.test.ts#L1369-L1386",
+        "b": "https://github.com/PostHog/posthog/blob/0ee77d1d3dca8a6f357bebf7dba915e1dcda6cef/frontend/src/scenes/insights/insightVizDataLogic.test.ts#L1525-L1545"
+      },
+      {
+        "key": "posthog:frontend/src/lib/components/MarkdownNotebook/collaboration.test.ts:248|frontend/src/lib/components/MarkdownNotebook/collaboration.test.ts:276",
+        "type": 3,
+        "similarity": 0.9636363636363636,
+        "a": "https://github.com/PostHog/posthog/blob/0ee77d1d3dca8a6f357bebf7dba915e1dcda6cef/frontend/src/lib/components/MarkdownNotebook/collaboration.test.ts#L248-L261",
+        "b": "https://github.com/PostHog/posthog/blob/0ee77d1d3dca8a6f357bebf7dba915e1dcda6cef/frontend/src/lib/components/MarkdownNotebook/collaboration.test.ts#L276-L287"
+      },
+      {
+        "key": "posthog:frontend/src/lib/monaco/domUtils.ts:19|frontend/src/lib/monaco/domUtils.ts:56",
+        "type": 3,
+        "similarity": 0.9469026548672567,
+        "a": "https://github.com/PostHog/posthog/blob/0ee77d1d3dca8a6f357bebf7dba915e1dcda6cef/frontend/src/lib/monaco/domUtils.ts#L19-L54",
+        "b": "https://github.com/PostHog/posthog/blob/0ee77d1d3dca8a6f357bebf7dba915e1dcda6cef/frontend/src/lib/monaco/domUtils.ts#L56-L95"
+      }
+    ]
+  }
+]

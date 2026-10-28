@@ -10,7 +10,7 @@ Finds copy-pasted code in JavaScript, TypeScript and React projects, including c
 
 ![The playground comparing two snippets: a Type-3 clone, 96% similar, with the added statement marked](.github/assets/playground.png)
 
-This started in 2021 as my undergraduate thesis research on code duplication in React apps ([background](#background-the-2021-thesis)). Version 1 is a rewrite, with a benchmark that checks it.
+This started in 2021 as my bachelor's thesis on code duplication in JavaScript applications ([background](#background-the-2021-thesis)). Version 1 is a rewrite, with a benchmark that checks it and an [empirical study](#empirical-study) that uses it.
 
 ## Quick start
 
@@ -61,6 +61,18 @@ steps:
   - uses: github/codeql-action/upload-sarif@v4
     with:
       sarif_file: jscd.sarif
+```
+
+On pull requests, report only the duplication the PR introduces or touches:
+
+```yaml
+- uses: actions/checkout@v5
+  with:
+    fetch-depth: 0
+- uses: felipelealdefaria/javascript-clone-detection@v1
+  with:
+    changed-since: origin/${{ github.base_ref }}
+    fail-on-clones: true
 ```
 
 ### From code
@@ -137,10 +149,10 @@ flowchart LR
    }
    ```
 
-4. **Type-3** pairs are found without comparing every pair. One representative per normalized shape is indexed by 3-token shingles. Each candidate pair must pass two cheap upper bounds, from length and from token counts, before the exact score: 2·LCS / (|a| + |b|) over normalized tokens, computed with a bit-parallel LCS that handles 32 cells of the table per step.
+4. **Type-3** pairs are found without comparing every pair. One representative per normalized shape is indexed by 8-token shingles (plus 3-token shingles for short units). Units are sorted by length, so each one only visits partners whose length can still reach the threshold. A candidate must then pass an upper bound from token counts before the exact score: 2·LCS / (|a| + |b|) over normalized tokens, computed with a bit-parallel LCS that handles 32 cells of the table per step.
 5. **Report.** A clone nested inside a reported clone is dropped, and pairs are grouped into clone classes. Text and SARIF reports list classes; JSON has every pair.
 
-A 1,600-file TypeScript monorepo (5,000 units) takes about 1 s and 370 MB on an M5 Pro.
+On an M5 Pro, grafana's frontend (7,200 files, 1.1 million lines, 39,000 units) takes 12 s, and all 12 apps in the [empirical study](#empirical-study) (6.1 million lines) take 42 s.
 
 ### Design decisions
 
@@ -152,6 +164,7 @@ A 1,600-file TypeScript monorepo (5,000 units) takes about 1 s and 370 MB on an 
 | Units are functions, methods and classes   | Fixed-size token windows (jscpd)            | Reports name what was copied. It misses copies smaller than a function.                                                                         |
 | Default 50-token minimum                   | 30                                          | On a real shadcn/ui project, half the reported units were one-line wrapper components.                                                          |
 | Default threshold 0.8                      | Lower                                       | Precision falls from 88% at 0.7 to 44% at 0.6 ([sweep](benchmark/results/results.md#type-3-threshold-sweep)).                                   |
+| 8-token shingles and a length window       | 3-token shingles only                       | Tuned against an exhaustive run on grafana: 99.9% of its Type-3 pairs at about 1/13 of the cost, with no change on the benchmark.               |
 
 ## Results
 
@@ -168,6 +181,19 @@ On a [mutation-based benchmark](benchmark/README.md): 179 real functions and com
 
 Full results: [benchmark/results/results.md](benchmark/results/results.md). Method and threats to validity: [benchmark/README.md](benchmark/README.md).
 
+## Empirical study
+
+The thesis asked how much real JavaScript code is cloned. [The study](study/README.md) answers it again with v1, in two parts.
+
+**Replication of the thesis** on its three projects, at their 2021 commits. The minimum size explains most of the precision gap. Run like v0.6 (no size minimum), v1's sampled precision is 64%, against v0.6's 68.4%; with the 50-token default it is 96% (26 of 27).
+
+**12 open-source React apps** (excalidraw, grafana, sentry, mastodon, Signal and others; 6.1 million lines):
+
+- **3.8%** of production code (median) sits in a cloned function, method or class; tests are cloned about six times as often (24.9%).
+- 70% of clone classes are in tests. Of the production ones, only 21.5% are components; most are services, thunks, handlers and utilities.
+- **83% of clone classes are Type-3:** copies that were edited after pasting.
+- 31 of 36 sampled pairs are real clones (86%).
+
 ## Limitations
 
 - Type-4 clones (same behavior, different code) are out of scope for a structural detector.
@@ -177,18 +203,20 @@ Full results: [benchmark/results/results.md](benchmark/results/results.md). Meth
 
 ## Background: the 2021 thesis
 
-This project began as my undergraduate thesis research at UTFPR, _Estudo empírico sobre duplicação de código em aplicações React.js_ ([PDF, Portuguese](https://drive.google.com/file/d/1MN8iBSfdD1yGMQ9aV-jwjdwJvRckiLfy/view?usp=sharing)). The study cites estimates that 7–23% of a typical system is cloned code. When it ran JSInspect, jscpd and Code Climate on a small React app, none of them flagged similar components as clones. The goal was a detector that understands React.
+This project began as my bachelor's thesis in Software Engineering at UTFPR, _Estudo empírico sobre duplicação de código em aplicações JavaScript_ (2021, advised by Prof. Dr. Gustavo Jansen de Souza Santos; [UTFPR repository](http://repositorio.utfpr.edu.br/jspui/handle/1/30141), in Portuguese). It cites estimates that 7–23% of a typical system is cloned code. In its [proposal](https://drive.google.com/file/d/1MN8iBSfdD1yGMQ9aV-jwjdwJvRckiLfy/view?usp=sharing), JSInspect, jscpd and Code Climate, run on a small React app, flagged no similar components as clones.
 
-Version 0.6 (2021) proved the core idea: normalizing syntax trees turns arrow-vs-regular and renamed copies into identical text. But it couldn't parse JSX, so it couldn't read React components. It scored with Levenshtein distance on text, compared every pair, wrote its working files into the scanned directory, and had no way to measure accuracy. Version 1 keeps the idea and rebuilds everything else:
+The thesis built v0.6 and ran it on freeCodeCamp, trekhleb/javascript-algorithms and TheAlgorithms/JavaScript. Every candidate was validated by hand: 219 of 320 were real clones (68.4% precision), mostly Type-3. Its conclusion was that manual validation stays necessary, because what counts as a clone depends on the reader.
 
-|            | v0.6 (2021)                                    | v1 (2026)                                                 |
-| ---------- | ---------------------------------------------- | --------------------------------------------------------- |
-| Languages  | JavaScript, no JSX                             | JavaScript, JSX, TypeScript, TSX                          |
-| Units      | Top-level functions                            | Functions, methods, classes, nested                       |
-| Renaming   | Every name → one placeholder                   | Consistent, with separate property names                  |
-| Scoring    | Levenshtein on regenerated code, all pairs     | Hashing, candidate index and bit-parallel LCS             |
-| Output     | A score; files written into the scanned folder | Type-1/2/3 classes; text, JSON or SARIF                   |
-| Evaluation | One hand-written pair per type                 | 179-family benchmark, jscpd baseline, real-code precision |
+Version 0.6 (2021) proved the core idea: normalizing syntax trees turns arrow-vs-regular and renamed copies into identical text. But it couldn't parse JSX, so it couldn't read React components. It scored with Levenshtein distance on text, compared every pair, and wrote its working files into the scanned directory. Version 1 keeps the idea and rebuilds everything else:
+
+|            | v0.6 (2021)                                    | v1 (2026)                                                |
+| ---------- | ---------------------------------------------- | -------------------------------------------------------- |
+| Languages  | JavaScript, no JSX                             | JavaScript, JSX, TypeScript, TSX                         |
+| Units      | Top-level functions                            | Functions, methods, classes, nested                      |
+| Renaming   | Every name → one placeholder                   | Consistent, with separate property names                 |
+| Scoring    | Levenshtein on regenerated code, all pairs     | Hashing, candidate index and bit-parallel LCS            |
+| Output     | A score; files written into the scanned folder | Type-1/2/3 classes; text, JSON or SARIF                  |
+| Evaluation | 3 projects, every candidate validated by hand  | Mutation benchmark vs. jscpd, replication, 12 React apps |
 
 The 2021 examples live on as [test fixtures](test/fixtures/legacy) and as presets in the playground. The original code is at [v0.6.0](https://github.com/felipelealdefaria/javascript-clone-detection/tree/e46ca101352ca0f8dd1e5317982fa9da3a629cab).
 
@@ -202,6 +230,7 @@ npm run typecheck
 npm run build         # dist/
 npm run playground    # local playground at http://localhost:5173
 npm run bench         # benchmark (downloads the corpus once)
+npm run study         # empirical study (fetches 15 projects once)
 ```
 
 Requires Node 22.18 or later.

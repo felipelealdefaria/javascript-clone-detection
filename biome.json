@@ -11,7 +11,9 @@
       "!test/fixtures",
       "!docs",
       "!benchmark/type4",
-      "!benchmark/results"
+      "!benchmark/results",
+      "!study/.cache",
+      "!study/results"
     ]
   },
   "formatter": {
