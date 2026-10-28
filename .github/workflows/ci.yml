@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npm run playground:build
+
+  clones:
+    name: Clone report (dogfooding)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci && npm run build
+      - name: Find clones in this repository
+        run: |
+          node dist/cli.js src playground/src benchmark --ignore "benchmark/type4/**" | tee -a "$GITHUB_STEP_SUMMARY"
+          node dist/cli.js src playground/src benchmark --ignore "benchmark/type4/**" --format sarif --output jscd.sarif
+      - uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: jscd.sarif
+          category: jscd

@@ -1,0 +1,69 @@
+name: JavaScript Clone Detection
+description: Find duplicated code (Type-1, 2 and 3 clones) in JavaScript, TypeScript and React projects.
+author: Luís Felipe Leal de Faria
+branding:
+  icon: copy
+  color: blue
+
+inputs:
+  paths:
+    description: Files or directories to scan, separated by spaces.
+    default: "."
+  threshold:
+    description: Minimum similarity for Type-3 clones, from 0 to 1.
+    default: "0.8"
+  min-tokens:
+    description: Ignore functions smaller than this many normalized tokens.
+    default: "50"
+  ignore:
+    description: Glob patterns to exclude, one per line.
+    default: ""
+  sarif-file:
+    description: Where to write the SARIF report. Upload it with github/codeql-action/upload-sarif.
+    default: jscd.sarif
+  fail-on-clones:
+    description: Fail the step when clones are found.
+    default: "false"
+  version:
+    description: Version of javascript-clone-detection to run from npm.
+    default: "1"
+
+outputs:
+  sarif-file:
+    description: Path of the SARIF report.
+    value: ${{ inputs.sarif-file }}
+
+runs:
+  using: composite
+  steps:
+    - name: Find clones
+      shell: bash
+      env:
+        PATHS: ${{ inputs.paths }}
+        THRESHOLD: ${{ inputs.threshold }}
+        MIN_TOKENS: ${{ inputs.min-tokens }}
+        IGNORE: ${{ inputs.ignore }}
+        SARIF_FILE: ${{ inputs.sarif-file }}
+        FAIL: ${{ inputs.fail-on-clones }}
+        VERSION: ${{ inputs.version }}
+      run: |
+        set -euo pipefail
+        read -r -a paths <<< "$PATHS"
+        args=(--threshold "$THRESHOLD" --min-tokens "$MIN_TOKENS")
+        while IFS= read -r pattern; do
+          [ -n "$pattern" ] && args+=(--ignore "$pattern")
+        done <<< "$IGNORE"
+        jscd=(npx --yes "javascript-clone-detection@$VERSION")
+
+        NO_COLOR=1 "${jscd[@]}" "${paths[@]}" "${args[@]}" > jscd-report.txt
+        {
+          echo '## Clone detection'
+          echo '```'
+          cat jscd-report.txt
+          echo '```'
+        } >> "$GITHUB_STEP_SUMMARY"
+        cat jscd-report.txt
+
+        fail=()
+        [ "$FAIL" = "true" ] && fail=(--fail)
+        "${jscd[@]}" "${paths[@]}" "${args[@]}" --format sarif --output "$SARIF_FILE" ${fail[@]+"${fail[@]}"}

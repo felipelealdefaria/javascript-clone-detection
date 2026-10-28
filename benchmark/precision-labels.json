@@ -1,0 +1,93 @@
+{
+  "_about": "Labels for results/precision-sample.md, made by inspection during the v1 rewrite (AI-assisted). Every sampled pair is shown with its code in results/precision-sample.md, so each label can be audited. clone = the two units are copies of one another (Type-1/2/3); not-clone = coincidental similarity.",
+  "labels": {
+    "reactstrap/src/Col.js:40-49|reactstrap/src/Label.js:42-51": {
+      "label": "clone"
+    },
+    "reactstrap/src/Modal.js:160-176|reactstrap/src/Offcanvas.js:130-146": {
+      "label": "clone"
+    },
+    "lodash-es/_Hash.js:14-23|lodash-es/_MapCache.js:14-23": {
+      "label": "clone"
+    },
+    "reactstrap/src/Modal.js:139-158|reactstrap/src/Offcanvas.js:109-128": {
+      "label": "clone"
+    },
+    "reactstrap/src/Modal.js:178-194|reactstrap/src/Offcanvas.js:148-164": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/collections/Menu/MenuHeader.js:10-21|semantic-ui-react/src/views/Item/ItemExtra.js:16-27": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/views/Card/CardDescription.js:18-29|semantic-ui-react/src/views/Card/CardMeta.js:18-29": {
+      "label": "clone"
+    },
+    "reactstrap/src/UncontrolledButtonDropdown.js:8-29|reactstrap/src/UncontrolledPopover.js:8-29": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/elements/Placeholder/Placeholder.js:20-37|semantic-ui-react/src/elements/Reveal/RevealContent.js:16-34": {
+      "label": "clone"
+    },
+    "reactstrap/src/CardBody.js:20-34|reactstrap/src/ToastBody.js:17-31": {
+      "label": "clone"
+    },
+    "reactstrap/src/Modal.js:279-293|reactstrap/src/Offcanvas.js:227-241": {
+      "label": "clone"
+    },
+    "reactstrap/src/Modal.js:219-244|reactstrap/src/Offcanvas.js:180-205": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/modules/Dropdown/DropdownHeader.js:17-38|semantic-ui-react/src/views/Feed/FeedLike.js:11-32": {
+      "label": "clone"
+    },
+    "lodash-es/intersectionBy.js:31-43|lodash-es/intersectionWith.js:28-39": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/collections/Menu/MenuMenu.js:10-22|semantic-ui-react/src/views/Comment/CommentAction.js:16-28": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/elements/Container/Container.js:18-36|semantic-ui-react/src/modules/Dropdown/DropdownMenu.js:16-33": {
+      "label": "clone"
+    },
+    "reactstrap/src/UncontrolledButtonDropdown.js:8-29|reactstrap/src/UncontrolledDropdown.js:8-36": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/collections/Table/TableHeader.js:16-27|semantic-ui-react/src/elements/Icon/IconGroup.js:11-22": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/collections/Message/MessageList.js:18-29|semantic-ui-react/src/views/Comment/CommentActions.js:10-21": {
+      "label": "clone"
+    },
+    "reactstrap/src/AccordionItem.js:21-35|reactstrap/src/NavItem.js:17-32": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/modules/Rating/RatingIcon.js:34-55|semantic-ui-react/src/modules/Search/SearchResult.js:40-56": {
+      "label": "clone",
+      "note": "Borderline: two render() methods built on the library template (props, cx, getUnhandledProps, ElementType) with different JSX attributes and children."
+    },
+    "semantic-ui-react/src/modules/Modal/ModalHeader.js:16-27|semantic-ui-react/src/views/Comment/CommentContent.js:10-21": {
+      "label": "clone"
+    },
+    "reactstrap/src/NavItem.js:17-32|reactstrap/src/ToastBody.js:17-31": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/modules/Sidebar/SidebarPusher.js:16-28|semantic-ui-react/src/views/Card/CardHeader.js:18-29": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/views/Feed/FeedLike.js:11-32|semantic-ui-react/src/views/Feed/FeedMeta.js:17-38": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/elements/List/ListDescription.js:16-27|semantic-ui-react/src/elements/List/ListHeader.js:16-27": {
+      "label": "clone"
+    },
+    "reactstrap/src/Modal.js:321-354|reactstrap/src/Offcanvas.js:268-301": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/elements/Button/ButtonContent.js:16-32|semantic-ui-react/src/elements/Reveal/RevealContent.js:16-34": {
+      "label": "clone"
+    },
+    "semantic-ui-react/src/views/Card/CardDescription.js:18-29|semantic-ui-react/src/views/Comment/CommentAction.js:16-28": {
+      "label": "clone"
+    }
+  }
+}

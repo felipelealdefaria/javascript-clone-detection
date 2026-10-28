@@ -1,0 +1,836 @@
+{
+  "env": {
+    "date": "2026-10-28",
+    "node": "v24.14.0",
+    "cpu": "Apple M5 Pro",
+    "jscpd": "5.4.2"
+  },
+  "dataset": {
+    "seed": 2021,
+    "candidates": 294,
+    "naturalClonesRemoved": 65,
+    "families": 179,
+    "type4Pairs": 16
+  },
+  "metrics": [
+    {
+      "tool": "jscd (defaults)",
+      "durationMs": 113,
+      "recall": {
+        "t1": {
+          "hits": 179,
+          "total": 179
+        },
+        "t2": {
+          "hits": 179,
+          "total": 179
+        },
+        "t3": {
+          "hits": 140,
+          "total": 179
+        },
+        "t4": {
+          "hits": 0,
+          "total": 16
+        }
+      },
+      "recallByDomain": {
+        "js": {
+          "t1": {
+            "hits": 98,
+            "total": 98
+          },
+          "t2": {
+            "hits": 98,
+            "total": 98
+          },
+          "t3": {
+            "hits": 81,
+            "total": 98
+          }
+        },
+        "react": {
+          "t1": {
+            "hits": 81,
+            "total": 81
+          },
+          "t2": {
+            "hits": 81,
+            "total": 81
+          },
+          "t3": {
+            "hits": 59,
+            "total": 81
+          }
+        }
+      },
+      "t3ByEdits": {
+        "1": {
+          "hits": 63,
+          "total": 66
+        },
+        "2": {
+          "hits": 47,
+          "total": 61
+        },
+        "3": {
+          "hits": 30,
+          "total": 52
+        }
+      },
+      "precision": {
+        "truePositives": 957,
+        "falsePositives": 0
+      }
+    },
+    {
+      "tool": "jscpd (defaults)",
+      "durationMs": 59,
+      "recall": {
+        "t1": {
+          "hits": 138,
+          "total": 179
+        },
+        "t2": {
+          "hits": 1,
+          "total": 179
+        },
+        "t3": {
+          "hits": 0,
+          "total": 179
+        },
+        "t4": {
+          "hits": 0,
+          "total": 16
+        }
+      },
+      "recallByDomain": {
+        "js": {
+          "t1": {
+            "hits": 95,
+            "total": 98
+          },
+          "t2": {
+            "hits": 0,
+            "total": 98
+          },
+          "t3": {
+            "hits": 0,
+            "total": 98
+          }
+        },
+        "react": {
+          "t1": {
+            "hits": 43,
+            "total": 81
+          },
+          "t2": {
+            "hits": 1,
+            "total": 81
+          },
+          "t3": {
+            "hits": 0,
+            "total": 81
+          }
+        }
+      },
+      "t3ByEdits": {
+        "1": {
+          "hits": 0,
+          "total": 66
+        },
+        "2": {
+          "hits": 0,
+          "total": 61
+        },
+        "3": {
+          "hits": 0,
+          "total": 52
+        }
+      },
+      "precision": {
+        "truePositives": 143,
+        "falsePositives": 5
+      }
+    },
+    {
+      "tool": "jscpd (structural)",
+      "durationMs": 78,
+      "recall": {
+        "t1": {
+          "hits": 177,
+          "total": 179
+        },
+        "t2": {
+          "hits": 136,
+          "total": 179
+        },
+        "t3": {
+          "hits": 68,
+          "total": 179
+        },
+        "t4": {
+          "hits": 0,
+          "total": 16
+        }
+      },
+      "recallByDomain": {
+        "js": {
+          "t1": {
+            "hits": 97,
+            "total": 98
+          },
+          "t2": {
+            "hits": 84,
+            "total": 98
+          },
+          "t3": {
+            "hits": 54,
+            "total": 98
+          }
+        },
+        "react": {
+          "t1": {
+            "hits": 80,
+            "total": 81
+          },
+          "t2": {
+            "hits": 52,
+            "total": 81
+          },
+          "t3": {
+            "hits": 14,
+            "total": 81
+          }
+        }
+      },
+      "t3ByEdits": {
+        "1": {
+          "hits": 33,
+          "total": 66
+        },
+        "2": {
+          "hits": 23,
+          "total": 61
+        },
+        "3": {
+          "hits": 12,
+          "total": 52
+        }
+      },
+      "precision": {
+        "truePositives": 616,
+        "falsePositives": 53
+      }
+    }
+  ],
+  "sweep": [
+    {
+      "threshold": 0.6,
+      "metrics": [
+        {
+          "tool": "jscd",
+          "durationMs": 172,
+          "recall": {
+            "t1": {
+              "hits": 179,
+              "total": 179
+            },
+            "t2": {
+              "hits": 179,
+              "total": 179
+            },
+            "t3": {
+              "hits": 165,
+              "total": 179
+            },
+            "t4": {
+              "hits": 0,
+              "total": 16
+            }
+          },
+          "recallByDomain": {
+            "js": {
+              "t1": {
+                "hits": 98,
+                "total": 98
+              },
+              "t2": {
+                "hits": 98,
+                "total": 98
+              },
+              "t3": {
+                "hits": 94,
+                "total": 98
+              }
+            },
+            "react": {
+              "t1": {
+                "hits": 81,
+                "total": 81
+              },
+              "t2": {
+                "hits": 81,
+                "total": 81
+              },
+              "t3": {
+                "hits": 71,
+                "total": 81
+              }
+            }
+          },
+          "t3ByEdits": {
+            "1": {
+              "hits": 64,
+              "total": 66
+            },
+            "2": {
+              "hits": 56,
+              "total": 61
+            },
+            "3": {
+              "hits": 45,
+              "total": 52
+            }
+          },
+          "precision": {
+            "truePositives": 1032,
+            "falsePositives": 1321
+          }
+        },
+        {
+          "tool": "jscpd (structural)",
+          "durationMs": 81,
+          "recall": {
+            "t1": {
+              "hits": 179,
+              "total": 179
+            },
+            "t2": {
+              "hits": 160,
+              "total": 179
+            },
+            "t3": {
+              "hits": 104,
+              "total": 179
+            },
+            "t4": {
+              "hits": 0,
+              "total": 16
+            }
+          },
+          "recallByDomain": {
+            "js": {
+              "t1": {
+                "hits": 98,
+                "total": 98
+              },
+              "t2": {
+                "hits": 90,
+                "total": 98
+              },
+              "t3": {
+                "hits": 83,
+                "total": 98
+              }
+            },
+            "react": {
+              "t1": {
+                "hits": 81,
+                "total": 81
+              },
+              "t2": {
+                "hits": 70,
+                "total": 81
+              },
+              "t3": {
+                "hits": 21,
+                "total": 81
+              }
+            }
+          },
+          "t3ByEdits": {
+            "1": {
+              "hits": 39,
+              "total": 66
+            },
+            "2": {
+              "hits": 38,
+              "total": 61
+            },
+            "3": {
+              "hits": 27,
+              "total": 52
+            }
+          },
+          "precision": {
+            "truePositives": 698,
+            "falsePositives": 71
+          }
+        }
+      ]
+    },
+    {
+      "threshold": 0.7,
+      "metrics": [
+        {
+          "tool": "jscd",
+          "durationMs": 94,
+          "recall": {
+            "t1": {
+              "hits": 179,
+              "total": 179
+            },
+            "t2": {
+              "hits": 179,
+              "total": 179
+            },
+            "t3": {
+              "hits": 157,
+              "total": 179
+            },
+            "t4": {
+              "hits": 0,
+              "total": 16
+            }
+          },
+          "recallByDomain": {
+            "js": {
+              "t1": {
+                "hits": 98,
+                "total": 98
+              },
+              "t2": {
+                "hits": 98,
+                "total": 98
+              },
+              "t3": {
+                "hits": 90,
+                "total": 98
+              }
+            },
+            "react": {
+              "t1": {
+                "hits": 81,
+                "total": 81
+              },
+              "t2": {
+                "hits": 81,
+                "total": 81
+              },
+              "t3": {
+                "hits": 67,
+                "total": 81
+              }
+            }
+          },
+          "t3ByEdits": {
+            "1": {
+              "hits": 64,
+              "total": 66
+            },
+            "2": {
+              "hits": 54,
+              "total": 61
+            },
+            "3": {
+              "hits": 39,
+              "total": 52
+            }
+          },
+          "precision": {
+            "truePositives": 1009,
+            "falsePositives": 133
+          }
+        },
+        {
+          "tool": "jscpd (structural)",
+          "durationMs": 77,
+          "recall": {
+            "t1": {
+              "hits": 179,
+              "total": 179
+            },
+            "t2": {
+              "hits": 157,
+              "total": 179
+            },
+            "t3": {
+              "hits": 91,
+              "total": 179
+            },
+            "t4": {
+              "hits": 0,
+              "total": 16
+            }
+          },
+          "recallByDomain": {
+            "js": {
+              "t1": {
+                "hits": 98,
+                "total": 98
+              },
+              "t2": {
+                "hits": 90,
+                "total": 98
+              },
+              "t3": {
+                "hits": 73,
+                "total": 98
+              }
+            },
+            "react": {
+              "t1": {
+                "hits": 81,
+                "total": 81
+              },
+              "t2": {
+                "hits": 67,
+                "total": 81
+              },
+              "t3": {
+                "hits": 18,
+                "total": 81
+              }
+            }
+          },
+          "t3ByEdits": {
+            "1": {
+              "hits": 37,
+              "total": 66
+            },
+            "2": {
+              "hits": 34,
+              "total": 61
+            },
+            "3": {
+              "hits": 20,
+              "total": 52
+            }
+          },
+          "precision": {
+            "truePositives": 671,
+            "falsePositives": 55
+          }
+        }
+      ]
+    },
+    {
+      "threshold": 0.8,
+      "metrics": [
+        {
+          "tool": "jscd",
+          "durationMs": 70,
+          "recall": {
+            "t1": {
+              "hits": 179,
+              "total": 179
+            },
+            "t2": {
+              "hits": 179,
+              "total": 179
+            },
+            "t3": {
+              "hits": 140,
+              "total": 179
+            },
+            "t4": {
+              "hits": 0,
+              "total": 16
+            }
+          },
+          "recallByDomain": {
+            "js": {
+              "t1": {
+                "hits": 98,
+                "total": 98
+              },
+              "t2": {
+                "hits": 98,
+                "total": 98
+              },
+              "t3": {
+                "hits": 81,
+                "total": 98
+              }
+            },
+            "react": {
+              "t1": {
+                "hits": 81,
+                "total": 81
+              },
+              "t2": {
+                "hits": 81,
+                "total": 81
+              },
+              "t3": {
+                "hits": 59,
+                "total": 81
+              }
+            }
+          },
+          "t3ByEdits": {
+            "1": {
+              "hits": 63,
+              "total": 66
+            },
+            "2": {
+              "hits": 47,
+              "total": 61
+            },
+            "3": {
+              "hits": 30,
+              "total": 52
+            }
+          },
+          "precision": {
+            "truePositives": 957,
+            "falsePositives": 0
+          }
+        },
+        {
+          "tool": "jscpd (structural)",
+          "durationMs": 77,
+          "recall": {
+            "t1": {
+              "hits": 177,
+              "total": 179
+            },
+            "t2": {
+              "hits": 136,
+              "total": 179
+            },
+            "t3": {
+              "hits": 68,
+              "total": 179
+            },
+            "t4": {
+              "hits": 0,
+              "total": 16
+            }
+          },
+          "recallByDomain": {
+            "js": {
+              "t1": {
+                "hits": 97,
+                "total": 98
+              },
+              "t2": {
+                "hits": 84,
+                "total": 98
+              },
+              "t3": {
+                "hits": 54,
+                "total": 98
+              }
+            },
+            "react": {
+              "t1": {
+                "hits": 80,
+                "total": 81
+              },
+              "t2": {
+                "hits": 52,
+                "total": 81
+              },
+              "t3": {
+                "hits": 14,
+                "total": 81
+              }
+            }
+          },
+          "t3ByEdits": {
+            "1": {
+              "hits": 33,
+              "total": 66
+            },
+            "2": {
+              "hits": 23,
+              "total": 61
+            },
+            "3": {
+              "hits": 12,
+              "total": 52
+            }
+          },
+          "precision": {
+            "truePositives": 616,
+            "falsePositives": 53
+          }
+        }
+      ]
+    },
+    {
+      "threshold": 0.9,
+      "metrics": [
+        {
+          "tool": "jscd",
+          "durationMs": 65,
+          "recall": {
+            "t1": {
+              "hits": 179,
+              "total": 179
+            },
+            "t2": {
+              "hits": 177,
+              "total": 179
+            },
+            "t3": {
+              "hits": 120,
+              "total": 179
+            },
+            "t4": {
+              "hits": 0,
+              "total": 16
+            }
+          },
+          "recallByDomain": {
+            "js": {
+              "t1": {
+                "hits": 98,
+                "total": 98
+              },
+              "t2": {
+                "hits": 97,
+                "total": 98
+              },
+              "t3": {
+                "hits": 68,
+                "total": 98
+              }
+            },
+            "react": {
+              "t1": {
+                "hits": 81,
+                "total": 81
+              },
+              "t2": {
+                "hits": 80,
+                "total": 81
+              },
+              "t3": {
+                "hits": 52,
+                "total": 81
+              }
+            }
+          },
+          "t3ByEdits": {
+            "1": {
+              "hits": 59,
+              "total": 66
+            },
+            "2": {
+              "hits": 40,
+              "total": 61
+            },
+            "3": {
+              "hits": 21,
+              "total": 52
+            }
+          },
+          "precision": {
+            "truePositives": 894,
+            "falsePositives": 0
+          }
+        },
+        {
+          "tool": "jscpd (structural)",
+          "durationMs": 75,
+          "recall": {
+            "t1": {
+              "hits": 170,
+              "total": 179
+            },
+            "t2": {
+              "hits": 107,
+              "total": 179
+            },
+            "t3": {
+              "hits": 49,
+              "total": 179
+            },
+            "t4": {
+              "hits": 0,
+              "total": 16
+            }
+          },
+          "recallByDomain": {
+            "js": {
+              "t1": {
+                "hits": 97,
+                "total": 98
+              },
+              "t2": {
+                "hits": 83,
+                "total": 98
+              },
+              "t3": {
+                "hits": 41,
+                "total": 98
+              }
+            },
+            "react": {
+              "t1": {
+                "hits": 73,
+                "total": 81
+              },
+              "t2": {
+                "hits": 24,
+                "total": 81
+              },
+              "t3": {
+                "hits": 8,
+                "total": 81
+              }
+            }
+          },
+          "t3ByEdits": {
+            "1": {
+              "hits": 20,
+              "total": 66
+            },
+            "2": {
+              "hits": 19,
+              "total": 61
+            },
+            "3": {
+              "hits": 10,
+              "total": 52
+            }
+          },
+          "precision": {
+            "truePositives": 554,
+            "falsePositives": 53
+          }
+        }
+      ]
+    }
+  ],
+  "realCodePrecision": {
+    "files": 949,
+    "pairs": 692,
+    "byType": [
+      {
+        "type": 1,
+        "reported": 7,
+        "sampled": 5,
+        "labeled": 5,
+        "clones": 5
+      },
+      {
+        "type": 2,
+        "reported": 299,
+        "sampled": 8,
+        "labeled": 8,
+        "clones": 8
+      },
+      {
+        "type": 3,
+        "reported": 386,
+        "sampled": 16,
+        "labeled": 16,
+        "clones": 16
+      }
+    ]
+  }
+}

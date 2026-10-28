@@ -1,5 +1,9 @@
 node_modules
-vscode
+dist
 coverage
-lib
 .DS_Store
+.vscode
+benchmark/.data
+benchmark/.cache
+playground/dist
+*.sarif
