@@ -1,0 +1,6 @@
+export { DEFAULT_MIN_TOKENS, DEFAULT_THRESHOLD, detectClones } from './detect.js'
+export { normalizedSource } from './normalize.js'
+export { parseSource } from './parse.js'
+export { lcsLength, lcsSimilarity } from './similarity.js'
+export { emitUnit, extractUnits, TokenStream } from './tokenize.js'
+export type * from './types.js'

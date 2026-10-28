@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2023", "DOM"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true
+  },
+  "include": ["src", "test", "benchmark", "playground", "*.ts"],
+  "exclude": [
+    "test/fixtures",
+    "benchmark/corpus",
+    "benchmark/.data",
+    "benchmark/.cache",
+    "node_modules",
+    "dist",
+    "playground/dist"
+  ]
+}
