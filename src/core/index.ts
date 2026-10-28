@@ -1,3 +1,4 @@
+export { compareSources, type UnitComparison } from './compare.js'
 export { DEFAULT_MIN_TOKENS, DEFAULT_THRESHOLD, detectClones } from './detect.js'
 export { normalizedSource } from './normalize.js'
 export { parseSource } from './parse.js'

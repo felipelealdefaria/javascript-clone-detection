@@ -96,3 +96,17 @@ describe('options', () => {
     expect(() => detectClones(files, { minTokens: -1 })).toThrow(RangeError)
   })
 })
+
+describe('compareSources', () => {
+  it('explains a pair even below the threshold', async () => {
+    const { compareSources } = await import('../src/core/index.js')
+    const [legacy] = [load('legacy')]
+    const four = legacy.find((f) => f.path === 'type-four.js')!
+    const two = legacy.find((f) => f.path === 'type-two.js')!
+    const { comparisons } = compareSources(four, two, { threshold: 0.95 })
+    expect(comparisons).toHaveLength(2 * 4)
+    expect(comparisons[0]!.similarity).toBeGreaterThan(comparisons.at(-1)!.similarity)
+    expect(comparisons.some((c) => c.type === null)).toBe(true)
+    expect(comparisons[0]!.normalized.a).toMatch(/^function \(v0, v1, v2\)/)
+  })
+})

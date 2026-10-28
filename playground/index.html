@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jscd playground</title>
+    <meta name="description" content="Paste two JavaScript, TypeScript or React snippets and see whether they are code clones, and why." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='3' y='3' width='18' height='22' rx='3' fill='%233B3FD8'/><rect x='11' y='7' width='18' height='22' rx='3' fill='none' stroke='%23B5179E' stroke-width='2.5'/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Fragment+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div>
+        <h1>jscd playground</h1>
+        <p class="lede">Paste two snippets of JavaScript, TypeScript or React. See whether they are clones, and what the detector compares.</p>
+      </div>
+      <nav aria-label="Project links">
+        <a href="https://github.com/felipelealdefaria/javascript-clone-detection">Source</a>
+        <a href="https://github.com/felipelealdefaria/javascript-clone-detection/blob/main/benchmark/results/results.md">Benchmark</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="Examples and settings">
+        <div class="presets" role="group" aria-label="Load an example"></div>
+        <label class="threshold">
+          <span>Type-3 threshold</span>
+          <input id="threshold" type="range" min="0.5" max="1" step="0.01" value="0.8" />
+          <output id="threshold-value" for="threshold">0.80</output>
+        </label>
+      </section>
+
+      <section class="sheets" aria-label="Snippets">
+        <div class="sheet">
+          <h2 class="sheet-title">Snippet A</h2>
+          <div class="editor" id="editor-a"></div>
+        </div>
+        <div class="sheet">
+          <h2 class="sheet-title">Snippet B</h2>
+          <div class="editor" id="editor-b"></div>
+        </div>
+      </section>
+
+      <section class="verdict" aria-live="polite">
+        <p class="verdict-type" id="verdict-type"></p>
+        <p class="verdict-detail" id="verdict-detail"></p>
+        <div class="pairs" id="pairs"></div>
+      </section>
+
+      <section class="xray" aria-labelledby="xray-title">
+        <div class="xray-head">
+          <h2 id="xray-title">What the detector compares</h2>
+          <p>Each function rewritten in one canonical form: names become <code>v0</code>, <code>v1</code>…, properties <code>p0</code>, <code>p1</code>…, literals lose their values, comments and types disappear. <mark class="diff">Marked</mark> code is what still differs.</p>
+        </div>
+        <div class="sheets">
+          <pre class="normalized" id="normalized-a" aria-label="Snippet A, normalized"></pre>
+          <pre class="normalized" id="normalized-b" aria-label="Snippet B, normalized"></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Runs entirely in your browser. The playground compares functions of any size; the <a href="https://github.com/felipelealdefaria/javascript-clone-detection#quick-start">CLI</a> skips functions under 50 tokens by default.</p>
+    </footer>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
