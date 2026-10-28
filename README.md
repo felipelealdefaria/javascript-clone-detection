@@ -63,6 +63,18 @@ steps:
       sarif_file: jscd.sarif
 ```
 
+On pull requests, report only the duplication the PR introduces or touches:
+
+```yaml
+- uses: actions/checkout@v5
+  with:
+    fetch-depth: 0
+- uses: felipelealdefaria/javascript-clone-detection@v1
+  with:
+    changed-since: origin/${{ github.base_ref }}
+    fail-on-clones: true
+```
+
 ### From code
 
 ```ts

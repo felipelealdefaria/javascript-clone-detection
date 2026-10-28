@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it, and the thesis it started from.
+title: JavaScript Clone Detection
+type: software
+authors:
+  - family-names: Leal de Faria
+    given-names: Luís Felipe
+repository-code: https://github.com/felipelealdefaria/javascript-clone-detection
+url: https://felipelealdefaria.github.io/javascript-clone-detection/
+license: MIT
+version: 1.0.0
+keywords: [clone detection, code duplication, JavaScript, TypeScript, React, static analysis]
+references:
+  - type: thesis
+    thesis-type: Bachelor's thesis (Trabalho de Conclusão de Curso)
+    title: Estudo empírico sobre duplicação de código em aplicações JavaScript
+    authors:
+      - family-names: Leal de Faria
+        given-names: Luís Felipe
+    institution:
+      name: Universidade Tecnológica Federal do Paraná (UTFPR), Dois Vizinhos
+    year: 2021
+    languages: [pt]
+    url: http://repositorio.utfpr.edu.br/jspui/handle/1/30141

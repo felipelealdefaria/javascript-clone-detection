@@ -19,6 +19,7 @@ Options
   -f, --format <format>   text | json | sarif (default text)
   -o, --output <file>     Write the report to a file instead of stdout
   -i, --ignore <glob>     Exclude files matching a glob (repeatable)
+  -c, --changed <ref>     Only report clones touching lines changed since <ref> (git)
       --fail              Exit with code 1 when clones are found
   -v, --version           Print the version
   -h, --help              Print this help
@@ -27,6 +28,7 @@ Examples
   jscd src
   jscd src --threshold 0.9 --ignore "**/*.test.ts"
   jscd . --format sarif --output clones.sarif
+  jscd src --changed origin/main --fail
 `
 
 function fail(message: string): never {
@@ -68,7 +70,12 @@ async function main(): Promise<void> {
 
   let result: Awaited<ReturnType<typeof detectClonesInPaths>>
   try {
-    result = await detectClonesInPaths(positionals, { threshold, minTokens, ignore: values.ignore })
+    result = await detectClonesInPaths(positionals, {
+      threshold,
+      minTokens,
+      ignore: values.ignore,
+      changedSince: values.changed,
+    })
   } catch (error) {
     fail(error instanceof Error ? error.message : String(error))
   }
@@ -81,6 +88,8 @@ async function main(): Promise<void> {
         ? toSarif(result)
         : toText(result, { color })
 
+  if (values.changed)
+    process.stderr.write(`Only clones touching changes since ${values.changed}.\n`)
   if (values.output) {
     await writeFile(values.output, report)
     process.stderr.write(`Wrote ${result.pairs.length} clone pairs to ${values.output}\n`)
@@ -100,6 +109,7 @@ function parse() {
       format: { type: 'string', short: 'f' },
       output: { type: 'string', short: 'o' },
       ignore: { type: 'string', short: 'i', multiple: true },
+      changed: { type: 'string', short: 'c' },
       fail: { type: 'boolean' },
       version: { type: 'boolean', short: 'v' },
       help: { type: 'boolean', short: 'h' },
