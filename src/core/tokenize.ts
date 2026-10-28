@@ -40,6 +40,33 @@ const LITERAL_TYPES = new Set([
 /** TypeScript nodes that exist at runtime and are walked like regular nodes. */
 const RUNTIME_TS_TYPES = new Set(['TSEnumDeclaration', 'TSEnumMember', 'TSModuleDeclaration'])
 
+/**
+ * Children that hold a property name rather than a variable reference, when not computed:
+ * `obj.name`, `{ name: value }`, `class { name() {} }`, `<a name="…">`. They get their own
+ * renaming namespace, so destructuring `{ a }` and `{ a: b }` compare as equal shapes.
+ */
+const PROPERTY_NAME_KEYS: Record<string, string> = {
+  MemberExpression: 'property',
+  OptionalMemberExpression: 'property',
+  ObjectProperty: 'key',
+  ClassProperty: 'key',
+  ClassPrivateProperty: 'key',
+  ClassAccessorProperty: 'key',
+  JSXAttribute: 'name',
+  JSXMemberExpression: 'property',
+}
+
+/** The name of a property-name node, or null if the child is something else (e.g. a string key). */
+export function propertyName(node: AnyNode): string | null {
+  if (node?.type === 'Identifier' || node?.type === 'JSXIdentifier') return node.name
+  if (node?.type === 'PrivateName') return `#${node.id?.name ?? node.name}`
+  return null
+}
+
+export function isPropertyNameSlot(parent: AnyNode, key: string): boolean {
+  return !parent.computed && PROPERTY_NAME_KEYS[parent.type] === key
+}
+
 /** Closing markers keep `if (a) { b } c` and `if (a) { b c }` apart. */
 const BLOCK_END_TYPES = new Set(['BlockStatement', 'ClassBody', 'JSXElement', 'JSXFragment'])
 
@@ -54,6 +81,7 @@ export class TokenStream {
   readonly raw: string[] = []
   readonly norm: string[] = []
   private readonly names = new Map<string, number>()
+  private readonly properties = new Map<string, number>()
 
   push(token: string): void {
     this.raw.push(token)
@@ -68,6 +96,16 @@ export class TokenStream {
     }
     this.raw.push(`Id:${name}`)
     this.norm.push(`Id#${index}`)
+  }
+
+  property(name: string): void {
+    let index = this.properties.get(name)
+    if (index === undefined) {
+      index = this.properties.size
+      this.properties.set(name, index)
+    }
+    this.raw.push(`Prop:${name}`)
+    this.norm.push(`Prop#${index}`)
   }
 
   literal(kind: string, value: string): void {
@@ -141,7 +179,11 @@ function emit(node: AnyNode, out: TokenStream, root: t.Node): void {
   out.push(token)
 
   for (const key of VISITOR_KEYS[type] ?? []) {
-    if (!SKIP_KEYS.has(key)) emit(node[key], out, root)
+    if (SKIP_KEYS.has(key)) continue
+    const child = node[key]
+    const name = isPropertyNameSlot(node, key) ? propertyName(child) : null
+    if (name !== null) out.property(name)
+    else emit(child, out, root)
   }
   if (BLOCK_END_TYPES.has(type)) out.push('}')
 }
@@ -162,7 +204,9 @@ function emitFunction(node: AnyNode, out: TokenStream, root: t.Node): void {
   if (node !== root) {
     if (node.key) {
       if (node.computed) out.push('[]')
-      emit(node.key, out, root)
+      const name = node.computed ? null : propertyName(node.key)
+      if (name !== null) out.property(name)
+      else emit(node.key, out, root)
     } else if (node.id) {
       emit(node.id, out, root)
     }

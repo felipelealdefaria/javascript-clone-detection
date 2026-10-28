@@ -1,0 +1,84 @@
+{
+  "model": "jinaai/jina-embeddings-v2-base-code",
+  "threshold": 0.6931039316173693,
+  "embedMs": 51848,
+  "testGroups": 97,
+  "testPairs": 68265,
+  "rows": [
+    {
+      "method": "jscd (defaults)",
+      "recall": {
+        "t1": {
+          "hits": 88,
+          "total": 88
+        },
+        "t2": {
+          "hits": 88,
+          "total": 88
+        },
+        "t3": {
+          "hits": 65,
+          "total": 88
+        },
+        "t4": {
+          "hits": 0,
+          "total": 9
+        }
+      },
+      "precision": {
+        "tp": 459,
+        "fp": 0
+      }
+    },
+    {
+      "method": "Embeddings",
+      "recall": {
+        "t1": {
+          "hits": 88,
+          "total": 88
+        },
+        "t2": {
+          "hits": 11,
+          "total": 88
+        },
+        "t3": {
+          "hits": 13,
+          "total": 88
+        },
+        "t4": {
+          "hits": 8,
+          "total": 9
+        }
+      },
+      "precision": {
+        "tp": 165,
+        "fp": 117
+      }
+    },
+    {
+      "method": "jscd ∪ embeddings",
+      "recall": {
+        "t1": {
+          "hits": 88,
+          "total": 88
+        },
+        "t2": {
+          "hits": 88,
+          "total": 88
+        },
+        "t3": {
+          "hits": 66,
+          "total": 88
+        },
+        "t4": {
+          "hits": 8,
+          "total": 9
+        }
+      },
+      "precision": {
+        "tp": 470,
+        "fp": 117
+      }
+    }
+  ]
+}

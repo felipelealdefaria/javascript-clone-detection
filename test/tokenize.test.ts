@@ -42,6 +42,19 @@ describe('tokenizer', () => {
     expect(ab.norm).not.toEqual(ba.norm)
   })
 
+  it('keeps property names apart from variables, so renamed destructuring still matches', () => {
+    const shorthand = tokens('function C({ title, size }) { return title + size }')
+    const renamed = tokens('function C({ title: heading, size: scale }) { return heading + scale }')
+    expect(renamed.norm).toEqual(shorthand.norm)
+    expect(tokens('function C({ title: title }) { return title }').raw).toEqual(
+      tokens('function C({ title }) { return title }').raw,
+    )
+    // Renaming a property and a variable to the same name is still a different shape.
+    expect(tokens('function f(a) { return a.a }').norm).toEqual(
+      tokens('function f(x) { return x.y }').norm,
+    )
+  })
+
   it('abstracts literal values but keeps their kind', () => {
     const a = tokens('function f() { return "a" + 1 }')
     expect(tokens('function f() { return "b" + 2 }').norm).toEqual(a.norm)
@@ -115,5 +128,10 @@ describe('normalizedSource', () => {
       return 'Hello ' + name + 42
     }`)
     expect(normalizedSource(unit!.node)).toBe('function (v0) {\n  return "str" + v0 + 0;\n}')
+  })
+
+  it('renames properties in their own namespace', () => {
+    const [unit] = units('const f = ({ title }) => title.trim()')
+    expect(normalizedSource(unit!.node)).toBe('function ({\n  p0: v0\n}) {\n  return v0.p1();\n}')
   })
 })

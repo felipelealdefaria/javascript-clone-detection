@@ -7,7 +7,7 @@ import {
   returnStatement,
   VISITOR_KEYS,
 } from '@babel/types'
-import { FUNCTION_TYPES, SKIP_KEYS } from './tokenize.js'
+import { FUNCTION_TYPES, isPropertyNameSlot, SKIP_KEYS } from './tokenize.js'
 
 // biome-ignore lint/suspicious/noExplicitAny: generic AST walking
 type AnyNode = any
@@ -40,15 +40,19 @@ export function normalizedSource(node: t.Node): string {
     root.id = null
   }
 
-  const names = new Map<string, string>()
-  const rename = (name: string): string => {
-    let renamed = names.get(name)
-    if (!renamed) {
-      renamed = `v${names.size}`
-      names.set(name, renamed)
+  const namer = (prefix: string) => {
+    const names = new Map<string, string>()
+    return (name: string): string => {
+      let renamed = names.get(name)
+      if (!renamed) {
+        renamed = `${prefix}${names.size}`
+        names.set(name, renamed)
+      }
+      return renamed
     }
-    return renamed
   }
+  const rename = namer('v')
+  const renameProperty = namer('p')
 
   const visit = (n: AnyNode): void => {
     if (n == null || typeof n !== 'object') return
@@ -77,7 +81,16 @@ export function normalizedSource(node: t.Node): string {
       n.extra = undefined
       return
     }
-    for (const key of VISITOR_KEYS[n.type] ?? []) visit(n[key])
+    if (n.type === 'ObjectProperty') n.shorthand = false
+    for (const key of VISITOR_KEYS[n.type] ?? []) {
+      const child = n[key]
+      const isProperty =
+        (isPropertyNameSlot(n, key) ||
+          (key === 'key' && FUNCTION_TYPES.has(n.type) && !n.computed)) &&
+        (child?.type === 'Identifier' || child?.type === 'JSXIdentifier')
+      if (isProperty) child.name = renameProperty(child.name)
+      else visit(child)
+    }
   }
   visit(root)
 

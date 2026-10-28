@@ -9,7 +9,9 @@
       "!benchmark/.cache",
       "!benchmark/corpus",
       "!test/fixtures",
-      "!docs"
+      "!docs",
+      "!benchmark/type4",
+      "!benchmark/results"
     ]
   },
   "formatter": {
@@ -25,7 +27,7 @@
   },
   "linter": {
     "rules": {
-      "recommended": true
+      "preset": "recommended"
     }
   },
   "overrides": [
