@@ -144,6 +144,19 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 button {
@@ -201,6 +214,7 @@ button {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  margin: 0;
 }
 
 .sheet-title {
@@ -241,11 +255,6 @@ button {
 
 .editor .cm-cursor {
   border-left-color: var(--carbon);
-}
-
-.editor .cm-selectionBackground,
-.editor .cm-focused .cm-selectionBackground {
-  background: var(--carbon-wash) !important;
 }
 
 /* Verdict --------------------------------------------------------------- */
@@ -386,7 +395,7 @@ footer {
   font-size: 0.9rem;
 }
 
-footer p {
+.footnote {
   max-width: 46em;
   margin: 0;
 }

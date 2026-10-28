@@ -53,6 +53,9 @@ const initial = decode(location.hash.slice(1)) ?? {
 
 const theme = EditorView.theme({
   '&': { height: '100%' },
+  // Scoped theme rules outrank CodeMirror's defaults without !important.
+  '&.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground, .cm-selectionBackground':
+    { background: 'var(--carbon-wash)' },
   '.cm-scroller': { fontFamily: 'var(--mono)', lineHeight: '1.6' },
 })
 

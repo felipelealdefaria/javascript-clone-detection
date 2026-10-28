@@ -25,7 +25,9 @@
 
     <main>
       <section class="controls" aria-label="Examples and settings">
-        <div class="presets" role="group" aria-label="Load an example"></div>
+        <fieldset class="presets">
+          <legend class="visually-hidden">Load an example</legend>
+        </fieldset>
         <label class="threshold">
           <span>Type-3 threshold</span>
           <input id="threshold" type="range" min="0.5" max="1" step="0.01" value="0.8" />
@@ -56,14 +58,20 @@
           <p>Each function rewritten in one canonical form: names become <code>v0</code>, <code>v1</code>…, properties <code>p0</code>, <code>p1</code>…, literals lose their values, comments and types disappear. <mark class="diff">Marked</mark> code is what still differs.</p>
         </div>
         <div class="sheets">
-          <pre class="normalized" id="normalized-a" aria-label="Snippet A, normalized"></pre>
-          <pre class="normalized" id="normalized-b" aria-label="Snippet B, normalized"></pre>
+          <figure class="sheet">
+            <figcaption class="sheet-title">Snippet A</figcaption>
+            <pre class="normalized" id="normalized-a"></pre>
+          </figure>
+          <figure class="sheet">
+            <figcaption class="sheet-title">Snippet B</figcaption>
+            <pre class="normalized" id="normalized-b"></pre>
+          </figure>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>Runs entirely in your browser. The playground compares functions of any size; the <a href="https://github.com/felipelealdefaria/javascript-clone-detection#quick-start">CLI</a> skips functions under 50 tokens by default.</p>
+      <p class="footnote">Runs entirely in your browser. The playground compares functions of any size; the <a href="https://github.com/felipelealdefaria/javascript-clone-detection#quick-start">CLI</a> skips functions under 50 tokens by default.</p>
     </footer>
 
     <script type="module" src="./src/main.ts"></script>
